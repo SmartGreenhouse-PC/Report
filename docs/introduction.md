@@ -14,17 +14,18 @@ Conosciuti i valori ottimali, delle grandezze da rilevare per la pianta di rifer
 Il sistema sarà caratterizzato da quattro componenti: un modulo Arduino, un Server e due tipologie di clients.
 
 Il modulo Arduino, facente parte del sistema, comprenderà: i diversi sensori presenti nella serra per monitorare lo stato di salute delle piante e i moduli correttivi per la gestione delle operazioni al suo interno. Tra i sensori che verranno utilizzati troviamo:
-    - una fotoresistenza per rilevare la luminosità;
-    - un sensore (DHT11) per misurare la temperatura e l'umidità dell'aria;
-    - un sensore per misurare l'umidità del terreno.
+
+- una fotoresistenza per rilevare la luminosità;
+- un sensore (DHT11) per misurare la temperatura e l'umidità dell'aria;
+- un sensore per misurare l'umidità del terreno.
 
 
 Per quanto riguarda invece i moduli correttivi questi consistono in: 
 
-    - una sistema di ventilazione, costituito da una ventola e un motore DC;
-    - un sistema di irrigazione, costituito da una pompa ad acqua;
-    - un led per regolare la luminosità;
-    - un led rosso per simulare una lampada termica.
+- una sistema di ventilazione, costituito da una ventola e un motore DC;
+- un sistema di irrigazione, costituito da una pompa ad acqua;
+- un led per regolare la luminosità;
+- un led rosso per simulare una lampada termica.
 
 Come detto precedentemente, si intendono realizzare due tipologie di clients: un Client Desktop e un Client Mobile.
 
@@ -32,7 +33,7 @@ Tramite il Client Desktop l'utente avrà la possibilità di poter monitorare lo 
 
 Il Client Mobile, invece, potrà essere utilizzato dall'operatore sul campo e gli darà sia la possibilità di visualizzare i valori rilevati che di prendere il controllo manuale della gestione della serra, potendo attivare e disattivare i diversi sistemi in essa presenti. In particolare, le operazioni che possono essere compiute sono le seguenti:
 
-    - regolare l'intensità delle lampade per gestire la luminosità dell'ambiente,
-    - attivare il sistema di ventilazione per gestire l'umidità dell'aria,
-    - gestire la temperatura tramite sia il sistema di ventilazione che l'attivazione delle lampade termiche,
-    - attivare il sistema di irrigazione per aumentare l’umidità del terreno.
+- regolare l'intensità delle lampade per gestire la luminosità dell'ambiente,
+- attivare il sistema di ventilazione per gestire l'umidità dell'aria,
+- gestire la temperatura tramite sia il sistema di ventilazione che l'attivazione delle lampade termiche,
+- attivare il sistema di irrigazione per aumentare l’umidità del terreno.
