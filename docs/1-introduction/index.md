@@ -1,5 +1,11 @@
+---
+title: Introduzione
+has_children: false
+nav_order: 2
+---
+
 # Introduzione
-Per il progetto di Smart City si vuole realizzare un'applicazione che consenta la gestione e il monitoraggio di una serra intelligente.
+Per il progetto di Laboratorio di Sistemi Software, si è pensato di unire il progetto che si vuole svolgere per il corso di Smart City con gli insegnamenti visti nel corso, ovvero, si vuole realizzare un'applicazione che consenta la gestione e il monitoraggio di una serra intelligente seguendo i processi di Domain-Driven-Design, Continuous Integration e DevOps.
 
 All'interno della serra viene coltivata una sola tipologia di piantagione, per i quali verranno monitorati i seguenti parametri: temperatura ambientale, umidità dell'aria e del terreno e luminosità.
 
