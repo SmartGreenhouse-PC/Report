@@ -14,12 +14,9 @@ Per il problema in esame il tema di sviluppo a seguito del processo di knowledge
 - **Client**, che comprende i diversi elementi necessari affinchè possa essere effettuata un’analisi dello stato della serra e della coltivazione tramite un’applicazione Desktop e per poter monitorare e gestire la serra tramite un’applicazione Mobile;
 
 Una volta individuati i seguenti sotto-domini, il team ha cercato di individuare l’importanza strategica che questi possiedono per il business, aiutandosi attraverso l’utilizzo dei domain charts.
-<div align="center">
 
 ![Core Domain Chart](img/Core_Domain_Chart.jpg)
-Core Domain Chart
-
-</div>
+ <p align="center">Core Domain Chart</p>
 
 Come si può vedere dal grafico, il sub-domain: sistema di automazione serra, è stato classificato come **supporting domain,** in quanto, racchiude al suo interno tecnologie e sistemi che possono essere utilizzati come supporto per le funzionalità principali di gestione della serra. Inoltre, il modello che si intende realizzare non ha una complessità molto elevata e una Business Differentiation buona, ma non così alta da renderlo un core domain. 
 
