@@ -14,9 +14,9 @@ Una delle linee guida del Domain Driven Desigin, specifica di conentrarsi maggio
 - per quanto riguarda i bounded context **gestione comunicazioni serra** e **gestione client**, essi rappresentano dei servizi necessari per poter gestire le interazioni fra la serra e i clients.
 
 La seguente figura mostra, con maggior dettaglio, le caratteristiche relative ai bounded-context del sub-domain greenhouse core.
-<div align="center">
+
 
 ![Scomposizione del sub-domain Greenhouse Core nei diversi bounded context](img/GreenhouseCore_boundedContext.png)
-
+<p align="center">
 Scomposizione del sub-domain Greenhouse Core nei diversi bounded context
-</div>
+</p>
