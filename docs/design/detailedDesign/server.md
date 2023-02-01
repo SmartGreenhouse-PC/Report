@@ -69,3 +69,21 @@ L'interazione in questo caso coinvolgere due fonti distinte: il client, desktop 
 Nel caso, invece, in cui le interazioni coinvolgano il sistema di automazione, tutte le comunicazioni sono mediate dal servizio ``GreenhouseCommunication`` presente all'interno del bounded context **Gestione comunicazione serra**. Tale servizio può comunicare solo con il servizio ``Greenhouse`` al fine di informarlo dei nuovi rilevamenti, mentre può ricevere delle richieste solo dal servizio ``Operation`` il quale lo informa di eseguire una determinata operazione sulla serra, indipendentemente dalla modaltà di gestione adottata.
 
 Il servizio ``Operation``, come si può notare in figura, può quindi ricevere le richieste sia da ``ClientCommunication``, il quale, come detto, può richiedere le informazioni relative alle operazioni oppure richiederne l'esecuzione di una specifica quando la modalità di gestione è manuale, oppure da ``Greenhouse`` qualora la modalità di gestione fosse automatica e risulta necessario effettuare un'operazione correttiva.
+
+Di seguito (figure <a href="#fig6">6</a> e <a href="#fig7">7</a>) verrà mostrato un esempio, mediante apposito diagramma, delle interazioni che sono presenti all'interno del sistema; per semplicità e chiarezza espressiva l'esempio considera un solo parametro della pianta da monitorare.
+
+<div align="center">
+<img src="img/interazioni_automatica.png" alt="interazioni automatica", id="fig6">
+ <p align="center">[Fig 6] Diagramma delle interazioni: interazione micro-servizi con modalità automatica</p>
+</div>
+
+La <a href="#fig6">figura 6</a> mostra il caso in cui la serra sia gestita in modo automatico. In queste condizioni il sistema, a seguito del rilevamento di una condizione di allarme o del rientro di quest'ultima sarà incaricato d'intraprendere un'azione correttiva. Nell'esempio in questione i servizi coinvolti sono: ``GreenhouseCommunication``, il quale riceve i dati rilevati dai sensori posti all'interno della serra, ``Greenhouse`` che riceve i dati rilevati e verifica se si trovano all'interno dei range ottimali, ``Temperature``, il cui compito è quello di salvare le rilevazioni effettuate, ``Operation``, il quale nel caso in cui sia necessario svolgere un'operazione correttiva, ne registra le informazioni e ne richiede l'esecuzione ed infine ``ClientCommunication``, che si occupa di inviare ai clients tutte le informazioni necessarie al fine di mantenerli sempre aggiornati. 
+
+Come si può vedere dal diagramma, l'interazione inizia dal sistema di automazione, il quale non appena vengono rilevati nuovi valori per i parametri li invia al servizio ``GreenhouseCommunication``, che si occupa di inoltrarli al servizio ``Greenhouse``. Quest'ultimo per prima cosa invierà il parametro relativo alla temperatura al servizio ``Temperature``, per il suo salvataggio, succassivamente verificherà che il valore registrato non sia critico per la pianta. Se si verifica una situazione di allarme, il servizio ``Greenhouse``, determina l'operazione da intraprendere sulla base del parametro e del tipo di criticità, dopodiché richiederà al sistema di eseguire l'operazione individuata e di storicizzarla tramite l'inoltro di questa al servizio ``Operation`` e infine, si occuperà della sua comunicazione al servizio ``ClientCommunication``, in modo che I client vengano aggiornati.
+
+<div align="center">
+<img src="img/interazioni_manuale.png" alt="interazioni manuale", id="fig7">
+ <p align="center">[Fig 7] Diagramma delle interazioni: interazione micro-servizi con modalità manuale</p>
+</div>
+
+Se il sistema, invece, viene gestito tramite la modalità manuale (<a href="#fig7">figura 7</a>) l'interazione è molto simile a quanto visto precedentemente, tuttavia in questo caso non è più il servizio ``Greenhouse`` a decidere l'operazione da intraprendere, ma questa spetterà al Client Mobile. In particolare, il Client Mobile, dopo aver richiesto il controllo manuale, al servizio ``ClientCommunication``, avrà la possibilità di richiedere l'esecuzione di determinate operazioni, le quali verranno sempre inviate al sistema di automazione tramite il servizio ``GrenehouseCommunication``.
