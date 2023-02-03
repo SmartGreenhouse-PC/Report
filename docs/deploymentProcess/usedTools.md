@@ -15,16 +15,16 @@ Notion è lo strumento che è stato utilizzato per gestire e organizzare i lavor
 Ci ha consntito di organizzare le attività per i diversi sprint e di raccogliere in un unico punto tutti i documenti ed elementi utili necessari per il progetto.
 
 <div align="center">
-<img src="img/notion_icon.png", width="100", height="100" alt="icona notion", id="fig1">
+<img src="img/notion_icon.png" width="100" height="100" alt="icona notion" id="fig1">
  <p align="center">[Fig 1] Notion</p>
 </div>
 
 ### Egon
 
-Egon.io è un _lightweight tool_ di supporto al Domain storytelling, da la possibilità di rappresentare attraverso un linguaggio pittografico le storie raccontate dagli esperti del dominio, durante il processo di kwnoledge crunching.
+Egon.io è un _lightweight tool_ di supporto al Domain storytelling, da la possibilità di rappresentare attraverso un linguaggio pittografico le storie raccontate dagli esperti del dominio, durante il processo di knowledge crunching.
 
 <div align="center">
-<img src="img/egon_icon.png", width="100", height="100" alt="icona egon", id="fig2">
+<img src="img/egon_icon.png" width="100" height="100" alt="icona egon" id="fig2">
  <p align="center">[Fig 2] Egon.io</p>
 </div>
 
@@ -35,7 +35,7 @@ GitHub è un servizio di hosting per lo sviluppo del software e gestione del _ve
 Per il nostro progetto abbiamo utilizzato GitHub come servizio di hiosting per il codice sorgente, le GitHub actions per promuovere il processo di _continuous integration_ e le GitHub Pages per la documentazionee piegazione del sistema realizzato.
 
 <div align="center">
-<img src="img/github_icon.png", width="200" alt="icona github", id="fig3">
+<img src="img/github_icon.png" width="200" alt="icona github" id="fig3">
  <p align="center">[Fig 3] GitHub</p>
 </div>
 
@@ -44,7 +44,7 @@ Per il nostro progetto abbiamo utilizzato GitHub come servizio di hiosting per i
 Gradle è un build automation tool open-source, JVM-based, che consente di automatizzare la costruzione dei progetti Java; esso rende semplice anche l’impostazione di diverse librerie, che possono essere utilizzate all’interno del progetto, senza la necessità di includere i .jar, ma specificando direttamente delle dipendenze da un repository remoto. Gradle consente anche la gestione di un progetto costituito da diversi moduli e delle diverse dipendenze che vi possono essere fra questi.
 
 <div align="center">
-<img src="img/gradle_icon.png", width="200", alt="icona gradle", id="fig4">
+<img src="img/gradle_icon.png" width="200" alt="icona gradle" id="fig4">
  <p align="center">[Fig 4] Gradle</p>
 </div>
 
@@ -55,7 +55,7 @@ Per il progetto si è deciso di utilizzare il framework _JUnit 5_ per la realizz
 JUnit è un _framework open-source_ che può essere utilizzato per la realizzazione di tes per il linguaggio Java, foprnisce asserzioni per testare i risultati attesi, annotazioni per identificare i metodi e test runner grafici e testuali, inoltre, mette a disposizione una suite per organizzare e permette la condivisone dei risultati. 
 
 <div align="center">
-<img src="img/junit_icon.png", width="200" alt="icona junit", id="fig5">
+<img src="img/junit_icon.png" width="200" alt="icona junit" id="fig5">
  <p align="center">[Fig 5] JUnit 5</p>
 </div>
 
@@ -66,26 +66,26 @@ MongoDB è un database non relazionale _open source_, in grado di elaborare dati
 MongoDB, quindi, si allontana dalla struttura tradizonale basata su tabelle dei databse relazionali in favore d idocumenti in stile JSON, rendendo l'integrazione di alcuni tipi di dati più facile e veloce.
 
 <div align="center">
-<img src="img/mongo_icon.png", width="200" alt="icona gmongodb", id="fig6">
+<img src="img/mongo_icon.png" width="200" alt="icona gmongodb" id="fig6">
  <p align="center">[Fig 6] MongoDB</p>
 </div>
 
 ### Vertx 
 
-Vertx è un _framework_, oer la realizzazione di applicazioni reattive in Java. Offre un modello di programmazione _event driven_, tutte le sue API sono progettate per lavorare principalmente in modo asincrono.
+Vertx è un _framework_, per la realizzazione di applicazioni reattive in Java. Offre un modello di programmazione _event driven_, tutte le sue API sono progettate per lavorare principalmente in modo asincrono.
 
 <div align="center">
-<img src="img/vertx_icon.png", width="200" alt="icona vertx", id="fig7">
+<img src="img/vertx_icon.png" width="200" alt="icona vertx" id="fig7">
  <p align="center">[Fig 7] Vertx</p>
 </div>
 
 ### Docker
 Docker è una piattaforma _open-source_ per lo sviluppo, il rilascio e l’esecuzione di applicazioni. Esso consente di separare le applicazioni dall’infrastruttura dell’host, in modo da poter fornire il software rapidamente.
 
-Docker consente di racchiudere un’applicazione in un ambiente isolato chiamato container.  possibile eseguire pi`u container isolati all’interno di uno stesso host. I Container sono _lightweight_ e pensati per fornire solo il necessario ad eseguire l’applicazione che essi
+Docker consente di racchiudere un’applicazione in un ambiente isolato chiamato container. È possibile eseguire più container isolati all’interno di uno stesso host. I Container sono _lightweight_ e pensati per fornire solo il necessario ad eseguire l’applicazione che essi
 contengono.
 
 <div align="center">
-<img src="img/docker_icon.png", width="200", alt="icona docker", id="fig8">
+<img src="img/docker_icon.png" width="200" alt="icona docker" id="fig8">
  <p align="center">[Fig 8] Docker</p>
 </div>
