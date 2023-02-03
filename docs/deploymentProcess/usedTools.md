@@ -89,3 +89,11 @@ contengono.
 <img src="img/docker_icon.png" width="200" alt="icona docker" id="fig8">
  <p align="center">[Fig 8] Docker</p>
 </div>
+
+### Android Espresso
+Android Espresso è un framework di test automatizzato per le app Android sviluppate da Google. Ha l'obiettivo di rendere più facile e efficiente la scrittura di test di unità e integrazione per le app Android. Questo framework permette agli sviluppatori di scrivere codice di test che interagiscano con l'applicazione allo stesso modo in cui lo farebbe un utente reale. Espresso è anche noto per essere veloce nell'esecuzione dei test poiché utilizza direttamente l'emulatore o il dispositivo Android.
+
+<div align="center">
+<img src="img/espresso.png" width="150" alt="icona android espresso" id="fig9">
+ <p align="center">[Fig 9] Android Espresso</p>
+</div>
