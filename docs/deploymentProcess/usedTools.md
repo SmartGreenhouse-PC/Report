@@ -32,7 +32,7 @@ Ci ha consentito di organizzare le attività per i diversi sprint e di raccoglie
 
 [GitHub](https://github.com/) è un servizio di hosting per lo sviluppo del software e gestione del _version-control_ basato su Git. Fornisce il _distributed version control_ di Git più l'_access control_, il tracciamento dei bug, le richieste di funzionalità software, la gestione delle attività, l'integrazione continua e wiki per ogni progetto.
 
-Per il nostro progetto abbiamo utilizzato GitHub come servizio di hosting per il codice sorgente, le GitHub actions per promuovere il processo di _continuous integration_ e le GitHub Pages per la documentazione e piegazione del sistema realizzato.
+Per il nostro progetto abbiamo utilizzato GitHub come servizio di hosting per il codice sorgente, le GitHub actions per promuovere il processo di _continuous integration_ e le GitHub Pages per la documentazione e spiegazione del sistema realizzato.
 
 <div align="center">
 <img src="img/github_icon.png" width="200" alt="icona github" id="fig3">

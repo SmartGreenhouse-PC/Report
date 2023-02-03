@@ -6,7 +6,7 @@ nav_order: 2
 ---
 
 ## Core domain: Greenhouse core
-Una delle linee guida del Domain Driven Desigin, specifica di conentrarsi maggiormente su quei domini che sono stati classificati come core, e nel nostro caso, il sub-domain greenhouse core  presenta le seguenti caratteristiche: 
+Una delle linee guida del Domain Driven Design, specifica di concentrarsi maggiormente su quei domini che sono stati classificati come core, e nel nostro caso, il sub-domain greenhouse core  presenta le seguenti caratteristiche: 
 
 - è costituito da quattro bounded context, la cui architettura verrà discussa nei successivi capitoli;
 - il bounded-context **gestione serra**, si occupa della storicizzazione dei parametri rilevati all’interno della serra e di verificare i loro valori, pertanto le entità del dominio che rientreranno in questo bounded context risultano essere: la serra, la pianta, la luminosità, l’umidità dell’aria, l’umidità del suolo e la temperatura;

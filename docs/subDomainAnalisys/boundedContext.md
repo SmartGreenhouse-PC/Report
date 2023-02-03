@@ -18,7 +18,7 @@ Individuazione dei diversi bounded context del sistema
 Il sub-domain **sistema di automazione serra**, si compone di tre diversi bounded context:
 
 - **Rilevazione valori,** il quale racchiude i diversi sensori necessari per poter rilevare i parametri vitali delle piante presenti all’interno della serra
-- **Esecuzione operazioni,** il quale racchiude gli elementi che si occupano di gestire la logica per l’esecuzione delle diverse operazioni che possono essere richieste dall’operatore o dal sistema.
+- **Esecuzione operazioni,** il quale racchiude gli elementi che si occupano di gestire la logica per l’esecuzione delle diverse operazioni che possono essere richieste dall'operatore o dal sistema.
 - **Comunicazioni**, che comprende tutti i diversi elementi necessari per poter inviare i dati rilevati e ricevere i comandi relativi alle operazioni da eseguire.
 
 Il sub-domain **greenhouse core** presenta al suo interno quattro bounded context che sono:
@@ -31,7 +31,7 @@ Il sub-domain **greenhouse core** presenta al suo interno quattro bounded contex
 Il sub-domain client, è costituito dai seguenti bounded-context:
 
 - **Mobile**, il quale detiene gli elementi necessari per consentire il monitoraggio dello stato della serra e la sua gestione in modalità manuale da parte di un operatore tramite un’applicazione Mobile
-- **Desktop**, che detiene gli elementi affinchè possa essere effettuata un’analisi della situazione attuale della serra e delle operazioni compiute al suo interno, tramite l’utilizzo di un’applicazione Desktop.
+- **Desktop**, che detiene gli elementi affinché possa essere effettuata un’analisi della situazione attuale della serra e delle operazioni compiute al suo interno, tramite l’utilizzo di un’applicazione Desktop.
 
 ## Bounded context canvas
 
@@ -52,7 +52,7 @@ Per comprendere meglio cosa ci rappresentano i diversi bounded context e le comu
 | Nome | Esecuzione operazioni |
 | --- | --- |
 | Descrizione | È costituito dagli elementi che si occupano di attuare le operazioni richieste per modificare i parametri monitorati all’interno della serra |
-| Descisione di business | Possibile aggiunta o aggiornamento dei sistemi esistenti, ridurre lo spreco di energia e il consumo di acqua richieste per la coltivazione |
+| Decisione di business | Possibile aggiunta o aggiornamento dei sistemi esistenti, ridurre lo spreco di energia e il consumo di acqua richieste per la coltivazione |
 | Ruolo nel dominio | Si occupa di eseguire le operazioni richieste dal sistema per correggere i valori rilevati |
 | Classificazione strategica | Rientra nel support domain sistema di automatizzazione serra |
 | Ubiquitous language | Ventilazione, irrigazione, luminosità, temperatura, pompa dell’acqua, ventola, lampada, lampada termica, attuatore |
@@ -78,7 +78,7 @@ Per comprendere meglio cosa ci rappresentano i diversi bounded context e le comu
 | Ruolo nel dominio | Si occupa di mediare la comunicazione tra i sottodomini greenhouse core e sistema di automazione serra.  |
 | Classificazione strategica | Rientra nel core domain di greenhouse core |
 | Ubiquitous language | Temperatura, umidità del terreno, umidità dell’aria, luminosità, operazione correttiva, serra, pianta |
-| Inbound communication | Riceve i messaggi dal bounded context comunicazioni contenenti i dati rilevati e riceve le operazioni di correzzione da eseguire dal bounded context gestione operazioni |
+| Inbound communication | Riceve i messaggi dal bounded context comunicazioni contenenti i dati rilevati e riceve le operazioni di correzione da eseguire dal bounded context gestione operazioni |
 | Outbound communication | invia le operazioni correttive da eseguire al bounded context comunicazioni e i dati rilevati al bounded context gestione operazioni |
 
 | Nome | Gestione serra |
@@ -115,9 +115,9 @@ Per comprendere meglio cosa ci rappresentano i diversi bounded context e le comu
 
 | Nome | Desktop |
 | --- | --- |
-| Descrizione | Rappresenta l’applicaizone Desktop che si vuole realizzare |
+| Descrizione | Rappresenta l'applicazione Desktop che si vuole realizzare |
 | Decisioni di business | Cross-platform, l’interfaccia deve essere reattiva alle azioni dell’utente |
-| Ruolo nel dominio | Si occupa di mostare i dati relativi allo stato della serra e alle operazioni svolte su di essa in modo da consentire un’analisi da parte degli utenti |
+| Ruolo nel dominio | Si occupa di mostrare i dati relativi allo stato della serra e alle operazioni svolte su di essa in modo da consentire un’analisi da parte degli utenti |
 | Classificazione strategica | Rientra nel generic domain client |
 | Ubiquitous language | Temperatura, umidità dell’aria, luminosità, umidità del terreno, modalità manuale, modalità automatica, operazioni correttive, pompa dell’acqua, ventola, lampada, lampada termica, serra, pianta  |
 | Inbound communication | Riceve i dati da mostrare all’utente dal bounded context client-communication |
@@ -131,7 +131,7 @@ Per comprendere meglio cosa ci rappresentano i diversi bounded context e le comu
 | Classificazione strategica | Rientra nel generic domain client |
 | Ubiquitous language | Temperatura, umidità dell’aria, luminosità, umidità del terreno, modalità manuale, modalità automatica, operazioni correttive, pompa dell’acqua, ventola, lampada, lampada termica, serra, pianta  |
 | Inbound communication | Riceve i dati da mostrare all’utente dal bounded context client-communication |
-| Outbound communication | Invia i dati relativi alle operazioni eseguite dall’utente e al cambio di modalità al bounded context client communication |
+| Outbound communication | Invia i dati relativi alle operazioni eseguite dall'utente e al cambio di modalità al bounded context client communication |
 
 ## Context map
 
@@ -145,7 +145,7 @@ Context map
 
 All’interno della context map, i bounded-context colorati in grigio fanno riferimento al core domain: greenhouse core; mentre i bounded context bianchi fanno riferimento ai support e generic sub-domain: sistema di automazione serra e client.
 
-Tutte le diverse relazioni di tipo customer-supplier, tranne quella che lega il bounded context rilevazione valori con il bounded context comunicazioni, sono conformiste, il che significa che il *downstream* si adatta alle infromazioni che vengono passate dall’*upstream* così come sono senza porre vincoli o cambiamenti. Nel caso, invece, del bounded context **rilevazione valori** è stata adottata la strategia *Open Host Service,* di conseguenza, è il bounded context *upstream* che si impegna nel fornire il miglior servizio possibile al bounded context *downstream*, adattando le informazioni inviate alle sue esigenze; nel nostro caso le informazioni inviate vengono adattate in modo tale che possano essere direttamente comunicate al bounded context gestione comunicazioni serra, da parte del bounded context comunicazioni, senza ulteriori elaborazioni.
+Tutte le diverse relazioni di tipo customer-supplier, tranne quella che lega il bounded context rilevazione valori con il bounded context comunicazioni, sono conformiste, il che significa che il *downstream* si adatta alle informazioni che vengono passate dall'*upstream* così come sono senza porre vincoli o cambiamenti. Nel caso, invece, del bounded context **rilevazione valori** è stata adottata la strategia *Open Host Service,* di conseguenza, è il bounded context *upstream* che si impegna nel fornire il miglior servizio possibile al bounded context *downstream*, adattando le informazioni inviate alle sue esigenze; nel nostro caso le informazioni inviate vengono adattate in modo tale che possano essere direttamente comunicate al bounded context gestione comunicazioni serra, da parte del bounded context comunicazioni, senza ulteriori elaborazioni.
 
 Fra i bounded context comunicazioni e gestione comunicazioni serra vi è una relazione di *partnership*, in quanto, comunicazioni si occupa di fornire i dati rilevati dai sensori a gestione comunicazioni serra, mentre quest’ultimo, si occupa di inviare al bounded context comunicazioni le operazioni correttive che devono essere intraprese.
 
