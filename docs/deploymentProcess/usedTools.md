@@ -9,24 +9,23 @@ nav_order: 1
 
 Per la realizzazione del progetto sono stati utilizzati differenti tool a supporto del processo di sviluppo. Tali strumenti hanno come obiettivo quello di agevolare gli sviluppatori durante tutta la realizzazione del progetto, cercando di automatizzarne i diversi aspetti.
 
-### Gradle
+### Notion
+Notion è lo strumento che è stato utilizzato per gestire e organizzare i lavori necessari per la realizzazoine del progetto, è un tool multi piattaforma (web, Mac, Windows, iOS, Android) che permette di organizzare attività, prendere note, creare calendari, eventi, wiki, CRM e tanto altro in un unica area di lavoro, in maniera modulare e collaborativa.
 
-Gradle è un build automation tool open-source, JVM-based, che consente di automatizzare la costruzione dei progetti Java; esso rende semplice anche l’impostazione di diverse librerie, che possono essere utilizzate all’interno del progetto, senza la necessità di includere i .jar, ma specificando direttamente delle dipendenze da un repository remoto. Gradle consente anche la gestione di un progetto costituito da diversi moduli e delle diverse dipendenze che vi possono essere fra questi.
+Ci ha consntito di organizzare le attività per i diversi sprint e di raccogliere in un unico punto tutti i documenti ed elementi utili necessari per il progetto.
 
 <div align="center">
-<img src="img/gradle_icon.png", width="200", alt="icona gradle", id="fig1">
- <p align="center">[Fig 1] Gradle</p>
+<img src="img/notion_icon.png", width="100", height="100" alt="icona notion", id="fig1">
+ <p align="center">[Fig 1] Notion</p>
 </div>
 
-### UnitTest
+### Egon
 
-Per il progetto si è deciso di utilizzare il framework _JUnit 5_ per la realizzazione di test automatizzati sul codice Java realizzato.
-
-JUnit è un _framework open-source_ che può essere utilizzato per la realizzazione di tes per il linguaggio Java, foprnisce asserzioni per testare i risultati attesi, annotazioni per identificare i metodi e test runner grafici e testuali, inoltre, mette a disposizione una suite per organizzare e permette la condivisone dei risultati. 
+Egon.io è un _lightweight tool_ di supporto al Domain storytelling, da la possibilità di rappresentare attraverso un linguaggio pittografico le storie raccontate dagli esperti del dominio, durante il processo di kwnoledge crunching.
 
 <div align="center">
-<img src="img/junit_icon.png", width="200" alt="icona junit", id="fig2">
- <p align="center">[Fig 2] JUnit 5</p>
+<img src="img/egon_icon.png", width="100", height="100" alt="icona egon", id="fig2">
+ <p align="center">[Fig 2] Egon.io</p>
 </div>
 
 ### GitHub 
@@ -40,14 +39,24 @@ Per il nostro progetto abbiamo utilizzato GitHub come servizio di hiosting per i
  <p align="center">[Fig 3] GitHub</p>
 </div>
 
-### Notion
-Notion è lo strumento che è stato utilizzato per gestire e organizzare i lavori necessari per la realizzazoine del progetto, è un tool multi piattaforma (web, Mac, Windows, iOS, Android) che permette di organizzare attività, prendere note, creare calendari, eventi, wiki, CRM e tanto altro in un unica area di lavoro, in maniera modulare e collaborativa.
+### Gradle
 
-Ci ha consntito di organizzare le attività per i diversi sprint e di raccogliere in un unico punto tutti i documenti ed elementi utili necessari per il progetto.
+Gradle è un build automation tool open-source, JVM-based, che consente di automatizzare la costruzione dei progetti Java; esso rende semplice anche l’impostazione di diverse librerie, che possono essere utilizzate all’interno del progetto, senza la necessità di includere i .jar, ma specificando direttamente delle dipendenze da un repository remoto. Gradle consente anche la gestione di un progetto costituito da diversi moduli e delle diverse dipendenze che vi possono essere fra questi.
 
 <div align="center">
-<img src="img/notion_icon.png", width="100", height="100" alt="icona notion", id="fig5">
- <p align="center">[Fig 5] Notion</p>
+<img src="img/gradle_icon.png", width="200", alt="icona gradle", id="fig4">
+ <p align="center">[Fig 4] Gradle</p>
+</div>
+
+### UnitTest
+
+Per il progetto si è deciso di utilizzare il framework _JUnit 5_ per la realizzazione di test automatizzati sul codice Java realizzato.
+
+JUnit è un _framework open-source_ che può essere utilizzato per la realizzazione di tes per il linguaggio Java, foprnisce asserzioni per testare i risultati attesi, annotazioni per identificare i metodi e test runner grafici e testuali, inoltre, mette a disposizione una suite per organizzare e permette la condivisone dei risultati. 
+
+<div align="center">
+<img src="img/junit_icon.png", width="200" alt="icona junit", id="fig5">
+ <p align="center">[Fig 5] JUnit 5</p>
 </div>
 
 ### MongoDB
@@ -57,8 +66,8 @@ MongoDB è un database non relazionale _open source_, in grado di elaborare dati
 MongoDB, quindi, si allontana dalla struttura tradizonale basata su tabelle dei databse relazionali in favore d idocumenti in stile JSON, rendendo l'integrazione di alcuni tipi di dati più facile e veloce.
 
 <div align="center">
-<img src="img/mongo_icon.png", width="200" alt="icona gmongodb", id="fig5">
- <p align="center">[Fig 5] MongoDB</p>
+<img src="img/mongo_icon.png", width="200" alt="icona gmongodb", id="fig6">
+ <p align="center">[Fig 6] MongoDB</p>
 </div>
 
 ### Vertx 
@@ -66,6 +75,17 @@ MongoDB, quindi, si allontana dalla struttura tradizonale basata su tabelle dei 
 Vertx è un _framework_, oer la realizzazione di applicazioni reattive in Java. Offre un modello di programmazione _event driven_, tutte le sue API sono progettate per lavorare principalmente in modo asincrono.
 
 <div align="center">
-<img src="img/vertx_icon.png", width="200" alt="icona vertx", id="fig6">
- <p align="center">[Fig 6] Vertx</p>
+<img src="img/vertx_icon.png", width="200" alt="icona vertx", id="fig7">
+ <p align="center">[Fig 7] Vertx</p>
+</div>
+
+### Docker
+Docker è una piattaforma _open-source_ per lo sviluppo, il rilascio e l’esecuzione di applicazioni. Esso consente di separare le applicazioni dall’infrastruttura dell’host, in modo da poter fornire il software rapidamente.
+
+Docker consente di racchiudere un’applicazione in un ambiente isolato chiamato container.  possibile eseguire pi`u container isolati all’interno di uno stesso host. I Container sono _lightweight_ e pensati per fornire solo il necessario ad eseguire l’applicazione che essi
+contengono.
+
+<div align="center">
+<img src="img/docker_icon.png", width="200", alt="icona docker", id="fig8">
+ <p align="center">[Fig 8] Docker</p>
 </div>
