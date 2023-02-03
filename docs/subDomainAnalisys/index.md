@@ -11,7 +11,7 @@ Per il problema in esame il tema di sviluppo a seguito del processo di knowledge
 
 - **Sistema di automazione serra**, il quale racchiude gli elementi presenti all’interno della serra che consentono la sua gestione in modo automatico;
 - **Greenhouse core**, il quale racchiude le funzionalità principali di gestione dei dati raccolti dal sistema di automazione;
-- **Client**, che comprende i diversi elementi necessari affinchè possa essere effettuata un’analisi dello stato della serra e della coltivazione tramite un’applicazione Desktop e per poter monitorare e gestire la serra tramite un’applicazione Mobile;
+- **Client**, che comprende i diversi elementi necessari affinché possa essere effettuata un’analisi dello stato della serra e della coltivazione tramite un’applicazione Desktop e per poter monitorare e gestire la serra tramite un’applicazione Mobile;
 
 Una volta individuati i seguenti sotto-domini, il team ha cercato di individuare l’importanza strategica che questi possiedono per il business, aiutandosi attraverso l’utilizzo dei domain charts.
 

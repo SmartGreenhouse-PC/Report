@@ -20,7 +20,7 @@ Dopo aver analizzato la richiesta che è stata effettuata e prodotto l’impact 
 - sicuramente l’irrigazione, quindi capire quando è opportuno irrigare il terreno, così da ridurre al minimo anche lo spreco di acqua;
 - la regolazione della luminosità dell'ambiente, quindi essere in grado di dare alle piante la condizione ottimale di luminosità ideale per la loro crescita;
 - regolare la temperatura in modo tale da adattarla a quella ideale per la pianta coltivata, per esempio una pianta tropicale, se coltivata in un luogo tipicamente freddo, avrà bisogno di una temperatura più elevata all'interno della serra;
-- regolare l’umidità ambientale, in quanto anch’essa legata al benessere della pianta.
+- regolare l’umidità ambientale, in quanto anch'essa legata al benessere della pianta.
 
 **Analista**: La serra, già dispone di apparati capaci di monitorare e agire su questi aspetti? 
 
@@ -54,7 +54,7 @@ Quindi, io, semplicemente premendo dei tasti vorrei compiere queste azioni sulla
 
 **Esperto**:  Mi aspetto che l’applicazione mi mostri il parametro in allarme e allora in questo modo posso capire quali sono i sistemi su cui è meglio agire per intervenire.
 
-**Analista**: Sarebbe utile per te avere dall’applicazione, anche delle altre informazioni sulla serra, oltre alle situazioni di allarme?
+**Analista**: Sarebbe utile per te avere dall'applicazione, anche delle altre informazioni sulla serra, oltre alle situazioni di allarme?
 
 **Esperto**: Sì, sapendo che i miei operatori hanno diversi livelli di esperienza, per poter aiutare anche quelli più inesperti, sarebbe utile avere informazioni sulla pianta coltivata all’interno e i range ottimali di riferimento in cui mantenere i valori. In questo modo gli aiuterebbe anche a tarare le diverse operazioni se ce ne fosse bisogno.
 
@@ -70,9 +70,9 @@ Quindi, io, semplicemente premendo dei tasti vorrei compiere queste azioni sulla
 
 **Esperto**: Tutti quelli detti prima.
 
-**Analista**: Tutte queste informazioni le vorresti sempre vedere sull’applicazione mobile?
+**Analista**: Tutte queste informazioni le vorresti sempre vedere sull'applicazione mobile?
 
-**Esperto**: Allora, adesso che ci penso, anche dal mio ufficio mi piacerebbe vedere i dati sul mio portatile, quindi vorrei avere un’applicazione da usare sul computer che mi consenta di vedere i dati storici, quelli attuali e le operazioni compiute dall’operatore o dal sistema in automatico e di sapere lo stato attuale della serra. 
+**Esperto**: Allora, adesso che ci penso, anche dal mio ufficio mi piacerebbe vedere i dati sul mio portatile, quindi vorrei avere un’applicazione da usare sul computer che mi consenta di vedere i dati storici, quelli attuali e le operazioni compiute dall'operatore o dal sistema in automatico e di sapere lo stato attuale della serra. 
 
 **Analista**: Quindi, nell’applicazione mobile non è necessario inserire i dati storici e le operazioni svolte?
 
@@ -116,9 +116,9 @@ Il caso d'uso in esame prevede come attori:
 
 Dopo aver sviluppato i diagrammi dei casi d’uso, il team di sviluppo ha richiesto una seconda intervista con gli esperti del dominio che coinvolgesse anche gli operatori incaricati di gestire e monitorare la serra, in modo da raccogliere quante più informazioni possibili relative al dominio e alle sue dinamiche e come ci si aspetti che il sistema si comporti.
 
-Per questa seconda intervista si è deciso di utilizzare la strategia del domain storytelling, la quale prevede di lasciare raccontare agli esperti del dominio come vengono svolte le diverse operazioni all’interno del contesto in esame e cosa si vorrebbe ottenere come risultato, mentre il team di sviluppo si occupa di catturare il racconto effettuato dall’esperto del dominio, tramite l’utilizzo di un linguaggio pittografico.
+Per questa seconda intervista si è deciso di utilizzare la strategia del domain storytelling, la quale prevede di lasciare raccontare agli esperti del dominio come vengono svolte le diverse operazioni all’interno del contesto in esame e cosa si vorrebbe ottenere come risultato, mentre il team di sviluppo si occupa di catturare il racconto effettuato dall'esperto del dominio, tramite l’utilizzo di un linguaggio pittografico.
 
-Il risultato emerso da questa seconda intervista verrà di seguito mostrato, in particolare, ogni user story è stata illustrata tramite le domande poste dall’analista all’esperto e un apposito diagramma facente uso di un linguaggio pittografico.
+Il risultato emerso da questa seconda intervista verrà di seguito mostrato, in particolare, ogni user story è stata illustrata tramite le domande poste dall'analista all’esperto e un apposito diagramma facente uso di un linguaggio pittografico.
 
 **User story: gestione attuale**
 
@@ -161,7 +161,7 @@ Esperto: Mi aspetto ad esempio di aprire l'applicazione, vedere lo stato dei par
 
 ### Mock-up e prototipo delle applicazioni
 
-A seguito della seconda intervista effettuata e grazie alle informazioni finora raccolte, il team di sviluppo ha prodotto i seguenti mock-up relativi all’applicazione desktop e mobile richiesta dall’utente.
+A seguito della seconda intervista effettuata e grazie alle informazioni finora raccolte, il team di sviluppo ha prodotto i seguenti mock-up relativi all’applicazione desktop e mobile richiesta dall'utente.
 
 Tali mock-up sono stati presentati e discussi assieme agli esperti del domino, in modo da poter verificare la loro correttezza e in caso modificarli per meglio adattarli alle loro richieste.
 
