@@ -1,5 +1,5 @@
 ---
-title: Sistema di backend
+title: Sistema di automazione
 parent: Design dettagliato
 grand_parent: Design
 has_children: false
