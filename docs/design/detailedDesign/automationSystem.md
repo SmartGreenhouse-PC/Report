@@ -33,7 +33,7 @@ La struttura principale del sistema di Arduino è gestita da uno `Scheduler` che
 
 Per la realizzazione e programmazione dei diversi sensori, cercando di adottare i principi del Domain Driven Design, si è deciso di associare un'interfaccia generica ai diversi sensori e attuatori, che rappresentasse il parametro di riferimento e di implementare tale interfaccia mediante la classe specifica, che rappresenta il componente hardware.
 
-Per capire meglio questo concetto, possiamo fare riferimento alla seguente figura (<a href="#fig3">figura 3</a>), che ci mostra il diagramma delle classi relativo alle componenti necessaie per regolare l'irrigazione.
+Per capire meglio questo concetto, possiamo fare riferimento alla seguente figura (<a href="#fig3">figura 3</a>), che ci mostra il diagramma delle classi relativo alle componenti necessarie per regolare l'irrigazione.
 
 <div align="center">
 <img src="img/classi_irrigation.png", alt="diagramma delle classi sistema di irrigazione", id="fig3">
@@ -42,13 +42,13 @@ Per capire meglio questo concetto, possiamo fare riferimento alla seguente figur
 
 In questo caso abbiamo un'interfaccia generica `Irrigation` che determina quali sono i metodi che un sistema di irrigazione dovrebbe implementare; il nostro sistema di irrigazione, per il momento, è costituito da un pompa ad acqua, di conseguenza, l'interfaccia `WaterPomp` estende l'interfaccia generica `Irrigation` ereditando i suoi metodi ed infine, l'implementazione dell'interfaccia `WaterPomp` è effettuata dall'omonima classe.
 
-L'architettura che è stata adottata, quindi, ci consente non solo di inserire i termini dell'ubiquitous lenguage in modo efficacie all'interno del codice, ma ci dà anche la possibilità di aggiungere ulteriori sistemi di irrigazione in modo indipendente da quelli già esistenti. Nel caso il sistema dovesse evolversi, risulterà essere molto semplice andare ad apporre queste modifiche di aggiunta o rimozione di un componente, all'interno della serra.
+L'architettura che è stata adottata, quindi, ci consente non solo di inserire i termini dell'ubiquitous language in modo efficacie all'interno del codice, ma ci dà anche la possibilità di aggiungere ulteriori sistemi di irrigazione in modo indipendente da quelli già esistenti. Nel caso il sistema dovesse evolversi, risulterà essere molto semplice andare ad apporre queste modifiche di aggiunta o rimozione di un componente, all'interno della serra.
 
 Per quanto riguarda la struttura del sistema basato sulla scheda NodeMCU, esso è progettato per gestire la comunicazione tra il sistema Arduino e il backend. Utilizza la comunicazione seriale per interfacciarsi con Arduino e il **protocollo MQTT** per comunicare con il backend. Ogni volta che vengono rilevati nuovi valori da parte dei sensori su Arduino, essi vengono inviati al backend attraverso il protocollo MQTT pubblicando messaggi su un argomento specifico. Il backend elabora i valori ricevuti e, se necessario, invia le operazioni che devono essere compiute dagli attuatori.
 
 Nella seguente figura (<a href="#fig4">figura 4</a>) è possibile vedere le due componenti principali del sistema di comunicazione, che sono: 
 
-- **Esp8266**, la quale si occupa della connessione al _brocker_ MQTT e dell' invio e ricezione dei massaggi ad Arduino;
+- **Esp8266**, la quale si occupa della connessione al _broker_ MQTT e dell' invio e ricezione dei massaggi ad Arduino;
 - **MsgServiceArduino**, è la componente che viene utilizzata dal sistema per comunicare con Arduino attraverso il bus seriale.
 
 <div align="center">
