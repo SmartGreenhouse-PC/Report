@@ -21,7 +21,7 @@ Il livello dei dati, invece, contiene tutte le informazioni dell’applicazione 
 -   **Data Sources** rappresentano l’origine dei dati. Questi possono essere in remoto, ovvero richiesti dalla rete, oppure in locale, per esempio memorizzati in un database locale. Queste classi vengono utilizzate solo dai *repositories*, per rendere i moduli indipendenti.
 
 <div align="center">
-<img src="img/android_structure_layer.png", alt="livelli principali dell'applicazione mobile", id="fig1">
+<img src="img/android_structure_layer.png" alt="livelli principali dell'applicazione mobile" id="fig1">
  <p align="center">[Fig 1] Livelli principali dell’applicazione Mobile</p>
 </div>
 
@@ -35,7 +35,7 @@ L’applicazione Mobile è stata progettata seguendo gli aspetti appena descritt
 Riassumendo, la struttura utilizzata nell’applicazione è raffigurato nella <a href="#fig2">figura 2</a>.
 
 <div align="center">
-<img src="img/android_struttura.png", alt="struttura del client mobile", id="fig2">
+<img src="img/android_struttura.png" alt="struttura del client mobile" id="fig2">
  <p align="center">[Fig 2] Struttura dell'applicazione Mobile</p>
 </div>
 
@@ -48,7 +48,7 @@ Successivamente abbiamo i **Repository**, dei componenti progettati seguendo il 
 La nostra applicazione è costituita da un'`Activity` (`MainActivity`) e due `Fragment` (`HomePageFragment` e `ManualControlFragment`), per capire meglio i concetti spiegati precedentemente e l’architettura generale si può osservare il seguente diagramma delle classi, il quale mostra gli elementi necessari per la gestione della homepage:
 
 <div align="center">
-<img src="img/classi_mobile.png", alt="diagramma delle classi", id="fig1">
+<img src="img/classi_mobile.png" alt="diagramma delle classi" id="fig3">
  <p align="center">[Fig 3] Diagramma delle classi: Homepage applicazione Mobile</p>
 </div>
 

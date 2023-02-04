@@ -18,7 +18,7 @@ Il Client Desktop si compone di tre schermate: la homepage, il dettaglio di un p
 aggiornata la View.
 
 <div align="center">
-<img src="img/desktop_classi.png", alt="architettura del client desktop", id="fig1">
+<img src="img/desktop_classi.png" alt="architettura del client desktop" id="fig1">
  <p align="center">[Fig 1] Architettura dell’applicazione Desktop</p>
 </div>
 

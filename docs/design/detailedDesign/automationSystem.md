@@ -12,7 +12,7 @@ Il sistema di automazione per la serra intelligente è costituito da due compone
 Lo schema del collegamento del circuito è visibile nella <a href="#fig1">figura 1</a>.
 
 <div align="center">
-<img src="img/arduino_scheme.png", alt="schema arduino", id="fig1">
+<img src="img/arduino_scheme.png" alt="schema arduino" id="fig1">
  <p align="center">[Fig 1] Schema circuito Arduino</p>
 </div>
 
@@ -27,7 +27,7 @@ L'architettura del sistema di automazione per la serra utilizza una struttura a 
 La struttura principale del sistema di Arduino è gestita da uno `Scheduler` che controlla l'esecuzione dei diversi _task_, come rappresentato dalla <a href="#fig2">figura 2</a>. I _task_ del sistema Arduino sono principalmente due: `SensingTask`, che si occupa di rilevare i valori dai sensori e `ListenerTask`, che si mette in ascolto delle richieste sulle diverse operazioni da compiere. 
 
 <div align="center">
-<img src="img/arduino_classi.png", alt="diagramma delle classi arduino", id="fig2">
+<img src="img/arduino_classi.png" alt="diagramma delle classi arduino" id="fig2">
  <p align="center">[Fig 2] Diagramma delle classi: Task e Scheduler</p>
 </div>
 
@@ -36,7 +36,7 @@ Per la realizzazione e programmazione dei diversi sensori, cercando di adottare 
 Per capire meglio questo concetto, possiamo fare riferimento alla seguente figura (<a href="#fig3">figura 3</a>), che ci mostra il diagramma delle classi relativo alle componenti necessarie per regolare l'irrigazione.
 
 <div align="center">
-<img src="img/classi_irrigation.png", alt="diagramma delle classi sistema di irrigazione", id="fig3">
+<img src="img/classi_irrigation.png" alt="diagramma delle classi sistema di irrigazione" id="fig3">
  <p align="center">[Fig 3] Diagramma delle classi: sistema di irrigazione</p>
 </div>
 
@@ -52,6 +52,6 @@ Nella seguente figura (<a href="#fig4">figura 4</a>) è possibile vedere le due 
 - **MsgServiceArduino**, è la componente che viene utilizzata dal sistema per comunicare con Arduino attraverso il bus seriale.
 
 <div align="center">
-<img src="img/classi_esp.png", alt="diagramma delle classi esp", id="fig4">
+<img src="img/classi_esp.png" alt="diagramma delle classi esp" id="fig4">
  <p align="center">[Fig 4] Diagramma delle classi: Esp8266 e MsgServiceArduino</p>
 </div>

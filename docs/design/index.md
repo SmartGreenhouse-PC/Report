@@ -26,6 +26,6 @@ Dalla figura possiamo notare, inoltre, altri tre aspetti principali:
 3. i due servizi individuati come **ClientCommunication** e **GreenhouseCommunication**, rappresentano dei gateway verso i clients e verso il sistema di automazione serra, questo implica che tutte le comunicazioni da e verso i clients dovranno per forza passare per `ClientCommunication`, mentre tutte le comunicazioni da e verso il sistema di automazione dovranno passare per forza da `GreenhouseCommunication`. 
 
 <div align="center">
-<img src="img/architettura.png" alt="architettura generale", id="fig1">
+<img src="img/architettura.png" alt="architettura generale" id="fig1">
  <p align="center">[Fig 1] Architettura generale</p>
 </div>
