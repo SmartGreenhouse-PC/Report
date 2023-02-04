@@ -1,7 +1,7 @@
 ---
 title: Analisi dei sottodomini
 has_children: true
-nav_order: 7
+nav_order: 6
 ---
 # Analisi dei sottodomini
 
