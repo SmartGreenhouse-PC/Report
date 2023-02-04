@@ -1,6 +1,7 @@
 ---
 title: Client Mobile
 parent: Design dettagliato
+grand_parent: Design
 has_children: false
 nav_order: 3
 ---

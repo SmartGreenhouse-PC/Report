@@ -1,6 +1,7 @@
 ---
 title: Sistema di backend
 parent: Design dettagliato
+grand_parent: Design
 has_children: false
 nav_order: 1
 ---
