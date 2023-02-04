@@ -8,7 +8,7 @@ nav_order: 1
 
 # Sistema di automazione
 
-Il Sistema di automazione è composto da due sottoprogetti: uno sulla scheda di Arduino e uno sulla scheda NodeMCU con ESP. Per cui il *workflow* si occupa di compilare il progetto sia sulla scheda Arduino che sulla scheda NodeMCU. 
+Il Sistema di automazione è composto da due sotto-progetti: uno per la scheda di Arduino e uno per la scheda NodeMCU Esp8266. Il *workflow* realizzato si occupa quindi di compilare i due progetti sulla rispettiva scheda. 
 
 Il *workflow* è impostato per eseguirsi ogni volta che viene effettuato una *push* al repository e include tre *jobs* principali: `compile-sketch`, `find-tag` e `deploy`.
 
