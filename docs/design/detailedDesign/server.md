@@ -60,7 +60,7 @@ I diversi micro-servizi per poter svolgere le loro funzioni hanno la necessità 
 Nella <a href="#fig5">figura 5</a> è invece possibile osservare come avvengono le interazioni tra i microservizi che compongono i bounded context presenti nel sub-domain **Greenhouse core**. È da notare che in questo caso sono stati omessi i micro-servizi presenti all'interno del bounded context Gestione serra, al fine di rendere più chiara la rappresentazione.
 
 <div align="center">
-<img src="img/interazioni_microservizi.png" alt="interazioni microservizi", id="fig5">
+<img src="img/interazioni_microservizi.png" alt="interazioni microservizi" id="fig5">
  <p align="center">[Fig 5] Interazione dei micro-servizi presenti nel sub domain Greenhouse core</p>
 </div>
 
@@ -73,7 +73,7 @@ Il servizio ``Operation``, come si può notare in figura, può quindi ricevere l
 Di seguito (figure <a href="#fig6">6</a> e <a href="#fig7">7</a>) verrà mostrato un esempio, mediante apposito diagramma, delle interazioni che sono presenti all'interno del sistema; per semplicità e chiarezza espressiva l'esempio considera un solo parametro della pianta da monitorare.
 
 <div align="center">
-<img src="img/interazioni_automatica.png" alt="interazioni automatica", id="fig6">
+<img src="img/interazioni_automatica.png" alt="interazioni automatica" id="fig6">
  <p align="center">[Fig 6] Diagramma delle interazioni: interazione micro-servizi con modalità automatica</p>
 </div>
 
@@ -82,7 +82,7 @@ La <a href="#fig6">figura 6</a> mostra il caso in cui la serra sia gestita in mo
 Come si può vedere dal diagramma, l'interazione inizia dal sistema di automazione, il quale non appena vengono rilevati nuovi valori per i parametri li invia al servizio ``GreenhouseCommunication``, che si occupa di inoltrarli al servizio ``Greenhouse``. Quest'ultimo per prima cosa invierà il parametro relativo alla temperatura al servizio ``Temperature``, per il suo salvataggio, successivamente verificherà che il valore registrato non sia critico per la pianta. Se si verifica una situazione di allarme, il servizio ``Greenhouse``, determina l'operazione da intraprendere sulla base del parametro e del tipo di criticità, dopodiché richiederà al sistema di eseguire l'operazione individuata e di storicizzarla tramite l'inoltro di questa al servizio ``Operation`` e infine, si occuperà della sua comunicazione al servizio ``ClientCommunication``, in modo che I client vengano aggiornati.
 
 <div align="center">
-<img src="img/interazioni_manuale.png" alt="interazioni manuale", id="fig7">
+<img src="img/interazioni_manuale.png" alt="interazioni manuale" id="fig7">
  <p align="center">[Fig 7] Diagramma delle interazioni: interazione micro-servizi con modalità manuale</p>
 </div>
 
