@@ -7,13 +7,12 @@ nav_order: 1
 # Bounded context
 ## Individuazione dei bounded context
 
-Dopo aver individuato i diversi sotto-domini di cui si compone il sistema, si è passati alla definizione e individuazione dei diversi bounded context che possono essere contenuti al loro interno. 
+Dopo aver individuato i diversi sotto-domini di cui si compone il sistema, si è passati alla definizione e individuazione dei diversi bounded context che possono essere contenuti al loro interno (<a href="#fig1"> figura 1</a>). 
 
-![Individuazione dei diversi bounded context del sistema](img/bounded_context.png)
-
-<p align="center">
-Individuazione dei diversi bounded context del sistema
-</p>
+<div align="center">
+<img src="img/bounded_context.png" alt="Individuazione dei diversi bounded context del sistema">
+<p align="center" id="fig1">[Fig 1] Individuazione dei diversi bounded context del sistema</p>
+</div>
 
 Il sub-domain **sistema di automazione serra**, si compone di tre diversi bounded context:
 
@@ -135,13 +134,12 @@ Per comprendere meglio cosa ci rappresentano i diversi bounded context e le comu
 
 ## Context map
 
-A seguito di quanto è stato detto nelle precedenti sezioni le relazioni fra i diversi bounded context possono essere rappresentate tramite la seguente context map.
+A seguito di quanto è stato detto nelle precedenti sezioni le relazioni fra i diversi bounded context possono essere rappresentate tramite la seguente context map (<a href="#fig2"> figura 2</a>).
 
-![Context map](img/context_map.png)
-<p align="center">
-Context map
-</p>
-
+<div align="center">
+<img src="img/context_map.png" alt="Context map">
+<p align="center" id="fig2">[Fig 2] Context map</p>
+</div>
 
 All’interno della context map, i bounded-context colorati in grigio fanno riferimento al core domain: greenhouse core; mentre i bounded context bianchi fanno riferimento ai support e generic sub-domain: sistema di automazione serra e client.
 

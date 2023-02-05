@@ -15,10 +15,12 @@ Per il problema in esame il tema di sviluppo a seguito del processo di knowledge
 
 Una volta individuati i seguenti sotto-domini, il team ha cercato di individuare l’importanza strategica che questi possiedono per il business, aiutandosi attraverso l’utilizzo dei domain charts.
 
-![Core Domain Chart](img/Core_Domain_Chart.jpg)
- <p align="center">Core Domain Chart</p>
+<div align="center">
+<img src="img/Core_Domain_Chart.jpg" alt="Core Domain Chart" width="70%">
+<p align="center" id="fig1">[Fig 1] Core Domain Chart</p>
+</div>
 
-Come si può vedere dal grafico, il sub-domain: sistema di automazione serra, è stato classificato come **supporting domain,** in quanto, racchiude al suo interno tecnologie e sistemi che possono essere utilizzati come supporto per le funzionalità principali di gestione della serra. Inoltre, il modello che si intende realizzare non ha una complessità molto elevata e una Business Differentiation buona, ma non così alta da renderlo un core domain. 
+Come si può vedere dal grafico (<a href="#fig1"> figura 1</a>), il sub-domain: sistema di automazione serra, è stato classificato come **supporting domain,** in quanto, racchiude al suo interno tecnologie e sistemi che possono essere utilizzati come supporto per le funzionalità principali di gestione della serra. Inoltre, il modello che si intende realizzare non ha una complessità molto elevata e una Business Differentiation buona, ma non così alta da renderlo un core domain. 
 
 Greenhouse core, invece, è stato identificato come **core-domain**. Il modello che si intende realizzare per questo dominio è abbastanza complesso, per di più se le funzionalità che si vogliono realizzare vengono gestite in modo opportuno si può ottenere un buon livello di business differentiation per l’organizzazione.
 

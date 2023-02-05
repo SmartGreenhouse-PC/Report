@@ -13,10 +13,9 @@ Una delle linee guida del Domain Driven Design, specifica di concentrarsi maggio
 - il bounded context **gestione operazioni**, è incaricato di amministrare tutte le operazioni che avvengono all’interno della serra, sia se queste vengono eseguite automaticamente che manualmente, per tanto all’interno di questo bounded context rientra il concetto di operazione;
 - per quanto riguarda i bounded context **gestione comunicazioni serra** e **gestione client**, essi rappresentano dei servizi necessari per poter gestire le interazioni fra la serra e i clients.
 
-La seguente figura mostra, con maggior dettaglio, le caratteristiche relative ai bounded-context del sub-domain greenhouse core.
+La seguente figura mostra (<a href="#fig1"> figura 1</a>), con maggior dettaglio, le caratteristiche relative ai bounded-context del sub-domain greenhouse core.
 
-
-![Scomposizione del sub-domain Greenhouse Core nei diversi bounded context](img/GreenhouseCore_boundedContext.png)
-<p align="center">
-Scomposizione del sub-domain Greenhouse Core nei diversi bounded context
-</p>
+<div align="center">
+<img src="img/GreenhouseCore_boundedContext.png" alt="Scomposizione del sub-domain Greenhouse Core nei diversi bounded context">
+<p align="center" id="fig1">[Fig 1] Scomposizione del sub-domain Greenhouse Core nei diversi bounded context</p>
+</div>
