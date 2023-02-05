@@ -77,17 +77,17 @@ Per comprendere meglio cosa ci rappresentano i diversi bounded context e le comu
 | Classificazione strategica | Rientra nel core domain di greenhouse core |
 | Ubiquitous language | Temperatura, umidità del terreno, umidità dell’aria, luminosità, operazione correttiva, serra, pianta |
 | Inbound communication | Riceve i messaggi dal bounded context comunicazioni contenenti i dati rilevati e riceve le operazioni di correzione da eseguire dal bounded context gestione operazioni |
-| Outbound communication | invia le operazioni correttive da eseguire al bounded context comunicazioni e i dati rilevati al bounded context gestione operazioni |
+| Outbound communication | Invia le operazioni correttive da eseguire al bounded context comunicazioni e i dati rilevati al bounded context gestione operazioni |
 
 | Nome | Gestione serra |
 | --- | --- |
 | Descrizione | Rappresenta il modulo che amministra la logica di gestione di una serra intelligente  |
 | Decisioni di business | / |
-| Ruolo nel dominio | si occupa di analizzare i dati rilevati dai sensori per individuare le situazioni di allarme e in tal caso stabilire l’operazione correttiva da intraprendere, memorizza i dati a lui recapitati e lo stato di gestione della serra (modalità automatica o manuale) |
-| Classificazione strategica | rientra nel core domain di greenhouse core |
-| Ubiquitous language | serra, pianta, valori ottimali, allarme, temperatura, umidità dell’aria, luminosità, umidità del terreno, modalità manuale, modalità automatica, operazioni correttive |
-| Inbound communication | riceve i dati comunicati dal  bounded context gestione comunicazioni serra e i messaggi relativi al cambio di modalità di gestione e delle operazioni manuali dal bounded context gestione client |
-| Outbound communication | invia i dati relativi alle operazioni correttive da effettuare al bounded context gestione operazioni e le informazioni relative alla serra al bounded context gestione client  |
+| Ruolo nel dominio | Si occupa di analizzare i dati rilevati dai sensori per individuare le situazioni di allarme e in tal caso stabilire l’operazione correttiva da intraprendere, memorizza i dati a lui recapitati e lo stato di gestione della serra (modalità automatica o manuale) |
+| Classificazione strategica | Rientra nel core domain di greenhouse core |
+| Ubiquitous language | Serra, pianta, valori ottimali, allarme, temperatura, umidità dell’aria, luminosità, umidità del terreno, modalità manuale, modalità automatica, operazioni correttive |
+| Inbound communication | Riceve i dati comunicati dal  bounded context gestione comunicazioni serra e i messaggi relativi al cambio di modalità di gestione e delle operazioni manuali dal bounded context gestione client |
+| Outbound communication | Invia i dati relativi alle operazioni correttive da effettuare al bounded context gestione operazioni e le informazioni relative alla serra al bounded context gestione client  |
 
 | Nome | Gestione operazioni |
 | --- | --- |

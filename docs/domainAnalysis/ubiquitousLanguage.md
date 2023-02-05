@@ -23,7 +23,7 @@ Si noti che nel dizionario viene anche indicata la traduzione in lingua inglese 
 
 | Termine | Traduzione inglese termine | Definizione |
 | --- | --- | --- |
-| Serra | Greenhouse | E’ una struttura intelaiata con una copertura trasparente che fornisce un ambiente parzialmente o completamente controllato per una produttività ottimale |
+| Serra | Greenhouse | È una struttura intelaiata con una copertura trasparente che fornisce un ambiente parzialmente o completamente controllato per una produttività ottimale |
 | Pianta | Plant | Pianta coltivata all’interno della serra |
 | Valori  ottimali | Optimal values | Valori minimi e massimi ideali per la pianta |
 | Normale | Normal | Situazione in cui i valori rilevati non rientrano in quelli ottimali |
