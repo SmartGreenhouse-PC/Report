@@ -33,7 +33,7 @@ Il *workflow* realizzato per il Server è composto da tre *job* principali: `bui
 
 Il primo *job*, `build`, è responsabile di compilare e testare il codice su tre sistemi operativi diversi: *Ubuntu*, *macOS* e *Windows*. Durante questa fase viene configurato il database MongoDB utilizzando l'*action* [ankane/setup-mongodb@v1](https://github.com/ankane/setup-mongodb) e caricato il database iniziale per poter effettuare i test. Il codice viene compilato e testato con Gradle e, se tutti i test hanno esito positivo, la fase di `build` viene considerata completata con successo. 
 
-Il secondo *job*, `release`, è responsabile della distribuzione del codice compilato e testato. Durante questa fase, il codice viene scaricato, viene configurato Node.js e viene eseguito un comando di rilascio utilizzando la libreria `semantic-release`, che verrà spiegato più in dettaglio nella sezione successiva sul [Version control](#versionControl.html).
+Il secondo *job*, `release`, è responsabile della distribuzione del codice compilato e testato. Durante questa fase, il codice viene scaricato, viene configurato Node.js e viene eseguito un comando di rilascio utilizzando la libreria `semantic-release`, che verrà spiegato più in dettaglio nella sezione successiva sul [Version control](/Report/docs/devOps/versionControl.html).
 
 Il terzo *job*, `success`, viene eseguita solo se le fasi di `build` ha avuto esito positivo. Durante questa fase, viene eseguito un passaggio che verifica che non vi siano stati errori durante le fasi precedenti. Se tutti i passaggi hanno esito positivo, il *workflow* viene considerato completato con successo.
 
