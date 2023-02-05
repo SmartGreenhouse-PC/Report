@@ -34,11 +34,11 @@ Si noti che nel dizionario viene anche indicata la traduzione in lingua inglese 
 | Ventola | Fan | Componente automatizzata presente nella serra che comprende la ventola e il relativo motore |
 | Pompa dell’acqua | Water pomp | Componente automatizzata presente nella serra che consente di irrigare il terreno |
 | Lampada termica | Term lamp | Lampada riscaldante, per aumentare la temperatura |
-| Operazione correttiva | Corrective operation | Operazione effettuata che prevede l’attivazione o la disattivazione di un attuatore all’interno della serra per far fronte a situazioni di allarme perchè richiesto manualmente dall’utente |
+| Operazione correttiva | Corrective operation | Operazione effettuata che prevede l’attivazione o la disattivazione di un attuatore all’interno della serra per far fronte a situazioni di allarme perché richiesto manualmente dall'utente |
 | Sensore | Sensor | Dispositivo in grado di rilevare un parametro dell’ambiente |
 | Sensore di temperatura e umidità | Temperature and humidity sensor | Sensore che rileva il valore della temperatura e dell’umidità dell’aria |
 | Sensore di umidità del suolo | Soil moisture sensor | Sensore che rileva il valore dell’umidità del terreno |
 | Fotoresistenza | Photo resistor  | Sensore che rileva il valore della luminosità  |
 | Gestione serra | Greenhouse modality | Indica la modalità di gestione della serra che può essere automatica o manuale |
-| Controllo manuale | Manual control | Operazioni richieste dall’operatore dall’applicazione mobile |
+| Controllo manuale | Manual control | Operazioni richieste dall'operatore dall'applicazione mobile |
 | Controllo automatico | Automatic control | Operazioni compiute automaticamente dal sistema per correggere i valori non ottimali |
