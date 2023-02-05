@@ -5,7 +5,6 @@ has_children: false
 nav_order: 1
 ---
 # Bounded context
-## Individuazione dei bounded context
 
 Dopo aver individuato i diversi sotto-domini di cui si compone il sistema, si è passati alla definizione e individuazione dei diversi bounded context che possono essere contenuti al loro interno (<a href="#fig1"> figura 1</a>). 
 

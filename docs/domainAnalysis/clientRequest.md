@@ -5,7 +5,7 @@ has_children: false
 nav_order: 1
 ---
 
-## Richiesta committente
+# Richiesta committente
 
 “Sono un produttore agricolo e mi occupo della coltivazione in serra di peperoncini.
 
@@ -15,7 +15,7 @@ Nella mia serra sono già presenti dei sensori per monitorare parametri delle pi
 
 In parte il fatto che gli operatori non siano in grado di agire tempestivamente è dovuto al fatto che i valori dei parametri monitorati possono essere visualizzati solo in un apposito pannello di controllo all’entrata della serra, quindi, è possibile visionarli solo in loco. Non vi è di fatto alcuna applicazione che li consenta in modo agevole di monitorare lo stato della serra e di rilevare l’allarme.”
 
-### Impact map
+## Impact map
 
 A seguito della richiesta precedentemente illustrata, il team di sviluppo ha deciso di produrre la seguente impact map, per riuscire a comprendere maggiormente il problema e formulare domande significative nelle successive interviste.
 

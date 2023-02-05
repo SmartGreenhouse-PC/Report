@@ -5,7 +5,7 @@ has_children: false
 nav_order: 2
 ---
 
-## Core domain: Greenhouse core
+# Core domain: Greenhouse core
 Una delle linee guida del Domain Driven Design, specifica di concentrarsi maggiormente su quei domini che sono stati classificati come core, e nel nostro caso, il sub-domain greenhouse core  presenta le seguenti caratteristiche: 
 
 - è costituito da quattro bounded context, la cui architettura verrà discussa nei successivi capitoli;
