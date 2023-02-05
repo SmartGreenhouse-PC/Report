@@ -23,7 +23,7 @@ Il secondo *job*, `find-tag`, verrà eseguito solo se il primo *job* è stato es
 Il terzo *job*, `deploy`, verrà attivato solamente se è stato generato correttamente il tag nel *job* precedente. Questo *job* crea una nuova *release* sul repository di GitHub e la pubblica utilizzando l'*action* [actions/create-release@v1](https://github.com/actions/create-release).
 
 <div align="center">
-<img src="img/pipeline_automation.png", alt="pipeline automation system", id="fig1">
+<img src="img/pipeline_automation.png" alt="pipeline automation system" id="fig1">
  <p align="center">[Fig 1] Pipeline implementata per il sistema di automazione</p>
 </div>
 
@@ -38,7 +38,7 @@ Il secondo *job*, `release`, è responsabile della distribuzione del codice comp
 Il terzo *job*, `success`, viene eseguita solo se le fasi di `build` ha avuto esito positivo. Durante questa fase, viene eseguito un passaggio che verifica che non vi siano stati errori durante le fasi precedenti. Se tutti i passaggi hanno esito positivo, il *workflow* viene considerato completato con successo.
 
 <div align="center">
-<img src="img/pipeline_server.png", alt="pipeline server", id="fig2">
+<img src="img/pipeline_server.png" alt="pipeline server" id="fig2">
  <p align="center">[Fig 2] Pipeline implementata per il Server</p>
 </div>
 
@@ -56,7 +56,7 @@ Infine, la fase `success` verifica se ci sono stati errori durante l'esecuzione 
 
 
 <div align="center">
-<img src="img/pipeline_desktop.png", alt="pipeline desktop", id="fig3">
+<img src="img/pipeline_desktop.png" alt="pipeline desktop" id="fig3">
  <p align="center">[Fig 3] Pipeline implementata per il Client Desktop</p>
 </div>
 
@@ -75,6 +75,6 @@ Il terzo *job*, `release`, esegue il processo di rilascio dell'applicazione mobi
 Il quarto *job*, `success`, verifica che non ci siano stati errori durante le fasi precedenti (`build`, `instrumentation-test`).
 
 <div align="center">
-<img src="img/pipeline_mobile.png", alt="pipeline mobile", id="fig4">
+<img src="img/pipeline_mobile.png" alt="pipeline mobile" id="fig4">
  <p align="center">[Fig 4] Pipeline implementata per il Client Mobile</p>
 </div>
