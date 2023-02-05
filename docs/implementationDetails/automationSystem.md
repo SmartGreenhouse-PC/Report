@@ -16,10 +16,9 @@ Nello specifico MQTT, è un protocollo per lo scambio di messaggi di tipo publis
 MQTT è un protocollo asincrono: il _publisher_ pubblica i messaggi indipendentemente dal fatto che vi siano dei _subscribers_ interessati a riceverli e iscritti all'argomento. A regolare l'interazione fra _publisher_ e _subscriber_ viene utilizzato un _Message-Broker_, il quale si occupa di raccogliere i messaggi pubblicati dai _publishers_ e di inoltrarli ai _subscribers_, interessati a riceverli, come possibile vedere nella seguente <a href="fig1">figura 1</a>.
 
 <div align="center">
-<img src="img/architettura-MQTT.jpg" alt="Architettura MQTT">
-<p align="center" id=¨fig1">[fig 1] Architettura MQTT</p>
+<img src="img/architettura-MQTT.jpg" alt="Architettura MQTT" id="fig1">
+<p align="center">[fig 1] Architettura MQTT</p>
 </div>
-
 
 Per il progetto, la componente ESP del sistema e il micro-servizio ``GreenhouseCommunication`` sono entrambi sia _publisher_ che _subscriber_; nello specifico:
 
