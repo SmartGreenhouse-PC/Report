@@ -17,7 +17,7 @@ MQTT è un protocollo asincrono: il _publisher_ pubblica i messaggi indipendente
 
 <div align="center">
 <img src="img/architettura-MQTT.jpg" alt="Architettura MQTT" id="fig1">
-<p align="center">[fig 1] Architettura MQTT</p>
+<p align="center">[Fig 1] Architettura MQTT</p>
 </div>
 
 Per il progetto, la componente ESP del sistema e il micro-servizio ``GreenhouseCommunication`` sono entrambi sia _publisher_ che _subscriber_; nello specifico:
