@@ -21,7 +21,7 @@ Ci ha consentito di organizzare le attività per i diversi sprint e di raccoglie
 
 ### Egon
 
-[Egon.io](https://egon.io/) è un _lightweight tool_ di supporto al Domain storytelling che da la possibilità di rappresentare attraverso un linguaggio pittografico le storie raccontate dagli esperti del dominio, durante il processo di knowledge crunching.
+[Egon.io](https://egon.io/) è un _lightweight tool_ di supporto al Domain storytelling che dà la possibilità di rappresentare attraverso un linguaggio pittografico le storie raccontate dagli esperti del dominio, durante il processo di knowledge crunching.
 
 <div align="center">
 <img src="img/egon_icon.png" width="100" height="100" alt="icona egon" id="fig2">
