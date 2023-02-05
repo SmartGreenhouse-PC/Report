@@ -5,7 +5,7 @@ has_children: false
 nav_order: 3
 ---
 
-## Ubiquitous language
+# Ubiquitous language
 
 Durante i diversi incontri che sono stati effettuati con gli esperti del dominio il team di sviluppo si è occupato di ricercare, fra le diverse parole utilizzate dagli esperti i termini che definiscono l’ubiquitous language.
 
