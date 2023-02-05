@@ -9,10 +9,13 @@ nav_order: 3
 
 Durante i diversi incontri che sono stati effettuati con gli esperti del dominio il team di sviluppo si è occupato di ricercare, fra le diverse parole utilizzate dagli esperti i termini che definiscono l’ubiquitous language.
 
-Di seguito è possibile vedere un’immagine raffigurante i diversi termini individuati e le relazioni che vi sono fra di essi.
+Di seguito è possibile vedere un’immagine (<a href="#fig1"> figura 1</a>) raffigurante i diversi termini individuati e le relazioni che vi sono fra di essi.
 
-![Ubiquitous language mind map](img/Ubiquitous_language_mind_map.png)
-<p align="center">Ubiquitous language mind map</p>
+<div align="center">
+<img src="img/Ubiquitous_language_mind_map.png" alt="
+ubiquitous language mind map" >
+<p align="center" id="fig1">[Fig 1] Ubiquitous language mind map</p>
+</div>
 
 Infine, i termini dell’ubiquitous language sono stati raccolti nel seguente dizionario dei termini. 
 
