@@ -30,3 +30,34 @@ Oltre ai test automatici, sono stati eseguiti anche test manuali per verificare 
  <p align="center">[Fig 1] Coverage ottenuta per il Server</p>
 </div>
 
+## Testing del Client Desktop
+
+Anche per il Client Desktop sono state realizzate dei test automatici per verificare il corretto funzionamento dell'applicazione. In particolare, per la parte di *model* e *presentazione* dei dati è stato utilizzato JUnit, mentre per la parte di *view* è stato utilizzato la libreria **TestFX** che permette di testare le interfacce.
+
+Tuttavia, siccome il sistema è distribuito, non è stato possibile testare tutte le funzionalità dell'applicazione in quanto richiede che il Server sia attivo e in esecuzione. La coverage finale ottenuta è del 40% su un totale di 21 test come è possibile vedere nella <a href="#fig2">figura 2</a>.
+
+Infine sono stati effettuati dei test manuali sulle piattaforme Linux e Windows. Inizialmente, sono stati eseguiti dei test sulle singole pagine per verificarne il corretto comportamento, ossia verificare che le richieste effettuate al Server andassero a buon fine, ottenendo tutte le informazioni necessarie da mostrare all’utente e verificando che l’aggiornamento in *real-time*, relativo all’esecuzione di nuove operazioni o nuovi dati rilevati, funzionasse correttamente.
+
+Successivamente, si è proceduto ad integrare le diverse schermate verificando che il comportamento complessivo dell’applicazione rimanesse invariato.
+
+A seguito della composizione complessiva del Client si è verificato che l’interfaccia fosse responsiva alle azioni dell’utente, mantenendo inalterate le funzionalità di aggiornamento *real-time* necessarie per il monitoraggio della serra.
+
+I test sono stati realizzati sia con Client e Server presenti sullo stesso host, che mediante l’utilizzo, per l’hosting del Server, di container Docker al fine di simulare un ambiente distribuito.
+
+<div align="center">
+<img src="img/coverage-desktop.jpg" alt="coverage client desktop" id="fig2">
+ <p align="center">[Fig 2] Coverage ottenuta per il Client Desktop</p>
+</div>
+
+## Testing del Client Mobile
+
+Anche per il Client Mobile sono stati effettuati sia dei test automatici sia test manuali per verificare il corretto funzionamento dell'applicazione. 
+
+Come nel Client Desktop, sono stati implementati dei *unit test* utilizzando JUnit per verificare le entità del *model* e gli aspetti di presentazione dei dati. Per quanto riguarda la *view*, invece, è stato utilizzato il *framework* di test **Espresso** che permette di eseguire i test direttamente sul dispositivo Android, fisico o emulato. L'applicazione viene compilata e installata nel dispositivo e viene lanciato il test, simulando le interazioni dell'utente e verificando il comportamento dell'applicazione. La coverage finale ottenuta è del 58% su un totale di 24 test come è possibile vedere nella <a href="#fig3">figura 3</a>.
+
+Infine, sono stati effettuati dei test manuali, sia tramite i dispositivi Android a disposizione dei componenti del gruppo sia attraverso l’emulatore messo a disposizione da Android Studio. Come indicato per il Client Desktop, anche in questo caso i test eseguiti sono stati effettuati sia con il componente Client che con il componente Server attivi, che mediante l’utilizzo di container Docker, per l’hosting del Server, al fine di simulare un ambiente distribuito.
+
+<div align="center">
+<img src="img/coverage-mobile.jpg" alt="coverage client mobile" id="fig3">
+ <p align="center">[Fig 3] Coverage ottenuta per il Client Mobile</p>
+</div>
