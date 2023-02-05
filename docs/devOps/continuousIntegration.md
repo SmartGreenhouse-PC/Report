@@ -68,7 +68,7 @@ Il *workflow* consiste in quattro *jobs* principali: `build`, `instrumentation-t
 
 Il primo *job*, `build`, esegue il processo di compilazione dell'applicazione mobile per verificare che il codice sia corretto. Viene eseguito su tre sistemi operativi diversi (*Ubuntu*, *macOS*, *Windows*) utilizzando *JDK 11*. Una volta verificato la `build`, vengono eseguite gli *unit-test* implementati con JUnit. 
 
-Il secondo *job*, `instrumentation-test`, si occupa di eseguire i test dell'applicazione su un emulatore Android. È stata creata una matrice per testare l'applicazione con tre diverse API-level di Android: (26, 27, 28, 29).
+Il secondo *job*, `instrumentation-test`, si occupa di eseguire i test dell'applicazione su un emulatore Android utilizzando l'*action* [reactivecircus/android-emulator-runner@v2](https://github.com/ReactiveCircus/android-emulator-runner). È stata creata una matrice per testare l'applicazione con tre diverse API-level di Android: (26, 27, 28, 29).
 
 Il terzo *job*, `release`, esegue il processo di rilascio dell'applicazione mobile su GitHub utilizzando la libreria `semantic-release`.
 
