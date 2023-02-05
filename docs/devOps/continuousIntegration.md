@@ -35,7 +35,7 @@ Il primo *job*, `build`, è responsabile di compilare e testare il codice su tre
 
 Il secondo *job*, `release`, è responsabile della distribuzione del codice compilato e testato. Durante questa fase, il codice viene scaricato, viene configurato Node.js e viene eseguito un comando di rilascio utilizzando la libreria `semantic-release`, che verrà spiegato più in dettaglio nel capitolo successivo sul Version control.
 
-Il terzo *job*, `success`, viene eseguita solo se le fasi di `build` e `release` hanno avuto esito positivo. Durante questa fase, viene eseguito un passaggio che verifica che non vi siano stati errori durante le fasi precedenti. Se tutti i passaggi hanno esito positivo, il *workflow* viene considerato completato con successo.
+Il terzo *job*, `success`, viene eseguita solo se le fasi di `build` ha avuto esito positivo. Durante questa fase, viene eseguito un passaggio che verifica che non vi siano stati errori durante le fasi precedenti. Se tutti i passaggi hanno esito positivo, il *workflow* viene considerato completato con successo.
 
 <div align="center">
 <img src="img/pipeline_server.png", alt="pipeline server", id="fig2">
@@ -58,4 +58,23 @@ Infine, la fase `success` verifica se ci sono stati errori durante l'esecuzione 
 <div align="center">
 <img src="img/pipeline_desktop.png", alt="pipeline desktop", id="fig3">
  <p align="center">[Fig 3] Pipeline implementata per il Client Desktop</p>
+</div>
+
+## Client Mobile
+
+Il Client Mobile, come spiegato precedentemente, è un'applicazione sviluppata in Android, per cui nel suo *workflow* avrà bisogno di impostare l'emulatore **Android**.
+
+Il *workflow* consiste in quattro *jobs* principali: `build`, `instrumentation-test`, `release` e `success`.
+
+Il primo *job*, `build`, esegue il processo di compilazione dell'applicazione mobile per verificare che il codice sia corretto. Viene eseguito su tre sistemi operativi diversi (*Ubuntu*, *macOS*, *Windows*) utilizzando *JDK 11*. Una volta verificato la `build`, vengono eseguite gli *unit-test* implementati con JUnit. 
+
+Il secondo *job*, `instrumentation-test`, si occupa di eseguire i test dell'applicazione su un emulatore Android. È stata creata una matrice per testare l'applicazione con tre diverse API-level di Android: (26, 27, 28, 29).
+
+Il terzo *job*, `release`, esegue il processo di rilascio dell'applicazione mobile su GitHub utilizzando la libreria `semantic-release`.
+
+Il quarto *job*, `success`, verifica che non ci siano stati errori durante le fasi precedenti (`build`, `instrumentation-test`).
+
+<div align="center">
+<img src="img/pipeline_mobile.png", alt="pipeline mobile", id="fig4">
+ <p align="center">[Fig 4] Pipeline implementata per il Client Mobile</p>
 </div>
