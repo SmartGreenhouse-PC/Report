@@ -42,14 +42,16 @@ Riassumendo, la struttura utilizzata nell’applicazione è raffigurato nella <a
 
 L’applicazione Mobile è composta da più pagine, e quindi ha più interfacce, ognuno di queste è rappresentata da un **layout** definito con il linguaggio `XML` e una classe `UI Controller` associata rappresentata dalle Activity o dai Fragment. Un’Activity è l’*entry point* per l’interazione tra l’applicazione e l’utente, è il componente associato all’interfaccia che consente di gestire gli elementi della pagina. Un’Activity può contenere più interfacce, detti Fragment. Gli Activity e i Fragment hanno un proprio ciclo di vita, ed è possibile sapere in che fase di questo ciclo di vita ci troviamo.
 
-I **ViewModel** gestiscono i dati relativi all’interfaccia utente in modo consapevole rispetto al ciclo di vita. I ViewModel contengono più **LiveData**, ovvero classi contenitori di dati che possono essere osservate quando i dati vengono cambiati. In questo modo i componenti dell’interfaccia utente, vengono notificati se i dati sono cambiati e possono aggiornarsi di conseguenza.
+I **ViewModel** gestiscono i dati relativi all’interfaccia utente in modo consapevole rispetto al ciclo di vita. I ViewModel contengono più **LiveData**, ovvero classi contenitori di dati che possono essere osservate quando i dati vengono cambiati. In questo modo, i componenti dell’interfaccia utente, vengono notificati se i dati sono cambiati e possono aggiornarsi di conseguenza.
 
-Successivamente abbiamo i **Repository**, dei componenti progettati seguendo il pattern, chiamato appunto, *Repository*. È un pattern che ci permette di astrarre l’accesso ai dati, nascondendo la loro effettiva implementazione e tecnologia di persistenza dal modello dell'applicazione. Questo significa che i `ViewModel` possono utilizzare i `Repository` per accedere ai dati di cui hanno bisogno, senza dover conoscere la logica e il modo su come vengono recuperati i dati. Il `Repository`, come detto precedente, si occupa di recuperare i dati dalle varie sorgenti e nel nostro caso, sono richiesti da remoto, ovvero dalla rete tramite le rotte esposte dal Server. Ogni sorgente di dati è rappresentato con una entità **Remote Data Source**.
+Successivamente, abbiamo i **Repository**, dei componenti progettati seguendo il pattern *Repository*. È un pattern che ci permette di astrarre l’accesso ai dati, nascondendo la loro effettiva implementazione e tecnologia di persistenza dal modello dell'applicazione. Questo significa che i `ViewModel` possono utilizzare i `Repository` per accedere ai dati di cui hanno bisogno, senza dover conoscere la logica e il modo in cui vengono recuperati i dati. 
 
-La nostra applicazione è costituita da un'`Activity` (`MainActivity`) e due `Fragment` (`HomePageFragment` e `ManualControlFragment`), per capire meglio i concetti spiegati precedentemente e l’architettura generale si può osservare il seguente diagramma delle classi, il quale mostra gli elementi necessari per la gestione della homepage:
+Il `Repository`, come detto precedente, si occupa di recuperare i dati dalle varie sorgenti e nel nostro caso, sono richiesti da remoto, ovvero dalla rete tramite le rotte esposte dal Server. Ogni sorgente di dati è rappresentato con una entità **Remote Data Source**.
+
+La nostra applicazione è costituita da un'`Activity` (`MainActivity`) e due `Fragment` (`HomePageFragment` e `ManualControlFragment`), per capire meglio i concetti spiegati precedentemente e l’architettura generale si può osservare il seguente diagramma delle classi ( <a href="#fig3">figura 3</a>), il quale mostra gli elementi necessari per la gestione della homepage:
 
 <div align="center">
-<img src="img/classi_mobile.png" alt="diagramma delle classi" id="fig3">
+<img src="img/classi_mobile.png" alt="diagramma delle classi" id="fig3" width="70%">
  <p align="center">[Fig 3] Diagramma delle classi: Homepage applicazione Mobile</p>
 </div>
 

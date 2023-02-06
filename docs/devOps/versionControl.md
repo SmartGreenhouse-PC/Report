@@ -6,9 +6,9 @@ nav_order: 3
 ---
 # Version control
 
-Per software versioning si intende il rpocesso si assegnare un identificatore univoco a uno stato del software. L'identificativo che viene associato è di norma una sequanza alfanumerica di caratteri separati da punti, _slashes_ o _dashes_.
+Per software versioning si intende il processo di assegnare un identificatore univoco a uno stato del software. L'identificativo che viene associato è di norma una sequenza alfanumerica di caratteri separati da punti, _slashes_ o _dashes_.
 
-Nel nostro caso per poter distinguere le diverse versioni del software, si è deciso di seguire le linee guida proposte dl [Semantic Versioning](https://semver.org/). La versione del software, di conseguenza, è rappresentata da tre numeri separati da un punto: MAJOR.MINOR.PATCH.
+Nel nostro caso, per poter distinguere le diverse versioni del software, si è deciso di seguire le linee guida proposte dal [Semantic Versioning](https://semver.org/). La versione del software, di conseguenza, è rappresentata da tre numeri separati da un punto: MAJOR.MINOR.PATCH.
 
 L'incremento di uno di questi tre numeri viene eseguito attraverso queste regole:
 
@@ -16,7 +16,7 @@ L'incremento di uno di questi tre numeri viene eseguito attraverso queste regole
 - **MINOR**, quando vengono aggiunte delle funzionalità che sono retrocompatibili con versioni precedenti del sistema;
 - **PATCH**, quando vengono aggiornati dei bug mantenendo una retrocompatibilità.
 
-Il team, ha inoltre deciso, di promuovere il processo di semantic versioning in modo automatico, sfruttando per questo le action di GitHub. In particolare, i quattro diversi progetti principali che sono stati realizzati: `ArduinoSensor`, `Server`, `ClientDesktop` e `ClientMobile` presentano tutti un branch principale `master` e uno di sviluppo `develop`, nel rispetto dell'ottica git flow, ed è stato possibile impostare le GitHub actions in modo tale che ogni qual volta venisse effettuata l'operazione di `push` sul branch `master`, una nuova versione del software venisse rilasciata. La determinazione della versione corretta da associare allo stato del software viene fatta sula base dei commit salvati, questi infatti, sono stati scritti seguendo l'approccio [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/), un commit viene pertanto scritto seguendo il seguente formato:
+Il team, ha inoltre deciso, di promuovere il processo di semantic versioning in modo automatico, sfruttando per questo le action di GitHub. In particolare, i quattro diversi progetti principali che sono stati realizzati: `ArduinoSensor`, `Server`, `ClientDesktop` e `ClientMobile`, presentano tutti un branch principale `master` e uno di sviluppo `develop`, nel rispetto dell'ottica git flow, ed è stato possibile impostare le GitHub actions in modo tale che ogni qual volta venisse effettuata l'operazione di `push` sul branch `master`, una nuova versione del software venisse rilasciata. La determinazione della versione corretta da associare allo stato del software viene fatta sula base dei commit salvati, questi infatti, sono stati scritti seguendo l'approccio [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/). Un commit viene pertanto scritto seguendo il seguente formato:
 
 ```bash
 <type>[optional scope]: <description>
@@ -24,8 +24,7 @@ Il team, ha inoltre deciso, di promuovere il processo di semantic versioning in 
 
 I tipi di commit che sono stati adottati, nel nostro caso, sono i seguenti: 
 
-- **build**, per cambiamenti che riguardano il build system, oppure
-dipendenze esterne;
+- **build**, per cambiamenti che riguardano il build system, oppure dipendenze esterne;
 - **chore**, in caso di cambiamenti che non riguardano il codice di produzione;
 - **ci**, per cambiamenti che riguardano la continuous integration;
 - **docs**, per cambiamenti che riguardano solo la documentazione;
