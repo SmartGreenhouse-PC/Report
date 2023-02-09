@@ -27,6 +27,5 @@ Possibili funzionalità aggiuntive che possono essere realizzate in futuro, in a
 
 - aggiunta di un sistema di notifica capace di informare l'operatore in caso di situazioni particolarmente critiche di allarme;
 - introduzione di nuovi sensori ed attuatori capaci di migliorare ulteriormente la gestione della serra;
-- inserimento e gestione di più serre, anche dislocate sul territorio;
 - introduzione di meccanismi di visione artificiale per monitorare lo stato di salute della coltivazione;
 - introduzione di algoritmi di machine learning capaci di anticipare le operazioni correttive da effettuare al fine di evitare situazioni di allarme.

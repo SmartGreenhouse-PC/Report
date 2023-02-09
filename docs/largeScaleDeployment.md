@@ -1,8 +1,10 @@
 ---
-title: Analisi di deployment su alrga scala
+title: Analisi di deployment su larga scala
 has_children: false
 nav_order: 9
 ---
+
+# Analisi di deployment su larga scala
 
 Grazie alle scelte architetturali effettuate durante la fase di progettazione, è stato realizzato un servizio che possa essere facilmente scalato e riadattato a nuove esigenze.
 
@@ -34,7 +36,7 @@ Qualora, invece, si decidesse di propendere per una soluzione più economica si 
 
 <div align="center">
 <img src="img/soluzione_cloud.jpg" alt="Soluzione cloud" id="fig3">
-<p align="center">[Fig 2] Soluzione cloud computing</p>
+<p align="center">[Fig 3] Soluzione cloud computing</p>
 </div>
 
 Per rendere il servizio più robusto si potrebbero realizzare copie di backup dei servizi che si occupano della raccolta dei dati da utilizzare al momento del bisogno. In questo caso si avrebbe a che fare con un sistema di distribuito complesso, in quanto risulterebbe necessario mantenere la consistenza dei dati in tutte le repliche.
