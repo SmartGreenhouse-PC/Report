@@ -29,6 +29,7 @@ Il Model fornisce una rappresentazione dei dati della serra, rendendo più facil
 
 - `Greenhouse`, che rappresenta la serra che si vuole gestire ed è composta dalla pianta che è associata alla serra;
 - `Plant`, che rappresenta la pianta coltivata della serra, contiene le informazioni della pianta e i suoi valori ottimali per la crescita;
+
 E dai seguenti value objects:
 - `PlantParameter`, che rappresenta uno dei parametri monitorati per la pianta;
 - `Parameter`, che rappresenta i parametri registrati nella serra e ne tiene traccia per lo storico;

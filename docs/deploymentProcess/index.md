@@ -23,6 +23,6 @@ A seguito del primo sprint, il team ha deciso di suddividere il lavoro da svolge
 - implementazione del Client Desktop;
 - implementazione del Client Mobile.
 
-Infine, dopo la prima release dell'applicazione è stato fatto un'ulteriore sprint di ottimizzazione e miglioramento del sistema realizzato.
+Infine, dopo la prima release dell'applicazione è stato fatto un'ulteriore sprint di ottimizzazione e miglioramento del sistema realizzato e a seguito di questo è stato effettuato un ultimo sprint, per aggiungere la funzionalità di gestione di più serre.
 
-In totale, considerando anche lo sprint di avviamento sono stati effettuati sei sprint.
+In totale, considerando anche lo sprint di avviamento sono stati effettuati sette sprint.

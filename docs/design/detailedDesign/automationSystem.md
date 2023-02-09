@@ -25,20 +25,34 @@ Analizzando le funzionalità che deve svolgere il sistema di automazione, sono s
 
 L'architettura del sistema di automazione per la serra, utilizza una struttura a **super loop**, che prevede una prima fase di inizializzazione e una successiva di esecuzione di un ciclo a ripetizione continua.
 
-La struttura principale del sistema di Arduino è gestita da uno `Scheduler` che controlla l'esecuzione dei diversi _task_, come rappresentato dalla <a href="#fig2">figura 2</a>. I _task_ del sistema Arduino sono due: `SensingTask`, che si occupa di rilevare i valori dai sensori e `ListenerTask`, che si mette in ascolto delle richieste sulle diverse operazioni da compiere. 
+Per capire meglio il comportamento seguito dal sistema durante il ciclo continuo, è possibile fare riferimento alla seguente <a href="#fig2">figura 2</a>, che mostra un diagramma degli stati il quale descrive il comportamento seguito da Arduino:
+
+- **Sensing**, rappresenta lo stato in cui il sistema si occupa di raccogliere i valori rilevati dai sensori;
+- **Sending**, una volta registrati i diversi valori dei sensori questi vengono inviati all'ESP;
+- **Waiting**, è lo stato in cui il sistema è in ascolto di eventuali messaggi provenienti dal Server ed inoltrati dall'ESP, che richiedono l'attivazione o disattivazione di particolari sistemi;
+- **Actuating**, rappresenta lo stato in cui il sistema si occupa di effettuare l'operazione richiesta.
 
 <div align="center">
-<img src="img/arduino_classi.png" alt="diagramma delle classi arduino" id="fig2">
- <p align="center">[Fig 2] Diagramma delle classi: Task e Scheduler</p>
+<img src="img/arduino_stati.jpg" alt="diagramma delle classi arduino" id="fig2">
+ <p align="center">[Fig 2] Diagramma degli stati: comportamento sistema Arduino</p>
 </div>
+
+La struttura principale del sistema di Arduino è gestita da uno `Scheduler` che controlla l'esecuzione dei diversi _task_, come rappresentato dalla <a href="#fig3">figura 3</a>. I _task_ del sistema Arduino sono due: `SensingTask`, che si occupa di rilevare i valori dai sensori e `ListenerTask`, che si mette in ascolto delle richieste sulle diverse operazioni da compiere. 
+
+<div align="center">
+<img src="img/arduino_classi.jpg" alt="diagramma delle classi arduino" id="fig3">
+ <p align="center">[Fig 3] Diagramma delle classi: Task e Scheduler</p>
+</div>
+
+
 
 Per la realizzazione e programmazione dei diversi sensori, cercando di adottare i principi del Domain Driven Design, si è deciso di associare un'interfaccia generica ai diversi sensori e attuatori, che rappresentasse il parametro di riferimento e di implementare tale interfaccia mediante la classe specifica, che rappresenta il componente hardware.
 
-Per capire meglio questo concetto, possiamo fare riferimento alla seguente figura (<a href="#fig3">figura 3</a>), che ci mostra il diagramma delle classi relativo alle componenti necessarie per regolare l'irrigazione.
+Per capire meglio questo concetto, possiamo fare riferimento alla seguente figura (<a href="#fig4">figura 4</a>), che ci mostra il diagramma delle classi relativo alle componenti necessarie per regolare l'irrigazione.
 
 <div align="center">
-<img src="img/classi_irrigation.png" alt="diagramma delle classi sistema di irrigazione" id="fig3">
- <p align="center">[Fig 3] Diagramma delle classi: sistema di irrigazione</p>
+<img src="img/classi_irrigation.png" alt="diagramma delle classi sistema di irrigazione" id="fig4">
+ <p align="center">[Fig 4] Diagramma delle classi: sistema di irrigazione</p>
 </div>
 
 In questo caso, abbiamo un'interfaccia generica `Irrigation` che determina quali sono i metodi che un sistema di irrigazione dovrebbe implementare; il nostro sistema di irrigazione, per il momento, è costituito da un pompa ad acqua, di conseguenza, l'interfaccia `WaterPomp` estende l'interfaccia generica `Irrigation` ereditando i suoi metodi ed infine, l'implementazione dell'interfaccia `WaterPomp` è effettuata dall'omonima classe.
@@ -47,12 +61,12 @@ L'architettura che è stata adottata, quindi, ci consente non solo di inserire i
 
 Per quanto riguarda la struttura del sistema basato sulla scheda NodeMCU, esso è progettato per gestire la comunicazione tra il sistema Arduino e il backend. Utilizza la comunicazione seriale per interfacciarsi con Arduino e il **protocollo MQTT** per comunicare con il backend. Ogni volta che vengono rilevati nuovi valori da parte dei sensori su Arduino, essi vengono inviati al backend attraverso il protocollo MQTT pubblicando messaggi su un argomento specifico. Il backend elabora i valori ricevuti e, se necessario, invia le operazioni che devono essere compiute dagli attuatori.
 
-Nella seguente figura (<a href="#fig4">figura 4</a>) è possibile vedere le due componenti principali del sistema di comunicazione, che sono: 
+Nella seguente figura (<a href="#fig5">figura 5</a>) è possibile vedere le due componenti principali del sistema di comunicazione, che sono: 
 
 - **Esp8266**, la quale si occupa della connessione al _broker_ MQTT e dell' invio e ricezione dei massaggi ad Arduino;
 - **MsgServiceArduino**, rappresentante la componente che viene utilizzata dal sistema per comunicare con Arduino attraverso il bus seriale.
 
 <div align="center">
-<img src="img/classi_esp.png" alt="diagramma delle classi esp" id="fig4">
- <p align="center">[Fig 4] Diagramma delle classi: Esp8266 e MsgServiceArduino</p>
+<img src="img/classi_esp.png" alt="diagramma delle classi esp" id="fig5">
+ <p align="center">[Fig 5] Diagramma delle classi: Esp8266 e MsgServiceArduino</p>
 </div>
