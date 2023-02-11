@@ -47,11 +47,10 @@ L'applicazione in oggetto ha lo scopo di permettere un'analisi dei dati rilevati
 ### Componenti del gruppo
 - Mengozzi Maria  - <maria.mengozzi3@studio.unibo.it>
 - Vitali Anna  - <anna.vitali4@studio.unibo.it>
-- Yan Elena  - <elena.yan@studio.unibo.it>
 
 ### Repository
-- [Organizzazione SmartGreenhouse-22-23](https://github.com/SmartGreenhouse-22-23)
-- [Sistema di automazione](https://github.com/SmartGreenhouse-22-23/ArduinoSensor)
-- [Server](https://github.com/SmartGreenhouse-22-23/Server)
-- [Client Desktop](https://github.com/SmartGreenhouse-22-23/ClientDesktop)
-- [Client Mobile](https://github.com/SmartGreenhouse-22-23/ClientMobile)
+- [Organizzazione SmartGreenhouse-PC](https://github.com/SmartGreenhouse-PC)
+- [Sistema di automazione](https://github.com/SmartGreenhouse-PC/ArduinoSensor)
+- [Server](https://github.com/SmartGreenhouse-PC/Server)
+- [Client Desktop](https://github.com/SmartGreenhouse-PC/ClientDesktop)
+- [Client Mobile](https://github.com/SmartGreenhouse-PC/ClientMobile)
