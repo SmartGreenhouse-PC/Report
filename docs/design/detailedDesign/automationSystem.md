@@ -29,7 +29,7 @@ Per capire meglio il comportamento seguito dal sistema durante il ciclo continuo
 
 - **Sensing**, rappresenta lo stato in cui il sistema si occupa di raccogliere i valori rilevati dai sensori;
 - **Sending**, una volta registrati i diversi valori dei sensori questi vengono inviati all'ESP;
-- **Waiting**, è lo stato in cui il sistema è in ascolto di eventuali messaggi provenienti dal Server ed inoltrati dall'ESP, che richiedono l'attivazione o disattivazione di particolari sistemi;
+- **Listening**, è lo stato in cui il sistema è in ascolto di eventuali messaggi provenienti dal Server ed inoltrati dall'ESP, che richiedono l'attivazione o disattivazione di particolari sistemi;
 - **Actuating**, rappresenta lo stato in cui il sistema si occupa di effettuare l'operazione richiesta.
 
 <div align="center">
