@@ -6,12 +6,12 @@ nav_order: 1
 
 # Smart Greenhouse
 
-Il progetto si propone di realizzare un'applicazione che consenta la gestione e il monitoraggio di una serra intelligente.
+Il progetto si propone di realizzare un'applicazione che consenta la gestione e il monitoraggio di un complesso di serrae intelligenti.
 
-In particolare, verrà simulata una situazione in cui un committente richieda l’automatizzazione dei processi che regolano la serra e di monitorarne la sua gestione.
+In particolare, verrà simulata una situazione in cui un committente richieda l’automatizzazione dei processi che regolano le serre e di monitorarne la loro gestione.
 
 ## Scenario
-All'interno della serra sarà presente una sola tipologia di piantagione, per i quali verranno monitorati i seguenti parametri:
+All'interno di una serra sarà presente una sola tipologia di piantagione, per i quali verranno monitorati i seguenti parametri:
 
 - temperatura ambientale;
 - umidità dell'aria e del terreno
