@@ -5,9 +5,9 @@ nav_order: 2
 ---
 
 # Introduzione
-Per il progetto di Laboratorio di Sistemi Software, si è pensato di unire il progetto che si vuole svolgere per il corso di Smart City con gli insegnamenti visti nel corso, ovvero, si vuole realizzare un'applicazione che consenta la gestione e il monitoraggio di una serra intelligente seguendo i processi di Domain-Driven-Design, Continuous Integration e DevOps.
+Per il progetto di Pervasive Computing, si è pensato di unire il progetto che si vuole svolgere per il corso di Smart City e di Laboratorio si Sistemi Software con gli insegnamenti visti nel corso, ovvero, si vuole realizzare un'applicazione che consenta la gestione e il monitoraggio di più serre intelligenti seguendo i processi di Domain-Driven-Design, Continuous Integration e DevOps, adottando un opportuno stile architetturale.
 
-All'interno della serra viene coltivata una sola tipologia di piantagione, per i quali verranno monitorati i seguenti parametri: temperatura ambientale, umidità dell'aria e del terreno e luminosità.
+All'interno delle serre viene coltivata una sola tipologia di piantagione, per i quali verranno monitorati i seguenti parametri: temperatura ambientale, umidità dell'aria e del terreno e luminosità.
 
 Conosciuti i valori ottimali, delle grandezze da rilevare per la pianta di riferimento, si vuole monitorare i valori dei parametri in modo da individuare eventuali situazioni critiche, cioè situazioni in cui il valore rilevato non rientra nei range ottimali previsti. Nel caso in cui si verifichi questa condizione, il sistema deve essere in grado automaticamente di porvi rimedio, vale a dire intraprendere delle azioni correttive che consentano di aggiustare i valori rilevati all'interno della serra. Ad esempio, se la temperatura ambientale è troppo elevata il sistema azionerà il modulo di ventilazione, mentre se risulta troppo bassa attiverà le lampade termiche presenti all'interno della serra.
 

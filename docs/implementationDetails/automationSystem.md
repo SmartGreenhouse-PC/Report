@@ -24,3 +24,20 @@ Per il progetto, la componente ESP del sistema e il micro-servizio ``GreenhouseC
 
 - **ESP**, si occupa di pubblicare i dati relativi ai sensori tramite il topic dataSG ed è interessata a ricevere i messaggi relativi alle operazioni che il sistema deve compiere, quindi effettuerà la sottoscrizione ai topic: ``LUMINOSITY``, ``VENTILATION``, ``TEMPERATURE`` e ``IRRIGATION``;
 - **GreenhouseCommunication**, è interessato a ricevere i messaggi relativi al topic dataSG, contenenti le rilevazioni effettuate dai sensori e in più si occupa di comunicare le operazioni da effettuare, tramite la pubblicazione dei messaggi relativi ai seguenti topic: ``LUMINOSITY``, ``VENTILATION``, ``TEMPERATURE`` e ``IRRIGATION``.
+
+## Comunicazione Seriale
+
+Le due componenti del sistema di automazione, comunicano fra loro attraverso la comunicazione seriale.
+
+La comunicazione seriale, consente lo scambio di messaggi fra due dispositivi tramite un unico bus seriale, il quale è costituito da solo due collegamenti, uno per poter inviare i dati e l'altro per poterli ricevere. Di conseguenza, un **device** che supporta la comunicazione seriale dovrebbe avere due serial pin a disposizione: `RX` per poter ricevere  i dati e `TX` per poterli inviare. Per la comunicazione seriale il pin `RX` di un dispositivo deve essere collegato al pin `TX` dell'altro e vice-versa, come possibile vedere in \cref{fig:serial_comm}.
+
+<div align="center">
+<img src="img/serial_communication.png" alt="Comunicazione Seriale" id="fig2">
+<p align="center">[Fig 2] Comunicazione seriale</p>
+</div>
+
+Un altro aspetto importante da tenere in considerazione per garantire la corretta comunicazione fra i dispositivi è il _baud-rate_, il quale rappresenta la velocità con cui i dati sono inviati lungo il collegamento seriale, ed entrambi i dispositivi devono comunicare con lo stesso _boud-rate_ per poter ricevere correttamente i dati.
+
+Nel nostro caso, si è deciso di utilizzare un _baud-rate_ di 9600 bps e i pin `TX` e `RX` di Arduino sono stati connessi ai pin `RX` e `TX` dell'ESP e vengono utilizzati per far sì che Arduino possa comunicare i dati rilevati dai sensori all'ESP, che si occuperà di inoltrarli ai micro-servizi incaricati della loro gestione, e all'ESP di poter inviare le operazioni da compiere ad Arduino, le quali possono essere state stabilite dal sistema di gestione della serra o richieste dall'utente stesso.
+
+Nel seguente listato è rappresentato una parte principale del programma dell'ESP che mostra la connessione tramite seriale ad Arduino e l'attesa della ricezione di messaggi per il loro successivo inoltro.
