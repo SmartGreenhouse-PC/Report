@@ -48,7 +48,7 @@ Successivamente, abbiamo i **Repository**, dei componenti progettati seguendo il
 
 Il `Repository`, come detto precedente, si occupa di recuperare i dati dalle varie sorgenti e nel nostro caso, sono richiesti da remoto, ovvero dalla rete tramite le rotte esposte dal Server. Ogni sorgente di dati è rappresentato con una entità **Remote Data Source**.
 
-La nostra applicazione è costituita da un'`Activity` (`MainActivity`) e due `Fragment` (`HomePageFragment` e `ManualControlFragment`), per capire meglio i concetti spiegati precedentemente e l’architettura generale si può osservare il seguente diagramma delle classi ( <a href="#fig3">figura 3</a>), il quale mostra gli elementi necessari per la gestione della homepage:
+La nostra applicazione è costituita da un'`Activity` (`MainActivity`) e tre `Fragment` (`SelectGreenhouseFragment`, `HomePageFragment` e `ManualControlFragment`), per capire meglio i concetti spiegati precedentemente e l’architettura generale si può osservare il seguente diagramma delle classi ( <a href="#fig3">figura 3</a>), il quale mostra gli elementi necessari per la gestione della homepage:
 
 <div align="center">
 <img src="img/classi_mobile.png" alt="diagramma delle classi" id="fig3" width="70%">
