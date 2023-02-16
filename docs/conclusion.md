@@ -6,7 +6,7 @@ nav_order: 10
 
 # Conclusioni
 
-Si voleva realizzare un'applicazione che consentisse la gestione e il monitoraggio di una serra intelligente, al cui interno fosse coltivata una specifica tipologia di piantagione. Si è concordato con l'utente committente di realizzare due tipologie di applicazioni: un'applicazione Desktop per il monitoraggio della gestione della serra e la verifica dello stato di salute della pianta e un'Applicazione Mobile, che potesse essere utilizzata dall'operatore sul campo e che gli consentisse di poter prendere il controllo manuale della gestione della serra in caso di necessità.
+Si voleva realizzare un'applicazione che consentisse la gestione e il monitoraggio di più serre intelligenti, al cui interno fosse coltivata una specifica tipologia di piantagione. Si è concordato con l'utente committente di realizzare due tipologie di applicazioni: un'applicazione Desktop per il monitoraggio della gestione della serra e la verifica dello stato di salute della pianta e un'Applicazione Mobile, che potesse essere utilizzata dall'operatore sul campo e che gli consentisse di poter prendere il controllo manuale della gestione della serra in caso di necessità.
 
 Per realizzare questo obiettivo, si è partiti con un'analisi più approfondita dei requisiti del sistema, estraendo la conoscenza del dominio e i termini dell’ubiquitous language da adottare, grazie al processo di knowledge crunching; individuando i requisiti: di business, utente, funzionali, non funzionali e implementativi che il progetto richiedeva. Successivamente, sono stati individuati i sottodomini del sistema: sistema di automazione serra, greenhouse core e client e per ognuno di questi sono stati identificati più bounded context.
 
