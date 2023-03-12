@@ -1,7 +1,6 @@
 ---
 title: Client Mobile
-parent: Design dettagliato
-grand_parent: Design
+parent: Design
 has_children: false
 nav_order: 4
 ---
@@ -26,6 +25,7 @@ Il livello dei dati, invece, contiene tutte le informazioni dell’applicazione 
  <p align="center">[Fig 1] Livelli principali dell’applicazione Mobile</p>
 </div>
 
+## Architettura MVVM
 
 L’applicazione Mobile è stata progettata seguendo gli aspetti appena descritti utilizzando il pattern architetturale **MVVM**, ovvero *Model-View-ViewModel*. Questa architettura è una variante del pattern MVC (Model-View-Controller), infatti consente di separare gli aspetti dell’interfaccia grafica dalla logica del dominio, ma è progettato appositamente per semplificare la programmazione basata su eventi delle interfacce utente. In questo modo l’interfaccia non deve occuparsi della logica e grazie all’indipendenza delle varie componenti, è possibile rinnovare l’interfaccia senza modificarne il comportamento. Le principali componenti dell’architettura sono:
 

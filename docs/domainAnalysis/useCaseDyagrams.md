@@ -1,5 +1,5 @@
 ---
-title: Analisi della richiesta
+title: Diagrammi dei casi d'uso
 parent: Analisi del dominio
 has_children: false
 nav_order: 2
@@ -10,7 +10,7 @@ nav_order: 2
 A partire da ciò che è emerso dalla richiesta e da successive interviste che sono state effettuate con il committente, sono stati dedotti tre casi d'uso principali.
 
 <div align="center">
-<img src="img/monitoraggio-dati.png" alt="
+<img src="img/monitoraggio-dati.png" width="60%" alt="
 diagramma dei casi d’uso monitoraggio valori" >
 <p align="center" id="fig1">[Fig 1] Diagramma dei casi d’uso: monitoraggio valori</p>
 </div>
@@ -23,7 +23,7 @@ Come si può vedere, gli attori principali, in questo caso, sono tre:
 - **attuatore**, rappresenta una componente hardware, in grado di agire sull'ambiente della serra e che si occupa di attuare le operazioni correttive richieste dal sistema.
 
 <div align="center">
-<img src="img/raccolta-dati.png" alt="
+<img src="img/raccolta-dati.png" width="60%" alt="
 diagramma dei casi d’uso raccolta dati" >
 <p align="center" id="fig2">[Fig 2] Diagramma dei casi d’uso: raccolta dati</p>
 </div>
@@ -36,7 +36,7 @@ In questo caso d'uso è possibile identificare due attori:
 - **operatore**, il quale interagendo attraverso le applicazioni è in grado di poter osservare i dati raccolti e memorizzati all'interno del sistema.
 
 <div align="center">
-<img src="img/esecuzione-operazioni.png" alt="
+<img src="img/esecuzione-operazioni.png" width="60%" alt="
 diagramma dei casi d’uso  controllo manuale" >
 <p align="center" id="fig3">[Fig 3] Diagramma dei casi d’uso: controllo manuale</p>
 </div>
@@ -48,7 +48,7 @@ Il caso d'uso in esame prevede come attori:
 - **sistema**, che si occupa di ricevere e gestire la richiesta di presa del controllo manuale da parte dell'operatore;
 - **attuatore**, che si occupa di eseguire le operazioni correttive richieste precedentemente.
 
-## Mock-up e prototipo delle applicazioni
+## Mock-up e prototipi delle applicazioni
 
 Alla fine delle interviste e grazie alle informazioni raccolte, il team di sviluppo ha prodotto i seguenti mock-up relativi all’applicazione desktop e mobile richiesta dall'utente.
 
@@ -96,13 +96,13 @@ L’applicazione Mobile, invece, è costituita da tre schermate principali:
 
 <div align="center">
 <img src="img/Mobile-SelezioneSerra.png" alt="
-mobile schermata principale" width="50%" >
+mobile schermata principale" width="30%" >
 <p align="center" id="fig11">[Fig 11] Mock-up applicazione mobile: selezione serra</p>
 </div>
 
 <div align="center">
 <img src="img/Mobile-Home.png" alt="
-mobile schermata principale" width="50%" >
+mobile schermata principale" width="30%" >
 <p align="center" id="fig12">[Fig 12] Mock-up applicazione mobile: dettaglio serra</p>
 </div>
 
@@ -112,7 +112,7 @@ mobile schermata principale" width="50%" >
 </div>
 
 <div align="center">
-<img src="img/Mobile02-ControlloManuale.png" alt="mobile schermata controllo manuale" width="50%">
+<img src="img/Mobile02-ControlloManuale.png" alt="mobile schermata controllo manuale" width="30%">
 <p align="center" id="fig14">[Fig 14] Mock-up applicazione mobile: controllo manuale</p>
 </div>
 

@@ -1,7 +1,6 @@
 ---
 title: Sistema di automazione
-parent: Design dettagliato
-grand_parent: Design
+parent: Design
 has_children: false
 nav_order: 1
 ---
@@ -23,6 +22,8 @@ Analizzando le funzionalità che deve svolgere il sistema di automazione, sono s
 - **Modulo di esecuzione delle operazioni**, si occupa di eseguire le operazioni richieste dal sistema per correggere i valori rilevati e mantenere le condizioni ambientali ottimali all'interno della serra. È costituito dai moduli di correzione quali: la lampada, la lampada termica, la pompa dell'acqua e il sistema di ventilazione;
 - **Modulo di comunicazione**, è rappresentato dalla scheda NodeMCU con relativo modulo WiFi, e svolge il ruolo di intermediario per lo scambio di messaggi tra il sistema di automazione e il backend via rete.
 
+## Architettura a super-loop
+
 L'architettura del sistema di automazione per la serra, utilizza una struttura a **super loop**, che prevede una prima fase di inizializzazione e una successiva di esecuzione di un ciclo a ripetizione continua.
 
 Per capire meglio il comportamento seguito dal sistema durante il ciclo continuo, è possibile fare riferimento alla seguente <a href="#fig2">figura 2</a>, che mostra un diagramma degli stati il quale descrive il comportamento seguito da Arduino:
@@ -36,6 +37,8 @@ Per capire meglio il comportamento seguito dal sistema durante il ciclo continuo
 <img src="img/arduino_stati.jpg" alt="diagramma delle classi arduino" id="fig2">
  <p align="center">[Fig 2] Diagramma degli stati: comportamento sistema Arduino</p>
 </div>
+
+## Desigin di dettaglio
 
 La struttura principale del sistema di Arduino è gestita da uno `Scheduler` che controlla l'esecuzione dei diversi _task_, come rappresentato dalla <a href="#fig3">figura 3</a>. I _task_ del sistema Arduino sono due: `SensingTask`, che si occupa di rilevare i valori dai sensori e `ListenerTask`, che si mette in ascolto delle richieste sulle diverse operazioni da compiere. 
 

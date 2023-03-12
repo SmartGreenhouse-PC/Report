@@ -8,6 +8,9 @@ nav_order: 1
 # Dettagli implementativi sistema di automazione
 Il Sistema di automazione, come detto in precedenza è costituito da due parti principali, una componente Arduino che racchiude la scheda Arduino Uno, i sensori e gli attuatori presenti nella serra e una componente ESP, che invece comprende la scheda NodeMCU, utilizzata per inviare i dati in rete.
 
+## Utilizzo di Arduino Cloud
+//TODO Anna
+
 ## Comunicazione tramite il protocollo MQTT
 Per far comunicare fra loro il sistema di automazione con il resto del sistema di backend, in particolare con il micro-servizio ``GreenhouseCommunication``,  si è deciso di adottare il protocollo MQTT. 
 

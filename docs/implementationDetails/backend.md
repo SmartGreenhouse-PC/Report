@@ -69,6 +69,9 @@ Gli _adpters_ di ogni servizio, sono stati progettati per essere il più indipen
 
 Nel caso del servizio `GreenhouseCommunication`, infatti, le operazioni da eseguire sul micro-controllore vengo ricevute prima mediante l'`Adapter` HTTP, le quali vengono elaborate del `Model` incaricato della loro gestione, che si occuperà di inviarle tramite l'`EventBus` messo a disposizione da Vert.x all'`Adapter` MQTT ( <a href="#lst2">listato 2</a>), che come previsto, le comunicherà al sistema di automazione tramite il protocollo MQTT.
 
+## Web of things e Thing Description
+//TODO Maria
+
 ## Docker e docker Compose
 
 Al fine di rendere il deployment del sistema di backend più semplice, si è deciso di utilizzare **[Docker](https://www.docker.com/)** per poter caricare ed eseguire i diversi micro-servizi. 

@@ -1,11 +1,12 @@
 ---
 title: Client Desktop
-parent: Design dettagliato
-grand_parent: Design
+parent: Design
 has_children: false
 nav_order: 3
 ---
 # Client Desktop
+
+## Architettura MVC
 
 Per realizzare il client Desktop si è deciso di utilizzare il pattern architetturale MVC (Model-View-Controller), il quale consente di separare la logica di presentazione dei dati dalla logica di business, al fine di rendere quanto più possibile indipendenti i diversi moduli che lo costituiscono.
 
@@ -23,7 +24,7 @@ aggiornata la View.
  <p align="center">[Fig 1] Architettura dell’applicazione Desktop</p>
 </div>
 
-## Tactical design
+## Elementi del tactical design
 
 Il Model fornisce una rappresentazione dei dati della serra, rendendo più facile l’accesso e la gestione di questi dati da parte dei Controller del sistema. In particolare, è costituito dalle seguenti entità del dominio:
 

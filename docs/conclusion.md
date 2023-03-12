@@ -1,7 +1,7 @@
 ---
 title: Conclusioni
 has_children: false
-nav_order: 10
+nav_order: 9
 ---
 
 # Conclusioni
@@ -25,6 +25,7 @@ Riteniamo che la realizzazione di questo progetto abbia accresciuto le nostre co
 ## Sviluppi futuri
 Possibili funzionalità aggiuntive che possono essere realizzate in futuro, in aggiunta a quelle già presenti, grazie alla modularità del sistema, possono essere le seguenti:
 
+- aggiunta di un simulatore per emulare le condizioni ambientali in cui le piante vengono coltivate e verificare il comportamento del sistema, tramite l'ausilio di Digital Twin;
 - aggiunta di un sistema di notifica capace di informare l'operatore in caso di situazioni particolarmente critiche di allarme;
 - introduzione di nuovi sensori ed attuatori capaci di migliorare ulteriormente la gestione della serra;
 - introduzione di meccanismi di visione artificiale per monitorare lo stato di salute della coltivazione;

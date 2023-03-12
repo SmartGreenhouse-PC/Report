@@ -28,6 +28,9 @@ Ci ha consentito di organizzare le attività per i diversi sprint e di raccoglie
  <p align="center">[Fig 2] Egon.io</p>
 </div>
 
+### Arduino Cloud
+//TODO Anna
+
 ### GitHub 
 
 [GitHub](https://github.com/) è un servizio di hosting per lo sviluppo del software e gestione del _version-control_ basato su Git. Fornisce: il _distributed version control_ di Git più l'_access control_, il tracciamento dei bug, le richieste di funzionalità software, la gestione delle attività, l'integrazione continua e wiki per ogni progetto.
