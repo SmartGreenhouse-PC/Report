@@ -21,7 +21,7 @@ Nel progetto del Server sono stati effettuati test automatici con **JUnit** per 
 
 Inoltre, è stata utilizzata la libreria **Vert.x**, la quale include un contesto di testing per le esecuzioni asincrone. In tal modo, è possibile avviare i singoli servizi in modo asincrono e tramite l’effettuazione di richieste HTTP automatiche, è possibile verificare le risposte restituite dal servizio in modo semplice e agevole. 
 
-Si è cercato di testare la maggior parte dei componenti in tutti i microservizi, ottenendo una coverage complessiva del 73% con un totale di 77 test effettuati, come raffigurato nella <a href="#fig1">figura 1</a>.
+Si è cercato di testare la maggior parte dei componenti in tutti i microservizi, ottenendo una coverage complessiva del 53% con un totale di 52 test effettuati, come raffigurato nella <a href="#fig1">figura 1</a>.
 
 Oltre ai test automatici, sono stati eseguiti anche test manuali per verificare il corretto funzionamento del sistema nel suo insieme, includendo la comunicazione con il sistema di automazione e con i clients.
 
