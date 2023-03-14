@@ -55,7 +55,7 @@ void loop() {
   //...
 }
 ```
-<p align="center" id="lst1">[Listato 2] Aggiornamento valori Cloud</p>
+<p align="center" id="lst2">[Listato 2] Aggiornamento valori Cloud</p>
 
 
 
