@@ -73,3 +73,54 @@ Nella seguente figura (<a href="#fig5">figura 5</a>) è possibile vedere le due 
 <img src="img/classi_esp.png" alt="diagramma delle classi esp" id="fig5">
  <p align="center">[Fig 5] Diagramma delle classi: Esp8266 e MsgServiceArduino</p>
 </div>
+
+## Componenti Cloud
+
+Per la realizzazione del progetto relativo all'ESP, si è deciso di utilizzare la piattaforma **Arduino Cloud**. Le funzionalità principali che questa piattaforma offre, sono le seguenti:
+
+- **Data Monitoring**, consente di monitorare i dati relativi ai sensori di Arduino attraverso apposite dashboard;
+- **Variable Synchronisation**, offre la possibilità di sincronizzare variabili fra i diversi dispositivi, abilitando la comunicazione fra questi scrivendo una quantità minima di codice;
+- **Scheduler**, consente di schedulare diversi job attivandoli o disattivandoli per un certo quantitativo di tempo;
+- **Over-The-Air-Uploads**, consente il caricamento di codice su dispositivi che non sono connessi al computer;
+- **Webhooks**, da la possibilità di integrare il progetto con altri servizi, come ad esempiop _IFTTT_
+- **Amazon Alexa Support**, consente di introdurre nel prorpio progetto il controllo vocale di _Amazon Alexa_;
+- **Dashboard Sharing**, consente di condividere i prorpi dati con altre persone sparse nel mondo.
+
+Per poter utilizzare Arduino Cloud, è necessario iscriversi alla piattaforma, una volta fatto questo è possibile registrare diverse "_Things_", che si vogliono programmare, nel nostro caso si è proceduto alla registrazione dell'ESP relativa alla serra.
+
+<div align="center">
+<img src="img/cloud_thing.png" alt="pagina things arduino cloud" id="fig6">
+ <p align="center">[Fig 6] Things Arduino Cloud</p>
+</div>
+
+Una volta creata la rporia "_Thing_" e impostato i parametri necessari per il Cloud, è possibile associare ad essa delle variabili Cloud, le quali danno la possibilità di: registrare, modificare e visionare i valori attraverso la piattaforma. 
+
+<div align="center">
+<img src="img/cloud_variables.png" alt="pagina things arduino cloud" id="fig7">
+ <p align="center">[Fig 7] Variables Arduino Cloud</p>
+</div>
+
+Nel nosro caso sono stare specificate otto varibili, quattro di sola lettura riferite ai parametri rilevati dai sensori e quattro riferite ai sistemi di attuazione alle quali è possibile accedere sia in lettura che in scrittura.
+
+Per poter gestire al meglio i componenti del Cloud sono state create tre nuove classi (<a href="#fig8">figura 8</a>) : 
+
+- `CloudVariableManager`, il quale si occupa di mantenre riferimento ai due diversi componenti che si occupano di gestire le variabili relative ai parametri e quelle relative ai sistemi di attuazione;
+- `CloudParameterHolder`, che si occupa di gestire l'aggiornamento delle variabili relative ai parametri quando vengono notificati dei nuovi dati;
+- `CloudActuatorSystemHolder`, il quale invece si occupa di aggiornare lo stato delle variabili relative ai sistemi di attuazione, ogni qual volta una nuova operazione viene compiuta.
+
+<div align="center">
+<img src="img/cloud_classi.png" alt="diagramma classi componenti cloud" id="fig8">
+ <p align="center">[Fig 8] Diagramma delle classi: componenti cloud per la gestione delle variabili</p>
+</div>
+
+Infine, come detto precedentemente, una funzionalità molto utile di Arduino Cloud, consiste nella possibilità di creare delle dashboard (<a href="#fig9">figura 9</a>) , con cui poter agire e visionare le variabili salvate, quindi per poter visualizzare i valori registrati per la serra e poter agire sui sistmei di attuazione presenti in essa è stata creata un'apposita dashboard, che contiene per ogni parametro tre elementi che consentono di visionare il valore attuale registrato e di agire sul sistema di attuazione.
+
+<div align="center">
+<img src="img/cloud_dashboard.png" alt="esempio dashboard cloud" id="fig9">
+ <p align="center">[Fig 9] Elementi dashboard parametro umidità</p>
+</div>
+
+Ai diversi elementi della dashboard, quindi, è possibile associare una variabile e sfruttare le caratteristihe del elemento stesso per visionarne i dettagli o modificarne lo stato.
+
+
+
