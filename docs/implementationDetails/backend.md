@@ -70,7 +70,82 @@ Gli _adpters_ di ogni servizio, sono stati progettati per essere il più indipen
 Nel caso del servizio `GreenhouseCommunication`, infatti, le operazioni da eseguire sul micro-controllore vengo ricevute prima mediante l'`Adapter` HTTP, le quali vengono elaborate del `Model` incaricato della loro gestione, che si occuperà di inviarle tramite l'`EventBus` messo a disposizione da Vert.x all'`Adapter` MQTT ( <a href="#lst2">listato 2</a>), che come previsto, le comunicherà al sistema di automazione tramite il protocollo MQTT.
 
 ## Web of things e Thing Description
-//TODO Maria
+Come detto precedentemente, i micro-servizi `Brightness`, `Humidity`, `SoilMoisture` e `Temperature`, aderiscono agli standard del _WoT_ . Il componente chiave degli elementi costitutivi di WoT è la descrizione dell'oggetto WoT mediante la sua _Thing description (TD)_. 
+
+Una Thing Description definisce un modello informativo di una _thing_ basato sul vocabolario semantico e una serializzazione basata su JSON. I TD, grazied alla loro flessibilità, promuovono l'interoperabilità fornendo metadati sia umani che leggibili (e comprensibili) su una _thing_, come titolo, ID, descrizioni, ecc; descrive inoltre tutte le azioni, gli eventi e le proprietà disponibili di una _thing_ come tutti i meccanismi di sicurezza disponibili per accedervi.
+
+La _thing description_ è stata scritta seguendo lo standard [W3C](https://www.w3.org/TR/wot-thing-description/), per cui è caratterizzata da:
+
+- *@context*: definisce lo standard in uso;
+- *id*: un identificativo univoco viene assegnato alla thig, di base si tratta dell’indirizzo IP;
+- *title*: è una stringa sommaria e intuitiva che descrive il dispositivo;
+- *description*: è una stringa intuitiva che descrive il dispositivo e le sue funzioni;
+- *properties*: è una mappa di oggetti [Property](https://www.w3.org/TR/2020/REC-wot-thing-description-20200409/#propertyaffordance) che descrivono gli attributi del dispositivo;
+- *actions*: è una mappa di oggetti [Action](https://www.w3.org/TR/2020/REC-wot-thing-description-20200409/#actionaffordance) che descrivono le funzioni che possono essere eseguite su un dispositivo;
+- *events*: è una mappa di oggetti [Event](https://www.w3.org/TR/2020/REC-wot-thing-description-20200409/#eventaffordance) che definiscono i tipi di eventi che possono essere emessi da un dispositivo;
+
+
+Di seguito viene riportato un esempio di _thing description_, nella precisione quello del servizio `Brightness`, in ogni caso gli altri risultano similari, con l'unica eccezione che vengono modificate le azioni, eventi e proprietà disponibili.
+
+```json
+{
+  "@context":"https://webthings.io/schemas/",
+  "id":"http://0.0.0.0:8893/brightness",
+  "title":"brightness",
+  "description":"web connected system to handle the brightness of a greenhouse.",
+  "properties":{
+    "value":{
+      "title":"current value",
+      "description":"the level of light registered.",
+      "type":"object",
+      "properties":{
+        "greenhouseId":{"type":"string"},
+        "date":{"type":"date"},
+        "value":{"type":"float"}
+        }
+    },
+    "links":[{"href":"/brightness/history?id=&limit="}],
+    "history":{
+      "title":"history values",
+      "description":"the history value of the light registered.",
+      "type":"list",
+      "properties":{
+        "greenhouseId":{"type":"string"},
+        "date":{"type":"date"},
+        "value":{"type":"float"}
+      }
+    }
+  },
+  "actions":{
+      "fade":{
+        "@type":"FadeAction",
+        "title":"fade",
+        "description":"fade the lamp to a given level.",
+        "input":{"type":"string"},
+        "links":[{
+          "href":"mqtt://broker.mqtt-dashboard.com:1883",
+          "op":{
+            "level":{
+              "type":"integer",
+              "minimum":"0",
+              "maximum":"255"
+              }
+            },
+          "mqv:topic":"LUMINOSITY"
+        }]
+      }
+  },
+  "events":{
+    "newData":{
+      "title":"new data",
+      "type":"string",
+      "description":"new luminosity data.",
+      "unit":"lux",
+      "links":[{"href":"mqtt://broker.mqtt-dashboard.com:1883","mqv:topic":"dataSG"}]
+    }
+  }
+}
+```
 
 ## Docker e docker Compose
 
