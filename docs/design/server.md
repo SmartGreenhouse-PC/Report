@@ -13,7 +13,7 @@ Una volta individuati i bounded context presenti all'interno del sistema di back
 Come detto precedentemente, nell'introduzione del Design, sono stati individuati otto micro-servizi: ClientCommunication, GreenhouseCommunication, Greenhouse, Operation, Brightness, Humidity, SoilMoisture e Temperature.
 
 <div align="center">
-<img src="img/exagonal_architecture.png" alt="Architettura esagonale" id="fig1">
+<img src="img/exagonal_architecture.png" width="60%" alt="Architettura esagonale" id="fig1">
 <p align="center">[Fig 1] Architettura esagonale</p>
 </div>
 
@@ -54,12 +54,13 @@ Come detto precedentemente, al fine di rispettare l'architettura esagonale, ogni
 Si occupa di gestire le comunicazioni fra il backend e il sistema di automazione (costituito da Arduino e l’ESP); per fare questo è dotato di due adapters: uno MQTT, utilizzato per comunicare con il microcontrollore e uno HTTP per ricevere le richieste dagli altri servizi presenti all'interno del sistema di backend.
 
 
-#### API MQTT
+**API MQTT**
+
 - topic `dataSG`, utilizzato per ricevere i dati dal microcontrollore nel formato:
     ```json
     {
         "id":"greenhouse1",
-        "topic": "temp", 
+        "topic": "Temp", 
         "data": 10.5
     }
     ```
@@ -68,7 +69,8 @@ Si occupa di gestire le comunicazioni fra il backend e il sistema di automazione
 
 Il servizio riceverà quindi i dati sul topic `dataSG`e procederà ad inoltrarli al servizio incaricato di gestire i dati del parametro; ad esempio se viene rilevata una nuova temperatura GreenhouseCommunication inoltrerà, il messaggio al servizio Temperature.
 
-#### API HTTP
+**API HTTP**
+
 Vengono impiegate dagli altri servizi per delegare a GreenhouseCommunication il compito di comunicare al micro-controllore uno determinata azione correttiva, come ad esempio la richiesta di accendere o spegnere una lampada. Le root esposte dal servizio sono:
 
 - `/greenhouseCommunication/brightnessOperation`, utilizzata per comunicare sul topic `LUMINOSITY` incaricato di gestire gli attuatori per la luminosità;
@@ -100,6 +102,7 @@ Le API esposte dal servizio sono:
 È il servizio che si occupa di gestire le comunicazioni con i clients. Sostanzialmente informa tutti i clients connessi dello stato della serra e delle operazioni compiute al suo interno e si occupa anche di raccogliere e gestire le loro richieste;
 
 Le API esposte dal servizio sono:
+
 -`/clientCommunication/greenhouse`, si occupa di reperire le informazioni relative alla serra;
 -`/clientCommunication/greenhouse/all`, si occupa di ottenere tutte le serre presenti all'interno del sistema;
 -`/clientCommunication/greenhouse/modality/notify`, si occupa di informare tutti i client che la modalità di gestione di una determinata serra è cambiata;
@@ -116,20 +119,39 @@ Sono tutti servizi che si occupano di gestire i dati raccolti dai sensori per il
 I servizi comunicano con: GreenhouseService, per ottenere l'informazione relativa alla modalità di gestione della serra e il range ottimale del parametro che rappresentano; OperationService, a cui delegano la storicizzazione ed esecuzione delle operazioni correttive e per ottenere l'informazione relativa all'ultima operazione effettuata; ClientCommunication, al fine di delegare la responsabilità di informare i client che un nuovo valore è stato rilevato.
 
 Le API esposte dal servizio sono:
+
 - `parameterName/`,per ottenere l'ultimo valore rilevato all'interno di una specifica serra o  inserirne uno nuovo, a seconda del metodo scelto, GET o POST;
 - `parameterName/history`, reperisce lo storico dei valori rilevati da un determinato parametro presente in una specifica serra;
 - `parameterName/thing-description`, per ottenere la thing description del servizio.
 
 Dove parameterName deve essere sostituito con `brightness`, `humidity`, `soilMoisture` o `temperature` a seconda del parametro su cui si vuole agire.
 
+## Dipendenze fra i diversi micro-servizi
+
+I diversi micro-servizi, per poter svolgere le loro funzioni hanno la necessità di comunicare e interagire tra loro, per capire quali sono le dinamiche del sistema, almeno ad alto livello, possiamo analizzare le figure <a href="#fig4">4</a> e <a href="#fig5">5</a>. 
+
+In dettaglio la <a href="#fig4">figura 4</a> mostra quali sono le relazioni che regolano i diversi servizi all'interno del bounded context **Greenhouse Core**, ocme possiamo notare:
+
+- Vi è una dipendenza **monodirezionale**, da GreenhouseCommunication, a tutti i diversi servizi dei parametri, in quanto tale servizio si occuperà di comunicare ad ognuno di loro i valori rilevati;
+- È presente una relazione **monodirezionale**, fra i diversi servizi dei parametri e Greenhouse, in quanto questi si appogiano a tale serivizio per poter ottenere infromazioni relative ai range ottimali previsti per la pianta;
+- Vi è una relazione **bidirezionale** fra i servizi dei parametri e ClientCommunication, in quanto quando un nuovo valore viene registrato il Client viene informato per mezzo delle Socket e quando il Client è interessato a ricevere i dati storici interroga i diversi servizi;
+- Vi è una relazione **bidirezionale** fra ClientCommunication e Operation, in quanto il servizio Operation si occupa di aggiornare i clients in relazione alle nuove operazioni compiute dal sistema in modalità automatica, mentre ClientCommunication notifica ad Operation le operazioni richieste dagli utenti tramite la modalità manuale;
+- È presente una relazione **monodirezionale** fra i servizi Operation e GreenhouseCommunication, in quanto il servizio Operation si occupa di notificare a GreenhouseCommunication quli sono le operazioni da svolgere sulla serra;
+- È presente una relazione **monodirezionale** monodirezionale fra ClientCommunication e Greenhouse, in quanto CLientCommunication interroga Greenhouse per poter ricevere le infromazioni relative alla serra. 
+
+<div align="center">
+<img src="img/microservizi_greenhouse_core_dipendenze.png" width="70%" alt="Greenhouse core dipendenze micro-servizi" id="fig4">
+ <p align="center">[Fig 4] Dipendenze fra i diversi micro-servizi all'interno di Greenhouse Core</p>
+</div>
 
 ## Interazione tra i diversi micro-servizi
-I diversi micro-servizi, per poter svolgere le loro funzioni hanno la necessità di comunicare e interagire tra loro, per capire quali sono le dinamiche del sistema, almeno ad alto livello, possiamo analizzare le figure <a href="#fig4">4</a> e <a href="#fig5">5</a>. 
+
+I diversi micro-servizi, per poter svolgere le loro funzioni hanno la necessità di comunicare e interagire tra loro, per capire quali sono le dinamiche del sistema, almeno ad alto livello, possiamo analizzare la  <a href="#fig4">figura 4</a>. 
 
 In dettaglio la <a href="#fig4">figura 4</a> mostra come avvengono le comunicazioni all'interno del bounded context **Gestione Serra**. Tale bounded context prevede,infatti, la presenza di cinque micro-servizi: Brightness, Humidity, SoilMoisture, Temperature e Greenhouse i quali comunicano tra loro per mezzo delle **API** messe a disposizione da ciascuno. Nello specifico, la comunicazione, come si può vedere in figura, avviene in modo unidirezionale a partire dal servizio ``Greenhouse``, in quanto è quest'ultimo che ha il compito di ricevere i dati rilevati all'interno della serra e delegare poi al rispettivo servizio il compito di storicizzarli.
 
 <div align="center">
-<img src="img/gestione_serra.png" alt="Gestione serra interazioni" id="fig4">
+<img src="img/gestione_serra.png" width="60%" alt="Gestione serra interazioni" id="fig4">
  <p align="center">[Fig 4] Interazione dei micro-servizi all'interno di Gestione serra</p>
 </div>
 
