@@ -68,7 +68,7 @@ Nello specifico MQTT, è un protocollo per lo scambio di messaggi di tipo publis
 MQTT è un protocollo asincrono: il _publisher_ pubblica i messaggi indipendentemente dal fatto che vi siano dei _subscribers_ interessati a riceverli e iscritti all'argomento. A regolare l'interazione fra _publisher_ e _subscriber_ viene utilizzato un _Message-Broker_, il quale si occupa di raccogliere i messaggi pubblicati dai _publishers_ e di inoltrarli ai _subscribers_, interessati a riceverli, come possibile vedere nella seguente <a href="fig1">figura 1</a>.
 
 <div align="center">
-<img src="img/architettura-MQTT.jpg" alt="Architettura MQTT" id="fig1">
+<img src="img/architettura-MQTT.jpg" alt="Architettura MQTT" width="80%" id="fig1">
 <p align="center">[Fig 1] Architettura MQTT</p>
 </div>
 
@@ -84,7 +84,7 @@ Le due componenti del sistema di automazione, comunicano fra loro attraverso la 
 La comunicazione seriale, consente lo scambio di messaggi fra due dispositivi tramite un unico bus seriale, il quale è costituito da solo due collegamenti, uno per poter inviare i dati e l'altro per poterli ricevere. Di conseguenza, un **device** che supporta la comunicazione seriale dovrebbe avere due serial pin a disposizione: `RX` per poter ricevere  i dati e `TX` per poterli inviare. Per la comunicazione seriale il pin `RX` di un dispositivo deve essere collegato al pin `TX` dell'altro e vice-versa, come possibile vedere in <a href="#fig2">figura 2</a>.
 
 <div align="center">
-<img src="img/serial_communication.png" alt="Comunicazione Seriale" id="fig2">
+<img src="img/serial_communication.png" alt="Comunicazione Seriale" width="50%"id="fig2">
 <p align="center">[Fig 2] Comunicazione seriale</p>
 </div>
 
