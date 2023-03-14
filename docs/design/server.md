@@ -48,7 +48,80 @@ In conclusione, possiamo dire che questa struttura, ci consente di tenere separa
 </div>
 
 ## Anilisi dei diversi micro-servizi
-//TODO parlare dei diversi micro-servizi quello che fanno cosa gestiscono e dell'api che espongono
+Come detto precedentemente, al fine di rispettare l'architettura esagonale, ogni micro-servizio espone delle API attraverso gli adapters in modo tale che le sue funzionalità possano essere utilizzate dai client del servizio. Per quanto riguarda gli adapters HTTP si è deciso di esporre le funzionalità dei servizi aderendo allo stile architetturale *REST*, per cui le risorse saranno identificate da un HTTP URI, per accedere alle risorse e trasferirle si utilizzeranno i metodi predefiniti e come metodo di trasferimento dei dati si utilizzerà il formato JSON. Per osservare i parametri richiesti da ogni API è possibile consultare la documentazione [OpenAPI](https://app.swaggerhub.com/apis/ANNAVITALI4/SmartGreenhouseServer/1.0.0). prodotta. 
+
+### Greenhouse Communication Service
+Si occupa di gestire le comunicazioni fra il backend e il sistema di automazione (costituito da Arduino e l’ESP); per fare questo è dotato di due adapters: uno MQTT, utilizzato per comunicare con il microcontrollore e uno HTTP per ricevere le richieste dagli altri servizi presenti all'interno del sistema di backend.
+
+
+#### API MQTT
+- topic `dataSG`, utilizzato per ricevere i dati dal microcontrollore nel formato:
+    ```json
+    {
+        "id":"greenhouse1",
+        "topic": "temp", 
+        "data": 10.5
+    }
+    ```
+    Dove `id` rappresenta l'id della serra in cui è posizionato il sensore, `topic` rappresenta il parametro di cui viene notificata la rilevazione e `data` per indicare il valore rilevato dal sensore.
+
+
+Il servizio riceverà quindi i dati sul topic `dataSG`e procederà ad inoltrarli al servizio incaricato di gestire i dati del parametro; ad esempio se viene rilevata una nuova temperatura GreenhouseCommunication inoltrerà, il messaggio al servizio Temperature.
+
+#### API HTTP
+Vengono impiegate dagli altri servizi per delegare a GreenhouseCommunication il compito di comunicare al micro-controllore uno determinata azione correttiva, come ad esempio la richiesta di accendere o spegnere una lampada. Le root esposte dal servizio sono:
+
+- `/greenhouseCommunication/brightnessOperation`, utilizzata per comunicare sul topic `LUMINOSITY` incaricato di gestire gli attuatori per la luminosità;
+- `/greenhouseCommunication/soilMoistureOperation`, utilizzata per comunicare sul topic `IRRIGATION` incaricato di gestire gli attuatori per l'umidità del suolo;
+- `/greenhouseCommunication/humidityOperation`, utilizzata per comunicare sul topic `VENTILATION` incaricato di gestire gli attuatori per l'umidità dell'aria;
+- `/greenhouseCommunication/temperatureOperation`, utilizzata per comunicare sul topic `TEMPERATURE` incaricato di gestire gli attuatori per  la temperatura;
+
+### Greenhouse
+Detiene le informazioni relative alla serra, tra cui la pianta coltivata al suo interno, i range ottimali per i suoi parametri vitali e la modalità attuale di gestione: manuale o automatica. 
+
+Le API esposte dal servizio sono:
+
+- `/greenhouse`, che a seconda del metodo utilizzato, GET o PUT, permette di ottenere le informazioni della serra o modificarne la modalità;
+- `/greenhouse/all`, permette di ottenere tutte le serre presenti nel sistema;
+- `/greenhouse/modlity`, per ottenere la modalità di gestione della serra;
+- `/greenhouse/param`, permette, dato un parametro, di conoscere il suo range ottimale.
+
+### Operation
+È il servizio che detiene e gestisce tutte le operazioni che vengono effettuate all’interno della serra e si occupa di delegare la comunicazione delle operazioni al servizio GreenhouseCommunication e a ClientCommunication di comunicare ai client che una nuova operazione correttiva è stata effettuata. 
+
+Le API esposte dal servizio sono:
+
+- `/operations`, per ottenere tutte le operazioni effetuate in una determinata serra o inserirne una nuova, a seconda del metodo scelto, GET o POST;
+- `/operations/date`, per ottenere le operazioni effetuate in una determinata serra in un determinato range temporale;
+- `/operations/parameter`, per ottenere tutte le operazioni relative ad un parametro effetuate in una determinata serra;
+- `/operations/parameter/last`, per ottenere l'ultima operazione relativa ad un parametro effetuata in una determinata serra;
+
+### ClientCommunication
+È il servizio che si occupa di gestire le comunicazioni con i clients. Sostanzialmente informa tutti i clients connessi dello stato della serra e delle operazioni compiute al suo interno e si occupa anche di raccogliere e gestire le loro richieste;
+
+Le API esposte dal servizio sono:
+-`/clientCommunication/greenhouse`, si occupa di reperire le informazioni relative alla serra;
+-`/clientCommunication/greenhouse/all`, si occupa di ottenere tutte le serre presenti all'interno del sistema;
+-`/clientCommunication/greenhouse/modality/notify`, si occupa di informare tutti i client che la modalità di gestione di una determinata serra è cambiata;
+-`/clientCommunication/greenhouse/modality`, si occupa di modificare la modalità di gestione di una determinata serra;
+-`/clientCommunication/parameter`, reperisce o storicizza l'ultimo valore rilevato da un determinato parametro in una specifica serra;
+-`/clientCommunication/parameter/history`, reperisce lo storico dei valori rilevati da un determinato parametro presente in una specifica serra;
+-`/clientCommunication/operations`, reperisce tutte le operazioni effettuate in una serra o se il metodo è POST ne memorizza una nuova;
+-`/clientCommunication/operations/notify`, notifica ai client che è stata effettuata una nuova operazione all'interno di una specifica serra;
+-`/clientCommunication/operations/date`, reperisce lo storico, in un range temporale, delle operazioni effettuate in una specifica serra.
+
+### Brightness, Humidity, SoilMoisture e Temperature
+Sono tutti servizi che si occupano di gestire i dati raccolti dai sensori per il relativo parametro monitorato o più in generale di rappresentare nel web, il dispositivo fisico che si occupa di monitorare e gestire uno dei parametri della serra. Per fare ciò si è pensato di utilizzare i moderni standar web come livello applicativo dell'IoT, rendendoli di fatto aderenti alla definizione di _Web of Things_ (WoT).
+
+I servizi comunicano con: GreenhouseService, per ottenere l'informazione relativa alla modalità di gestione della serra e il range ottimale del parametro che rappresentano; OperationService, a cui delegano la storicizzazione ed esecuzione delle operazioni correttive e per ottenere l'informazione relativa all'ultima operazione effettuata; ClientCommunication, al fine di delegare la responsabilità di informare i client che un nuovo valore è stato rilevato.
+
+Le API esposte dal servizio sono:
+- `parameterName/`,per ottenere l'ultimo valore rilevato all'interno di una specifica serra o  inserirne uno nuovo, a seconda del metodo scelto, GET o POST;
+- `parameterName/history`, reperisce lo storico dei valori rilevati da un determinato parametro presente in una specifica serra;
+- `parameterName/thing-description`, per ottenere la thing description del servizio.
+
+Dove parameterName deve essere sostituito con `brightness`, `humidity`, `soilMoisture` o `temperature` a seconda del parametro su cui si vuole agire.
+
 
 ## Interazione tra i diversi micro-servizi
 I diversi micro-servizi, per poter svolgere le loro funzioni hanno la necessità di comunicare e interagire tra loro, per capire quali sono le dinamiche del sistema, almeno ad alto livello, possiamo analizzare le figure <a href="#fig4">4</a> e <a href="#fig5">5</a>. 

@@ -11,11 +11,10 @@ Come detto precedentemente, le componenti del sistema che si vuole andare a real
 Per realizzare il sistema di backend, si è deciso di adottare un'architettura a microservizi. Come è possibile vedere dalla <a href="#fig1">figura 1</a>, sono stati individuati otto microservizi principali:
 
 - **GreenhouseCommunication**, si occupa di gestire le comunicazioni fra il backend e il sistema di automazione (costituito da Arduino e l’ESP);
-- **Greenhouse**, il quale detiene le informazioni relative alla serra, tra cui la pianta coltivata al suo interno, i range ottimali per i suoi parametri vitali e la modalità attuale di gestione: manuale o automatica. Questo servizio si occupa, inoltre, di analizzare i diversi dati rilevati dai sensori, in modo da individuare eventuali situazioni di allarme e in tal caso stabilire l’operazione correttiva
-da intraprendere;
+- **Greenhouse**, il quale detiene le informazioni relative alla serra, tra cui la pianta coltivata al suo interno, i range ottimali per i suoi parametri vitali e la modalità attuale di gestione: manuale o automatica;
 - **Operation**, è il servizio che detiene e gestisce tutte le operazioni che vengono effettuate all’interno della serra;
 - **ClientCommunication**, è il servizio che si occupa di gestire le comunicazioni con i clients. Sostanzialmente informa tutti i clients connessi dello stato della serra e delle operazioni compiute al suo interno e si occupa anche di raccogliere e gestire le loro richieste;
-- **Brightness, Humidity SoilMoisture e Temperature** sono tutti servizi che si occupano di salvare i dati raccolti dai sensori per il relativo parametro monitorato e di fornire i dati storici a chi lo richiede.
+- **Brightness, Humidity, SoilMoisture e Temperature** sono tutti servizi che si occupano di gestire i dati raccolti dai sensori per il relativo parametro monitorato.
 
 Dalla <a href="#fig1">figura 1</a> possiamo notare, inoltre, altri tre aspetti principali:
 
