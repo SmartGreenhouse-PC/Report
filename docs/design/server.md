@@ -47,7 +47,72 @@ In conclusione, possiamo dire che questa struttura, ci consente di tenere separa
  <p align="center">[Fig 3] Diagramma delle classi: esempio progettazione entità e interazioni con il DB</p>
 </div>
 
-## Anilisi dei diversi micro-servizi
+## Dipendenze fra i diversi micro-servizi
+
+I diversi micro-servizi, per poter svolgere le loro funzioni hanno la necessità di comunicare e interagire tra loro, per capire quali sono le dinamiche del sistema, almeno ad alto livello, possiamo analizzare le figure <a href="#fig4">4</a> e <a href="#fig5">5</a>. 
+
+In dettaglio la <a href="#fig4">figura 4</a> mostra quali sono le relazioni che regolano i diversi servizi all'interno del bounded context **Greenhouse Core**, come possiamo notare:
+
+- Vi è una dipendenza **monodirezionale**, da GreenhouseCommunication, a tutti i diversi servizi dei parametri, in quanto tale servizio si occuperà di comunicare ad ognuno di loro i valori rilevati;
+- È presente una relazione **monodirezionale**, fra i diversi servizi dei parametri e Greenhouse, in quanto questi si appogiano a tale serivizio per poter ottenere infromazioni relative ai range ottimali previsti per la pianta;
+- Vi è una relazione **bidirezionale** fra i servizi dei parametri e ClientCommunication, in quanto quando un nuovo valore viene registrato il Client viene informato per mezzo delle Socket e quando il Client è interessato a ricevere i dati storici interroga i diversi servizi;
+- Vi è una relazione **bidirezionale** fra ClientCommunication e Operation, in quanto il servizio Operation si occupa di aggiornare i clients in relazione alle nuove operazioni compiute dal sistema in modalità automatica, mentre ClientCommunication notifica ad Operation le operazioni richieste dagli utenti tramite la modalità manuale;
+- È presente una relazione **monodirezionale** fra i servizi Operation e GreenhouseCommunication, in quanto il servizio Operation si occupa di notificare a GreenhouseCommunication quli sono le operazioni da svolgere sulla serra;
+- È presente una relazione **monodirezionale** monodirezionale fra ClientCommunication e Greenhouse, in quanto CLientCommunication interroga Greenhouse per poter ricevere le infromazioni relative alla serra. 
+
+<div align="center">
+<img src="img/microservizi_greenhouse_core_dipendenze.png" width="70%" alt="Greenhouse core dipendenze micro-servizi" id="fig4">
+ <p align="center">[Fig 4] Dipendenze fra i diversi micro-servizi all'interno di Greenhouse Core</p>
+</div>
+
+## Interazione tra i diversi micro-servizi
+
+I diversi micro-servizi, per poter svolgere le loro funzioni hanno la necessità di comunicare e interagire tra loro, per capire quali sono le dinamiche del sistema, almeno ad alto livello, possiamo analizzare la  <a href="#fig4">figura 4</a>. 
+
+In dettaglio la <a href="#fig4">figura 4</a> mostra come avvengono le comunicazioni all'interno del bounded context **Gestione Serra**. Tale bounded context prevede,infatti, la presenza di cinque micro-servizi: Brightness, Humidity, SoilMoisture, Temperature e Greenhouse i quali comunicano tra loro per mezzo delle **API** messe a disposizione da ciascuno. Nello specifico, la comunicazione, come si può vedere in figura, avviene in modo unidirezionale a partire dal servizio ``Greenhouse``, in quanto è quest'ultimo che ha il compito di ricevere i dati rilevati all'interno della serra e delegare poi al rispettivo servizio il compito di storicizzarli.
+
+<div align="center">
+<img src="img/gestione_serra.png" width="60%" alt="Gestione serra interazioni" id="fig4">
+ <p align="center">[Fig 4] Interazione dei micro-servizi all'interno di Gestione serra</p>
+</div>
+
+Nella <a href="#fig5">figura 5</a> è, invece, possibile osservare come avvengono le interazioni tra i microservizi, che compongono i bounded context presenti nel sub-domain **Greenhouse core**. È da notare che in questo caso, sono stati omessi i micro-servizi presenti all'interno del bounded context Gestione serra, al fine di rendere più chiara la rappresentazione.
+
+<div align="center">
+<img src="img/interazioni_microservizi.png" alt="interazioni microservizi" id="fig5">
+ <p align="center">[Fig 5] Interazione dei micro-servizi presenti nel sub domain Greenhouse core</p>
+</div>
+
+L'interazione in questo caso può coinvolgere due fonti distinte: il Client, Desktop o Mobile, oppure il sistema di automazione. Nel primo caso le interazioni che possono avvenire da e verso il client, passano tutte per il servizio ``ClientCommunication``. Nel caso delle richieste effettuate dal Client verso il sistema di backend, il servizio può comunicare con uno dei micro-servizi presenti all'interno del bounded context **Gestione serra**, qualora fosse interessato a reperire le informazioni relative alla serra o ad uno o più dei parametri rilevati, oppure con il servizio ``Operation`` presente all'interno del bounded context **Operation**, qualora fosse interessato a reperire o effettuare un'operazione sulla serra. Per quanto riguarda invece le comunicazioni verso il client, queste possono solo partire dal servizio ``Greenhouse``, le quali passando, come detto, per ``ClientCommunication`` arrivano al Client.
+
+Nel caso, invece, in cui le interazioni coinvolgano il sistema di automazione, tutte le comunicazioni sono mediate dal servizio ``GreenhouseCommunication``, presente all'interno del bounded context **Gestione comunicazione serra**. Tale servizio può comunicare solo con il servizio ``Greenhouse`` al fine di informarlo dei nuovi rilevamenti, mentre può ricevere delle richieste solo dal servizio ``Operation`` il quale lo informa di eseguire una determinata operazione sulla serra, indipendentemente dalla modalità di gestione adottata.
+
+Il servizio ``Operation``, come si può notare in <a href="#fig5">figura 5</a>, può ricevere le richieste sia da ``ClientCommunication``, il quale come detto, può richiedere le informazioni relative alle operazioni o richiederne l'esecuzione di una specifica quando la modalità di gestione è manuale, oppure da ``Greenhouse``, qualora la modalità di gestione fosse automatica e risultasse necessario effettuare un'operazione correttiva.
+
+Di seguito (figure <a href="#fig6">6</a> e <a href="#fig7">7</a>) verrà mostrato un esempio, mediante apposito diagramma, delle interazioni che sono presenti all'interno del sistema; per semplicità e chiarezza espressiva l'esempio considera un solo parametro della pianta da monitorare: la temperatura.
+
+<div align="center">
+<img src="img/interazioni_automatica.png" alt="interazioni automatica" id="fig6">
+ <p align="center">[Fig 6] Diagramma delle interazioni: interazione micro-servizi con modalità automatica</p>
+</div>
+
+La <a href="#fig6">figura 6</a> mostra il caso in cui la serra sia gestita in modo automatico. In queste condizioni il sistema, a seguito del rilevamento di una condizione di allarme o del rientro di quest'ultima sarà incaricato d'intraprendere un'azione correttiva. Nell'esempio in questione i servizi coinvolti sono: 
+- ``GreenhouseCommunication``, il quale riceve i dati rilevati dai sensori posti all'interno della serra;
+- ``Greenhouse`` che riceve i dati rilevati e verifica se si trovano all'interno dei range ottimali;
+- ``Temperature``, il cui compito è quello di salvare le rilevazioni effettuate;
+- ``Operation``, il quale nel caso in cui sia necessario svolgere un'operazione correttiva, ne registra le informazioni e ne richiede l'esecuzione;
+- ``ClientCommunication``, che si occupa di inviare ai clients tutte le informazioni necessarie al fine di mantenerli sempre aggiornati. 
+
+Come si può vedere dal diagramma (<a href="#fig6">figura 6</a>), l'interazione inizia dal sistema di automazione, il quale non appena vengono rilevati nuovi valori per i parametri li invia al servizio ``GreenhouseCommunication``, che si occupa di inoltrarli al servizio ``Greenhouse``. Quest'ultimo per prima cosa invierà il parametro relativo alla temperatura al servizio ``Temperature``, per il suo salvataggio, successivamente verificherà che il valore registrato non sia critico per la pianta. Se si verifica una situazione di allarme, il servizio ``Greenhouse``, determina l'operazione da intraprendere sulla base del parametro e del tipo di criticità, dopodiché richiederà al sistema di eseguire l'operazione individuata e di storicizzarla tramite l'inoltro di questa al servizio ``Operation`` e infine, si occuperà della sua comunicazione al servizio ``ClientCommunication``, in modo che i Client vengano aggiornati.
+
+Se il sistema, invece, viene gestito tramite la modalità manuale (<a href="#fig7">figura 7</a>) l'interazione è molto simile a quanto visto precedentemente, tuttavia in questo caso non è più il servizio ``Greenhouse`` a decidere l'operazione da intraprendere, ma questa decisione spetterà al Client Mobile. In particolare, il Client Mobile, dopo aver richiesto il controllo manuale, al servizio ``ClientCommunication``, avrà la possibilità di richiedere l'esecuzione di determinate operazioni, le quali verranno sempre inviate al sistema di automazione tramite il servizio ``GreenhouseCommunication``.
+
+<div align="center">
+<img src="img/interazioni_manuale.png" alt="interazioni manuale" id="fig7">
+ <p align="center">[Fig 7] Diagramma delle interazioni: interazione micro-servizi con modalità manuale</p>
+</div>
+
+## API dei diversi micro-servizi
 Come detto precedentemente, al fine di rispettare l'architettura esagonale, ogni micro-servizio espone delle API attraverso gli adapters in modo tale che le sue funzionalità possano essere utilizzate dai client del servizio. Per quanto riguarda gli adapters HTTP si è deciso di esporre le funzionalità dei servizi aderendo allo stile architetturale *REST*, per cui le risorse saranno identificate da un HTTP URI, per accedere alle risorse e trasferirle si utilizzeranno i metodi predefiniti e come metodo di trasferimento dei dati si utilizzerà il formato JSON. Per osservare i parametri richiesti da ogni API è possibile consultare la documentazione [OpenAPI](https://app.swaggerhub.com/apis/ANNAVITALI4/SmartGreenhouseServer/1.0.0). prodotta. 
 
 ### Greenhouse Communication Service
@@ -120,76 +185,11 @@ I servizi comunicano con: GreenhouseService, per ottenere l'informazione relativ
 
 Le API esposte dal servizio sono:
 
-- `parameterName/`,per ottenere l'ultimo valore rilevato all'interno di una specifica serra o  inserirne uno nuovo, a seconda del metodo scelto, GET o POST;
+- `parameterName`,per ottenere l'ultimo valore rilevato all'interno di una specifica serra o  inserirne uno nuovo, a seconda del metodo scelto, GET o POST;
 - `parameterName/history`, reperisce lo storico dei valori rilevati da un determinato parametro presente in una specifica serra;
 - `parameterName/thing-description`, per ottenere la thing description del servizio.
 
 Dove parameterName deve essere sostituito con `brightness`, `humidity`, `soilMoisture` o `temperature` a seconda del parametro su cui si vuole agire.
-
-## Dipendenze fra i diversi micro-servizi
-
-I diversi micro-servizi, per poter svolgere le loro funzioni hanno la necessità di comunicare e interagire tra loro, per capire quali sono le dinamiche del sistema, almeno ad alto livello, possiamo analizzare le figure <a href="#fig4">4</a> e <a href="#fig5">5</a>. 
-
-In dettaglio la <a href="#fig4">figura 4</a> mostra quali sono le relazioni che regolano i diversi servizi all'interno del bounded context **Greenhouse Core**, ocme possiamo notare:
-
-- Vi è una dipendenza **monodirezionale**, da GreenhouseCommunication, a tutti i diversi servizi dei parametri, in quanto tale servizio si occuperà di comunicare ad ognuno di loro i valori rilevati;
-- È presente una relazione **monodirezionale**, fra i diversi servizi dei parametri e Greenhouse, in quanto questi si appogiano a tale serivizio per poter ottenere infromazioni relative ai range ottimali previsti per la pianta;
-- Vi è una relazione **bidirezionale** fra i servizi dei parametri e ClientCommunication, in quanto quando un nuovo valore viene registrato il Client viene informato per mezzo delle Socket e quando il Client è interessato a ricevere i dati storici interroga i diversi servizi;
-- Vi è una relazione **bidirezionale** fra ClientCommunication e Operation, in quanto il servizio Operation si occupa di aggiornare i clients in relazione alle nuove operazioni compiute dal sistema in modalità automatica, mentre ClientCommunication notifica ad Operation le operazioni richieste dagli utenti tramite la modalità manuale;
-- È presente una relazione **monodirezionale** fra i servizi Operation e GreenhouseCommunication, in quanto il servizio Operation si occupa di notificare a GreenhouseCommunication quli sono le operazioni da svolgere sulla serra;
-- È presente una relazione **monodirezionale** monodirezionale fra ClientCommunication e Greenhouse, in quanto CLientCommunication interroga Greenhouse per poter ricevere le infromazioni relative alla serra. 
-
-<div align="center">
-<img src="img/microservizi_greenhouse_core_dipendenze.png" width="70%" alt="Greenhouse core dipendenze micro-servizi" id="fig4">
- <p align="center">[Fig 4] Dipendenze fra i diversi micro-servizi all'interno di Greenhouse Core</p>
-</div>
-
-## Interazione tra i diversi micro-servizi
-
-I diversi micro-servizi, per poter svolgere le loro funzioni hanno la necessità di comunicare e interagire tra loro, per capire quali sono le dinamiche del sistema, almeno ad alto livello, possiamo analizzare la  <a href="#fig4">figura 4</a>. 
-
-In dettaglio la <a href="#fig4">figura 4</a> mostra come avvengono le comunicazioni all'interno del bounded context **Gestione Serra**. Tale bounded context prevede,infatti, la presenza di cinque micro-servizi: Brightness, Humidity, SoilMoisture, Temperature e Greenhouse i quali comunicano tra loro per mezzo delle **API** messe a disposizione da ciascuno. Nello specifico, la comunicazione, come si può vedere in figura, avviene in modo unidirezionale a partire dal servizio ``Greenhouse``, in quanto è quest'ultimo che ha il compito di ricevere i dati rilevati all'interno della serra e delegare poi al rispettivo servizio il compito di storicizzarli.
-
-<div align="center">
-<img src="img/gestione_serra.png" width="60%" alt="Gestione serra interazioni" id="fig4">
- <p align="center">[Fig 4] Interazione dei micro-servizi all'interno di Gestione serra</p>
-</div>
-
-Nella <a href="#fig5">figura 5</a> è, invece, possibile osservare come avvengono le interazioni tra i microservizi, che compongono i bounded context presenti nel sub-domain **Greenhouse core**. È da notare che in questo caso, sono stati omessi i micro-servizi presenti all'interno del bounded context Gestione serra, al fine di rendere più chiara la rappresentazione.
-
-<div align="center">
-<img src="img/interazioni_microservizi.png" alt="interazioni microservizi" id="fig5">
- <p align="center">[Fig 5] Interazione dei micro-servizi presenti nel sub domain Greenhouse core</p>
-</div>
-
-L'interazione in questo caso può coinvolgere due fonti distinte: il Client, Desktop o Mobile, oppure il sistema di automazione. Nel primo caso le interazioni che possono avvenire da e verso il client, passano tutte per il servizio ``ClientCommunication``. Nel caso delle richieste effettuate dal Client verso il sistema di backend, il servizio può comunicare con uno dei micro-servizi presenti all'interno del bounded context **Gestione serra**, qualora fosse interessato a reperire le informazioni relative alla serra o ad uno o più dei parametri rilevati, oppure con il servizio ``Operation`` presente all'interno del bounded context **Operation**, qualora fosse interessato a reperire o effettuare un'operazione sulla serra. Per quanto riguarda invece le comunicazioni verso il client, queste possono solo partire dal servizio ``Greenhouse``, le quali passando, come detto, per ``ClientCommunication`` arrivano al Client.
-
-Nel caso, invece, in cui le interazioni coinvolgano il sistema di automazione, tutte le comunicazioni sono mediate dal servizio ``GreenhouseCommunication``, presente all'interno del bounded context **Gestione comunicazione serra**. Tale servizio può comunicare solo con il servizio ``Greenhouse`` al fine di informarlo dei nuovi rilevamenti, mentre può ricevere delle richieste solo dal servizio ``Operation`` il quale lo informa di eseguire una determinata operazione sulla serra, indipendentemente dalla modalità di gestione adottata.
-
-Il servizio ``Operation``, come si può notare in <a href="#fig5">figura 5</a>, può ricevere le richieste sia da ``ClientCommunication``, il quale come detto, può richiedere le informazioni relative alle operazioni o richiederne l'esecuzione di una specifica quando la modalità di gestione è manuale, oppure da ``Greenhouse``, qualora la modalità di gestione fosse automatica e risultasse necessario effettuare un'operazione correttiva.
-
-Di seguito (figure <a href="#fig6">6</a> e <a href="#fig7">7</a>) verrà mostrato un esempio, mediante apposito diagramma, delle interazioni che sono presenti all'interno del sistema; per semplicità e chiarezza espressiva l'esempio considera un solo parametro della pianta da monitorare: la temperatura.
-
-<div align="center">
-<img src="img/interazioni_automatica.png" alt="interazioni automatica" id="fig6">
- <p align="center">[Fig 6] Diagramma delle interazioni: interazione micro-servizi con modalità automatica</p>
-</div>
-
-La <a href="#fig6">figura 6</a> mostra il caso in cui la serra sia gestita in modo automatico. In queste condizioni il sistema, a seguito del rilevamento di una condizione di allarme o del rientro di quest'ultima sarà incaricato d'intraprendere un'azione correttiva. Nell'esempio in questione i servizi coinvolti sono: 
-- ``GreenhouseCommunication``, il quale riceve i dati rilevati dai sensori posti all'interno della serra;
-- ``Greenhouse`` che riceve i dati rilevati e verifica se si trovano all'interno dei range ottimali;
-- ``Temperature``, il cui compito è quello di salvare le rilevazioni effettuate;
-- ``Operation``, il quale nel caso in cui sia necessario svolgere un'operazione correttiva, ne registra le informazioni e ne richiede l'esecuzione;
-- ``ClientCommunication``, che si occupa di inviare ai clients tutte le informazioni necessarie al fine di mantenerli sempre aggiornati. 
-
-Come si può vedere dal diagramma (<a href="#fig6">figura 6</a>), l'interazione inizia dal sistema di automazione, il quale non appena vengono rilevati nuovi valori per i parametri li invia al servizio ``GreenhouseCommunication``, che si occupa di inoltrarli al servizio ``Greenhouse``. Quest'ultimo per prima cosa invierà il parametro relativo alla temperatura al servizio ``Temperature``, per il suo salvataggio, successivamente verificherà che il valore registrato non sia critico per la pianta. Se si verifica una situazione di allarme, il servizio ``Greenhouse``, determina l'operazione da intraprendere sulla base del parametro e del tipo di criticità, dopodiché richiederà al sistema di eseguire l'operazione individuata e di storicizzarla tramite l'inoltro di questa al servizio ``Operation`` e infine, si occuperà della sua comunicazione al servizio ``ClientCommunication``, in modo che i Client vengano aggiornati.
-
-Se il sistema, invece, viene gestito tramite la modalità manuale (<a href="#fig7">figura 7</a>) l'interazione è molto simile a quanto visto precedentemente, tuttavia in questo caso non è più il servizio ``Greenhouse`` a decidere l'operazione da intraprendere, ma questa decisione spetterà al Client Mobile. In particolare, il Client Mobile, dopo aver richiesto il controllo manuale, al servizio ``ClientCommunication``, avrà la possibilità di richiedere l'esecuzione di determinate operazioni, le quali verranno sempre inviate al sistema di automazione tramite il servizio ``GreenhouseCommunication``.
-
-<div align="center">
-<img src="img/interazioni_manuale.png" alt="interazioni manuale" id="fig7">
- <p align="center">[Fig 7] Diagramma delle interazioni: interazione micro-servizi con modalità manuale</p>
-</div>
 
 ## Elementi del tactical design
 Per la realizzazione della componente di backend, sono state seguite le linee guida del tactical design, cercando quindi di individuare tra i concetti del dominio quali avessero il ruolo di entità, value objects o domain service.
