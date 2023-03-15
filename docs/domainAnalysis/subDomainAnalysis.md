@@ -1,5 +1,5 @@
 ---
-title: Ubiquitous Language
+title: Analisi dei sottodomini
 parent: Analisi del dominio
 has_children: false
 nav_order: 4
