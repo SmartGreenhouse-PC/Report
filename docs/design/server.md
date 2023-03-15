@@ -6,7 +6,7 @@ nav_order: 2
 ---
 # Sistema di backend
 
-Una volta individuati i bounded context presenti all'interno del sistema di backend, rappresentato da Greenhouse core, è necessario individuare una strategia di integrazione tale per cui i bounded context al suo interno siano il più autonomi possibili; solo in questo modo si possono evitare ad esempio dei rallentamenti o indisponibilità del sistema. A seguito dell'analisi dei requisiti e considerando l'autonomia dei bounded context, si è quindi scelto di realizzare un'architettura a micro-servizi, la quale porta con se diversi vantaggi, come: l'isolamento dagli errori a singoli componenti del sistema, una maggiore scalabilità, semplicità nel deployment etc.
+Una volta individuati i bounded context presenti all'interno del sistema di backend, rappresentato da Greenhouse core, è necessario individuare una strategia di integrazione tale per cui i bounded context al suo interno siano il più autonomi possibili; solo in questo modo si possono evitare ad esempio dei rallentamenti o indisponibilità del sistema. A seguito dell'analisi dei requisiti e considerando l'autonomia dei bounded context, si è scelto di realizzare un'architettura a micro-servizi, la quale porta con se diversi vantaggi, come: l'isolamento dagli errori a singoli componenti del sistema, una maggiore scalabilità, semplicità nel deployment etc.
 
 ## Architettura a micro-servizi e ports and adapters
 
@@ -17,7 +17,7 @@ Come detto precedentemente, nell'introduzione del Design, sono stati individuati
 <p align="center">[Fig 1] Architettura esagonale</p>
 </div>
 
-Ogni micro-servizio, al fine sempre di ricercare la massima autonomia e isolamento della logica di dominio, come suggerito dalle linee guida del DDD, è stato realizzato tramite un'architettura **esagonale**, anche chiamata **ports and adapters** (<a href="#fig1">figura 1</a>); il che significa che la logica del dominio che questi servizi possono presentare viene isolata dal resto e resa indipendente dalle diverse tecnologie e interfacce che vengono utilizzate. Tale autonomia è ottenuta grazie anche al **principio di inversione delle dipendenze** applicato al suo interno, secondo cui un livello può dipendere solamente dai livelli sottostanti, non da quelli al di fuori di lui; di conseguenza, la logica di dominio è il livello più interno della nostra architettura e non deve dipendere da nessuno, il livello applicativo è l'unico che può dipendere da esso, mentre il livello infrastrutturale può dipendere sia dal livello applicativo che da quello del dominio.
+Ogni micro-servizio, al fine di ricercare la massima autonomia e isolamento della logica di dominio, come suggerito dalle linee guida del DDD, è stato realizzato tramite un'architettura **esagonale**, anche chiamata **ports and adapters** (<a href="#fig1">figura 1</a>); il che significa che la logica del dominio che questi servizi possono presentare viene isolata dal resto e resa indipendente dalle diverse tecnologie e interfacce che vengono utilizzate. Tale autonomia è ottenuta grazie anche al **principio di inversione delle dipendenze** applicato al suo interno, secondo cui un livello può dipendere solamente dai livelli sottostanti, non da quelli al di fuori di lui; di conseguenza, la logica di dominio è il livello più interno della nostra architettura e non deve dipendere da nessuno, il livello applicativo è l'unico che può dipendere da esso, mentre il livello infrastrutturale può dipendere sia dal livello applicativo che da quello del dominio.
 
 I diversi micro-servizi realizzati, come si può vedere nella <a href="#fig2">figura 2</a>, prevedono tutti caratteristiche simili, ossia:
 
@@ -36,7 +36,7 @@ I micro-servizi: ``Greenhouse``, ``Operation``,``Brightness``, ``Temperature``, 
 
 Per capire meglio la progettazione che è stata fatta possiamo guardare la <a href="#fig3">figura 3</a>, la quale mostra un esempio di come è stata modellata l'interazione con il database, per i servizi che si occupano di monitorare un parametro specifico della pianta.
 
-Come si può vedere, per rendere indipendente il ``Model`` rispetto al livello di persistenza dei dati, viene utilizzato un componente ``PlantValueController``, che svolge la funzione di intermediario fra il ``PlantValueDatabase`` e il ``Model``. Grazie a questa struttura è possibile aggiungere un livello di astrazione, infatti se in futuro si decidesse di cambiare il modello della persistenza dei dati, o di avvalersi di altre tecnologie, queste modifiche non andrebbero ad intaccare il ``Model``, garantendo così il suo funzionamento, anche in caso di modifiche future al livello dei dati. 
+Come si può vedere, per rendere indipendente il ``Model`` rispetto al livello di persistenza dei dati, viene utilizzato un componente ``PlantValueController``, che svolge la funzione di intermediario fra il ``PlantValueDatabase`` e il ``Model``. Grazie a questa struttura è possibile aggiungere un livello di astrazione, infatti, se in futuro si decidesse di cambiare il modello della persistenza dei dati, o di avvalersi di altre tecnologie, queste modifiche non andrebbero ad intaccare il ``Model``, garantendo così il suo funzionamento, anche in caso di modifiche future al livello dei dati. 
 
 ``PlantValue``, in questo caso, rappresenta una delle entità del dominio, che viene utilizzata dal livello della persistenza dei dati per poter fornire i dati nel formato corretto a chi lo richiede. 
 
@@ -56,7 +56,7 @@ In dettaglio, la <a href="#fig4">figura 4</a>, mostra quali sono le relazioni ch
 - Vi è una dipendenza **monodirezionale**, da `GreenhouseCommunication`, a tutti i diversi servizi dei parametri, in quanto tale servizio si occuperà di comunicare ad ognuno di loro i valori rilevati;
 - È presente una relazione **monodirezionale**, fra i diversi servizi dei parametri e `Greenhouse`, in quanto questi si appogiano a tale servizio per poter ottenere infromazioni relative ai range ottimali previsti per la pianta e la modalità di gestione;
 - Vi è una relazione **bidirezionale** fra i servizi dei parametri e `ClientCommunication`, perché quando un nuovo valore viene registrato il Client viene informato per mezzo delle Socket dei servizi e quando il Client è interessato a ricevere i dati storici interroga i diversi servizi;
-- Vi è una relazione **bidirezionale** fra `ClientCommunication` e `Operation`, in quanto il servizio `Operation` si occupa di aggiornare i clients in relazione alle nuove operazioni compiute dal sistema in modalità automatica, mentre `ClientCommunication` notifica ad Operation le operazioni richieste dagli utenti tramite la modalità manuale;
+- Vi è una relazione **bidirezionale** fra `ClientCommunication` e `Operation`, in quanto il servizio `Operation` si occupa di aggiornare i clients in relazione alle nuove operazioni compiute dal sistema in modalità automatica, mentre `ClientCommunication` notifica ad `Operation` le operazioni richieste dagli utenti tramite la modalità manuale;
 - È presente una relazione **monodirezionale** fra i servizi `Operation` e `GreenhouseCommunication`, in quanto il servizio `Operation` si occupa di notificare a `GreenhouseCommunication` quali sono le operazioni da svolgere sulla serra;
 - È presente una relazione **monodirezionale** fra `ClientCommunication` e `Greenhouse`, perché `ClientCommunication` interroga `Greenhouse` per poter ricevere le infromazioni relative alla serra. 
 
@@ -87,7 +87,7 @@ Nella <a href="#fig6">figura 6</a> è, invece, possibile osservare meglio quali 
 Di seguito (figure <a href="#fig7">7</a> e <a href="#fig8">8</a>) verrà mostrato un esempio, mediante apposito diagramma, delle interazioni che sono presenti all'interno del sistema; per semplicità e chiarezza espressiva l'esempio considera un solo parametro della pianta da monitorare: la temperatura, ma le interazioni che avvengono sono identiche per i diversi parametri.
 
 <div align="center">
-<img src="img/interazioni_automatica.png" alt="interazioni automatica" id="fig6">
+<img src="img/interazioni_automatica.png" alt="interazioni automatica" id="fig7">
  <p align="center">[Fig 7] Diagramma delle interazioni: interazione micro-servizi con modalità automatica</p>
 </div>
 
@@ -103,15 +103,14 @@ Nell'esempio in questione i servizi coinvolti sono:
 Se il sistema, invece, viene gestito tramite la modalità manuale (<a href="#fig8">figura 8</a>) l'interazione è molto simile a quanto visto precedentemente, tuttavia in questo caso non è più il servizio ``Temperature`` a decidere l'operazione da intraprendere, ma questa decisione spetterà al Client Mobile. In particolare, il Client Mobile, dopo aver richiesto il controllo manuale, al servizio ``ClientCommunication``, avrà la possibilità di richiedere l'esecuzione di determinate operazioni, le quali verranno sempre inviate al sistema di automazione tramite il servizio ``GreenhouseCommunication``.
 
 <div align="center">
-<img src="img/interazioni_manuale.png" alt="interazioni manuale" id="fig7">
- <p align="center">[Fig 7] Diagramma delle interazioni: interazione micro-servizi con modalità manuale</p>
+<img src="img/interazioni_manuale.png" alt="interazioni manuale" id="fig8">
+ <p align="center">[Fig 8] Diagramma delle interazioni: interazione micro-servizi con modalità manuale</p>
 </div>
 
 Osservando i diagrammi di interazione possiamo notare che:
 
 - le interazioni che possono avvenire da e verso il Client, passano tutte per il servizio ``ClientCommunication``; 
-    - il servizio può comunicare con uno dei micro-servizi presenti all'interno del bounded context **Gestione serra**, qualora fosse interessato a reperire le informazioni relative alla serra o ad uno o più dei parametri rilevati, 
-    - oppure con il servizio ``Operation`` presente all'interno del bounded context **Operation**, qualora fosse interessato a reperire o effettuare un'operazione sulla serra.
+    - il servizio può comunicare con uno dei micro-servizi presenti all'interno del bounded context **Gestione serra**, qualora fosse interessato a reperire le informazioni relative alla serra o ad uno o più dei parametri rilevati, oppure con il servizio ``Operation`` presente all'interno del bounded context **Operation**, qualora fosse interessato a reperire o effettuare un'operazione sulla serra.
 - Nel caso, in cui le interazioni coinvolgano il sistema di automazione, tutte le comunicazioni sono mediate dal servizio ``GreenhouseCommunication``, 
     - il servizio può ricevere delle richieste solo da ``Operation`` il quale lo informa di eseguire una determinata operazione sulla serra, indipendentemente dalla modalità di gestione adottata.
 

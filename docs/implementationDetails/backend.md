@@ -70,14 +70,14 @@ Gli _adpters_ di ogni servizio, sono stati progettati per essere il più indipen
 Nel caso del servizio `GreenhouseCommunication`, infatti, le operazioni da eseguire sul micro-controllore vengo ricevute prima mediante l'`Adapter` HTTP, le quali vengono elaborate del `Model` incaricato della loro gestione, che si occuperà di inviarle tramite l'`EventBus` messo a disposizione da Vert.x all'`Adapter` MQTT ( <a href="#lst2">listato 2</a>), che come previsto, le comunicherà al sistema di automazione tramite il protocollo MQTT.
 
 ## Web of things e Thing Description
-Come detto precedentemente, i micro-servizi `Brightness`, `Humidity`, `SoilMoisture` e `Temperature`, aderiscono agli standard del _WoT_ . Il componente chiave degli elementi costitutivi di WoT è la descrizione dell'oggetto WoT mediante la sua _Thing description (TD)_. 
+Come detto precedentemente, i micro-servizi `Brightness`, `Humidity`, `SoilMoisture` e `Temperature`, aderiscono agli standard del _WoT_ . Il componente chiave degli elementi costitutivi di WoT è la descrizione dell'oggetto mediante la sua _Thing description (TD)_. 
 
-Una Thing Description definisce un modello informativo di una _thing_ basato sul vocabolario semantico e una serializzazione basata su JSON. I TD, grazied alla loro flessibilità, promuovono l'interoperabilità fornendo metadati sia umani che leggibili (e comprensibili) su una _thing_, come titolo, ID, descrizioni, ecc; descrive inoltre tutte le azioni, gli eventi e le proprietà disponibili di una _thing_ come tutti i meccanismi di sicurezza disponibili per accedervi.
+Una Thing Description definisce un modello informativo di una _thing_ basato sul vocabolario semantico e una serializzazione basata su JSON. Le _TD_, grazie alla loro flessibilità, promuovono l'interoperabilità fornendo metadati leggibili (e comprensibili) dagli esseri umani su una _thing_, come: titolo, ID, descrizioni, ecc; descrive, inoltre, tutte le azioni, gli eventi e le proprietà disponibili di una _thing_ come tutti i meccanismi di sicurezza disponibili per accedervi.
 
-La _thing description_ è stata scritta seguendo lo standard [W3C](https://www.w3.org/TR/wot-thing-description/), per cui è caratterizzata da:
+La _thing description_ adottata da noi è stata scritta seguendo lo standard [W3C](https://www.w3.org/TR/wot-thing-description/), per cui è caratterizzata da:
 
 - *@context*: definisce lo standard in uso;
-- *id*: un identificativo univoco viene assegnato alla thig, di base si tratta dell’indirizzo IP;
+- *id*: un identificativo univoco viene assegnato alla thing, di base si tratta dell’indirizzo IP;
 - *title*: è una stringa sommaria e intuitiva che descrive il dispositivo;
 - *description*: è una stringa intuitiva che descrive il dispositivo e le sue funzioni;
 - *properties*: è una mappa di oggetti [Property](https://www.w3.org/TR/2020/REC-wot-thing-description-20200409/#propertyaffordance) che descrivono gli attributi del dispositivo;
@@ -85,7 +85,7 @@ La _thing description_ è stata scritta seguendo lo standard [W3C](https://www.w
 - *events*: è una mappa di oggetti [Event](https://www.w3.org/TR/2020/REC-wot-thing-description-20200409/#eventaffordance) che definiscono i tipi di eventi che possono essere emessi da un dispositivo;
 
 
-Di seguito viene riportato un esempio di _thing description_, nella precisione quello del servizio `Brightness`, in ogni caso gli altri risultano similari, con l'unica eccezione che vengono modificate le azioni, eventi e proprietà disponibili.
+Di seguito viene riportato un esempio di _thing description_, nella precisione quello del servizio `Brightness`, in ogni caso gli altri risultano similari, con l'unica eccezione che vengono modificate le azioni, glie eventi e le proprietà disponibili.
 
 ```json
 {
