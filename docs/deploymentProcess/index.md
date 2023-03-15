@@ -7,6 +7,7 @@ nav_order: 4
 # Processo di sviluppo
 
 Per il processo di sviluppo, il team ha deciso di utilizzare un approccio SCRUM-inspired.
+
 In particolare, SCRUM e un framework di sviluppo software agile, iterativo e incrementale, che consente la gestione dello sviluppo del prodotto.
 
 Precisamente, tale processo prevede di:

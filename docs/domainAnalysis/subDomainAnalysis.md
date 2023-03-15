@@ -9,7 +9,7 @@ nav_order: 4
 
 Nel Domain Driven Design per poter meglio gestire la complessità del dominio che si vuole analizzare si consiglia di esplorare a fondo il problem-domain individuando sottodomini che siano più semplici da gestire, inoltre, è importante associare ad ognuno di questi sotto-domini individuati un’importanza: core, generic, support, in modo da aiutare gli sviluppatori a comprendere meglio quali sono gli aspetti principali su cui ci si dovrà concentrare. 
 
-Per il problema in esame il tema di sviluppo a seguito del processo di knowledge crunching e di analisi del dominio che è stata eseguita, è riuscito ad individuare quattro sotto-domini principali:
+Per il problema in esame il tema di sviluppo a seguito del processo di knowledge crunching e di analisi del dominio che è stata eseguita, è riuscito ad individuare tre sotto-domini principali:
 
 - **Sistema di automazione serra**, il quale racchiude gli elementi presenti all’interno della serra che consentono la sua gestione in modo automatico;
 - **Greenhouse core**, il quale racchiude le funzionalità principali di gestione dei dati raccolti dal sistema di automazione;
@@ -39,21 +39,21 @@ Dopo aver individuato i diversi sotto-domini di cui si compone il sistema, si è
 
 Il sub-domain **sistema di automazione serra**, si compone di tre diversi bounded context:
 
-- **Rilevazione valori,** il quale racchiude i diversi sensori necessari per poter rilevare i parametri vitali delle piante presenti all’interno della serra
+- **Rilevazione valori,** il quale racchiude i diversi sensori necessari per poter rilevare i parametri vitali delle piante presenti all’interno delle serre
 - **Esecuzione operazioni,** il quale racchiude gli elementi che si occupano di gestire la logica per l’esecuzione delle diverse operazioni che possono essere richieste dall'operatore o dal sistema.
 - **Comunicazioni**, che comprende tutti i diversi elementi necessari per poter inviare i dati rilevati e ricevere i comandi relativi alle operazioni da eseguire.
 
 Il sub-domain **greenhouse core** presenta al suo interno quattro bounded context che sono:
 
-- **Gestione comunicazioni serra**, il quale si occupa di gestire le comunicazioni con il sistema di automazione della serra;
+- **Gestione comunicazioni serra**, il quale si occupa di gestire le comunicazioni con il sistema di automazione delle serre;
 - **Gestione serra**, che si occupa di raccogliere e gestire i dati rilevati all’interno della serra dai rispettivi sensori;
 - **Gestione operazioni**, il quale si occupa di raccogliere le operazioni che il sistema o l’operatore hanno richiesto di eseguire;
 - **Gestione comunicazioni client**, il quale si occupa di gestire le comunicazioni con i client Desktop e Mobile.
 
 Il sub-domain client, è costituito dai seguenti bounded-context:
 
-- **Mobile**, il quale detiene gli elementi necessari per consentire il monitoraggio dello stato della serra e la sua gestione in modalità manuale da parte di un operatore tramite un’applicazione Mobile
-- **Desktop**, che detiene gli elementi affinché possa essere effettuata un’analisi della situazione attuale della serra e delle operazioni compiute al suo interno, tramite l’utilizzo di un’applicazione Desktop.
+- **Mobile**, il quale detiene gli elementi necessari per consentire il monitoraggio dello stato delle serre e la loro gestione in modalità manuale da parte di un operatore tramite un’applicazione Mobile
+- **Desktop**, che detiene gli elementi affinché possa essere effettuata un’analisi della situazione attuale delle serre e delle operazioni compiute al loro interno, tramite l’utilizzo di un’applicazione Desktop.
 
 ### Context map
 

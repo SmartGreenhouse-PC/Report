@@ -107,7 +107,7 @@ mobile schermata principale" width="30%" >
 </div>
 
 <div align="center">
-<img src="img/Mobile03-ControlloAutomatico.png" alt="mobile schermata controllo automatico" width="50%">
+<img src="img/Mobile03-ControlloAutomatico.png" alt="mobile schermata controllo automatico" width="30%">
 <p align="center" id="fig13">[Fig 13] Mock-up applicazione mobile: controllo automatico</p>
 </div>
 

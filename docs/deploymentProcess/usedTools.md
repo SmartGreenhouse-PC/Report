@@ -7,10 +7,10 @@ nav_order: 1
 
 ## Strumenti utilizzati
 
-Per la realizzazione del progetto sono stati utilizzati differenti tool a supporto del processo di sviluppo. Tali strumenti, hanno come obiettivo quello di agevolare gli sviluppatori durante tutta la realizzazione del progetto, cercando di automatizzarne i diversi aspetti.
+Per la realizzazione del progetto sono stati utilizzati differenti _tool_ a supporto del processo di sviluppo. Tali strumenti, hanno come obiettivo quello di agevolare gli sviluppatori durante tutta la realizzazione del progetto, cercando di automatizzarne i diversi aspetti.
 
 ### Notion
-[Notion](https://www.notion.so/) è lo strumento che è stato utilizzato per gestire e organizzare i lavori necessari per la realizzazione del progetto, è un tool multi piattaforma (web, Mac, Windows, iOS, Android) che permette di organizzare attività, prendere note, creare calendari, eventi, wiki, CRM e tanto altro in un unica area di lavoro, in maniera modulare e collaborativa.
+[Notion](https://www.notion.so/) è lo strumento che è stato utilizzato per gestire e organizzare i lavori necessari per la realizzazione del progetto, è un tool multi piattaforma (web, Mac, Windows, iOS, Android) che permette di organizzare attività, prendere note, creare calendari, eventi, _wiki_, _CRM_ e tanto altro in un unica area di lavoro, in maniera modulare e collaborativa.
 
 Ci ha consentito di organizzare le attività per i diversi sprint e di raccogliere in un unico punto tutti i documenti ed elementi utili, necessari per il progetto.
 
@@ -29,7 +29,7 @@ Ci ha consentito di organizzare le attività per i diversi sprint e di raccoglie
 </div>
 
 ### Arduino Cloud
-Arduino Cloud è una piattaforma online pensata per rendere semplice la creatione, lo sviluppo e il moitoraggio di progetti IoT. È una piattaforma che permette a chiunque di creare progetti IoT, con un'interfaccia _user friendly_ e una soluzione all in one per la configurazione, la scrittura di codice, il caricamento e la visualizzazione.
+[Arduino Cloud](https://cloud.arduino.cc/) è una piattaforma online pensata per rendere semplice la creazione, lo sviluppo e il moitoraggio di progetti IoT. È una piattaforma che permette a chiunque di creare progetti IoT, con un'interfaccia _user friendly_ e una soluzione _all-in-one_ per: la configurazione, la scrittura di codice, il caricamento e la visualizzazione dei dati.
 
 <div align="center">
 <img src="img/arduinocloud_icon.png" alt="icona egon" id="fig2">
@@ -40,9 +40,9 @@ Arduino Cloud è una piattaforma online pensata per rendere semplice la creation
 
 ### GitHub 
 
-[GitHub](https://github.com/) è un servizio di hosting per lo sviluppo del software e gestione del _version-control_ basato su Git. Fornisce: il _distributed version control_ di Git più l'_access control_, il tracciamento dei bug, le richieste di funzionalità software, la gestione delle attività, l'integrazione continua e wiki per ogni progetto.
+[GitHub](https://github.com/) è un servizio di _hosting_ per lo sviluppo del software e gestione del _version-control_ basato su Git. Fornisce: il _distributed version control_ di Git più l'_access control_, il tracciamento dei bug, le richieste di funzionalità software, la gestione delle attività, l'integrazione continua e _wiki_ per ogni progetto.
 
-Per il nostro progetto abbiamo utilizzato: GitHub come servizio di hosting per il codice sorgente, le GitHub actions per promuovere il processo di _continuous integration_ e le GitHub Pages per la documentazione e spiegazione del sistema realizzato.
+Per il nostro progetto abbiamo utilizzato: **GitHub** come servizio di hosting per il codice sorgente, le **GitHub actions** per promuovere il processo di _continuous integration_ e le **GitHub pages** per la documentazione e spiegazione del sistema realizzato.
 
 <div align="center">
 <img src="img/github_icon.png" width="200" alt="icona github" id="fig3">
@@ -51,7 +51,7 @@ Per il nostro progetto abbiamo utilizzato: GitHub come servizio di hosting per i
 
 ### Gradle
 
-[Gradle](https://gradle.org/) è un _build automation tool open-source_, JVM-based, che consente di automatizzare la costruzione dei progetti Java; esso rende semplice anche l’impostazione di diverse librerie, che possono essere utilizzate all’interno del progetto, senza la necessità di includere i .jar, ma specificando direttamente delle dipendenze da un repository remoto. Gradle consente anche la gestione di un progetto costituito da diversi moduli e delle diverse dipendenze che vi possono essere fra questi.
+[Gradle](https://gradle.org/) è un _build automation tool open-source_, JVM-based, che consente di automatizzare la costruzione dei progetti Java; esso rende semplice anche l’impostazione di diverse librerie, che possono essere utilizzate all’interno del progetto, senza la necessità di includere i `.jar`, ma specificando direttamente delle dipendenze da un _repository_ remoto. Gradle consente anche la gestione di un progetto costituito da diversi moduli e delle diverse dipendenze che vi possono essere fra questi.
 
 <div align="center">
 <img src="img/gradle_icon.png" width="200" alt="icona gradle" id="fig4">
@@ -62,7 +62,7 @@ Per il nostro progetto abbiamo utilizzato: GitHub come servizio di hosting per i
 
 Per il progetto si è deciso di utilizzare il framework [JUnit 5](https://junit.org/junit5/) per la realizzazione di test automatizzati sul codice Java.
 
-JUnit è un _framework open-source_ che può essere utilizzato per la realizzazione di test per il linguaggio Java, fornisce asserzioni per testare i risultati attesi, annotazioni per identificare i metodi e test runner grafici e testuali; inoltre, mette a disposizione una suite per organizzare e permette la condivisone dei risultati. 
+JUnit è un _framework open-source_ che può essere utilizzato per la realizzazione di test per il linguaggio Java, fornisce asserzioni per testare i risultati attesi, annotazioni per identificare i metodi e _test runner_ grafici e testuali; inoltre, mette a disposizione una _suite_ per organizzare e permette la condivisone dei risultati. 
 
 <div align="center">
 <img src="img/junit_icon.png" width="200" alt="icona junit" id="fig5">

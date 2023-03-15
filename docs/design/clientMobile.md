@@ -36,7 +36,7 @@ L’applicazione Mobile è stata progettata seguendo gli aspetti appena descritt
 Riassumendo, la struttura utilizzata nell’applicazione è raffigurato nella <a href="#fig2">figura 2</a>.
 
 <div align="center">
-<img src="img/android_struttura.png" alt="struttura del client mobile" id="fig2">
+<img src="img/android_struttura.png" width="30%" alt="struttura del client mobile" id="fig2">
  <p align="center">[Fig 2] Struttura dell'applicazione Mobile</p>
 </div>
 

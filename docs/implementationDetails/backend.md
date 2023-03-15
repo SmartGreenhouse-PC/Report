@@ -35,7 +35,6 @@ public void start() {
         try {
             router.get(BASE_PATH).handler(this::handleGetGreenhouse);
             router.put(BASE_PATH).handler(this::handlePutModality);
-            router.post(BASE_PATH).handler(this::handlePostSensorData);
             router.get(MODALITY_PATH).handler(this::handleGetModality);
             router.get(PARAM_PATH).handler(this::handleGetParamValues);
 
@@ -72,7 +71,7 @@ Nel caso del servizio `GreenhouseCommunication`, infatti, le operazioni da esegu
 ## Web of things e Thing Description
 Come detto precedentemente, i micro-servizi `Brightness`, `Humidity`, `SoilMoisture` e `Temperature`, aderiscono agli standard del _WoT_ . Il componente chiave degli elementi costitutivi di WoT è la descrizione dell'oggetto mediante la sua _Thing description (TD)_. 
 
-Una Thing Description definisce un modello informativo di una _thing_ basato sul vocabolario semantico e una serializzazione basata su JSON. Le _TD_, grazie alla loro flessibilità, promuovono l'interoperabilità fornendo metadati leggibili (e comprensibili) dagli esseri umani su una _thing_, come: titolo, ID, descrizioni, ecc; descrive, inoltre, tutte le azioni, gli eventi e le proprietà disponibili di una _thing_ come tutti i meccanismi di sicurezza disponibili per accedervi.
+Una Thing Description definisce un modello informativo di una _thing_ basato sul vocabolario semantico e una serializzazione basata su JSON. Le _TD_, grazie alla loro flessibilità, promuovono l'interoperabilità fornendo metadati su una _thing_ leggibili (e comprensibili) dagli esseri umani come titolo, ID, descrizioni, ecc; descrive, inoltre, tutte le azioni, gli eventi e le proprietà disponibili di una _thing_ come tutti i meccanismi di sicurezza disponibili per accedervi.
 
 La _thing description_ adottata da noi è stata scritta seguendo lo standard [W3C](https://www.w3.org/TR/wot-thing-description/), per cui è caratterizzata da:
 

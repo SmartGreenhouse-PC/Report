@@ -21,9 +21,10 @@ Sono stati identificati i seguenti requisiti funzionali per le diversi component
 ## Applicazione Desktop
 
 1. All'avvio dell'applicazione Desktop il sistema dovrà essere in grado di:
-    1. mostrare informazioni relative alla pianta coltivata e i diversi range ottimali da mantenere previsti per i diversi parametri;
-    2. mostrare i valori rilevati per i diversi valori monitorati;
-    3. enfatizzare eventuali parametri che si trovano in uno stato di allarme, ad esempio, tramite l'utilizzo di un colore come il rosso.
+    1. mostrare le diverse serre che è possibile monitorare;
+    2. mostrare informazioni relative alla pianta coltivata e i diversi range ottimali da mantenere previsti per i diversi parametri;
+    3. mostrare i valori rilevati per i diversi valori monitorati;
+    4. enfatizzare eventuali parametri che si trovano in uno stato di allarme, ad esempio, tramite l'utilizzo di un colore come il rosso.
 
 2. mostrare per i diversi parametri lo storico delle rilevazioni effettuate per un certo periodo di tempo, attraverso un grafico e/o una tabella che riporti informazioni riassuntive quali: valore rilevato, data e orario della rilevazione;
 3. mostrare le diverse operazioni effettuate dal sistema, in modo automatico, o dall'operatore sul campo tramite la modalità manuale.
@@ -31,9 +32,10 @@ Sono stati identificati i seguenti requisiti funzionali per le diversi component
 ## Applicazione Mobile
 
 1. All'avvio l'applicazione Mobile dovrà consentire di:
-    1. mostrare informazioni relative alla pianta coltivata e i diversi range ottimali da mantenere previsti per i diversi parametri;
-    2. mostrare i valori rilevati per i diversi parametri monitorati;
-    3. enfatizzare eventuali parametri che si trovano in uno stato di allarme.
+    1. mostrare le diverse serre che è possibile monitorare;
+    2. mostrare informazioni relative alla pianta coltivata e i diversi range ottimali da mantenere previsti per i diversi parametri;
+    3. mostrare i valori rilevati per i diversi parametri monitorati;
+    4. enfatizzare eventuali parametri che si trovano in uno stato di allarme.
     
 2. consentire il passaggio di modalità di gestione da automatica a manuale e viceversa;
 3. nel caso venga preso il controllo manuale del sistema, mostrare le diverse operazioni che possono essere compiute e lo stato dei diversi sistemi, ad esempio attivo/disattivo.

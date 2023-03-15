@@ -10,15 +10,17 @@ Si voleva realizzare un'applicazione che consentisse la gestione e il monitoragg
 
 Per realizzare questo obiettivo, si è partiti con un'analisi più approfondita dei requisiti del sistema, estraendo la conoscenza del dominio e i termini dell’ubiquitous language da adottare, grazie al processo di knowledge crunching; individuando i requisiti: di business, utente, funzionali, non funzionali e implementativi che il progetto richiedeva. Successivamente, sono stati individuati i sottodomini del sistema: sistema di automazione serra, greenhouse core e client e per ognuno di questi sono stati identificati più bounded context.
 
-Dopodiché si è passati alla progettazione e implementazione delle diverse componenti. Giunti al termine del progetto, il gruppo si ritiene soddisfatto in quanto ha risposto in maniera completa ai requisiti prefissati.
+Dopodiché si è passati alla progettazione e implementazione delle diverse componenti. 
 
-L’adozione della metodologia di sviluppo SCRUM-inspired ha agevolato la realizzazione del progetto e l’adozione di tecnologie per la Continuous Integration ha permesso di verificare su diversi sistemi operativi, ogni qual volta venisse apportata una modifica al codice di produzione, che non fossero state introdotte regressioni nei test.
+Giunti al termine del progetto, il gruppo si ritiene soddisfatto in quanto ha risposto in maniera completa ai requisiti prefissati. L’adozione della metodologia di sviluppo SCRUM-inspired ha agevolato la realizzazione del progetto e l’adozione di tecnologie per la Continuous Integration ha permesso di verificare su diversi sistemi operativi, ogni qual volta venisse apportata una modifica al codice di produzione, che non fossero state introdotte regressioni nei test.
 
 Riteniamo che la realizzazione di questo progetto abbia accresciuto le nostre competenze e la nostra professionalità in quanto:
 
 - ci ha consentito per la prima volta di lavorare con la strategia Domain Driven Design;
 - ci ha permesso di utilizzare e approfondire la strategia DevOps e alcuni strumenti messi a disposizione da GitHub;
 - ci ha dato la possibilità di lavorare con un sistema distribuito e di poter utilizzare container Docker;
+- ci ha dato la possibilità di utilizzare la piattaforma Arduino CLoud;
+- co ha dato la possibilità di lavorare con gli standard del _Web Of Things_
 - necessitava di una programmazione complessa, ma guidata da un processo di sviluppo più sofisticato rispetto a quelli adottati nel percorso triennale;
 - ha migliorato le capacità di collaborazione e di coordinazione all'interno del team.
 

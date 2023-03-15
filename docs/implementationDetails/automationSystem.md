@@ -16,7 +16,7 @@ Quando si crea una nuova "_Thing_" su Arduino Cloud e vi si associa a questa uno
 
 L'instaurazione della connessione effettiva alla piattaforma Cloud, avviene all'intenro del programma principale del progetto individuato dal file `.ino`. 
 
-In particolare, all'intenro del metodo `setup` del programma, come possibile vedere dal <a href="#lst1">listato 1</a>, avviene l'inizializzazione del Serial Monitor e delle proprietà utilizzando il metodo `initProperties`, la connessione ad Arduino Cloud viene inizializzata attraverso il metodo `ArduinoCloud.begin`, il quale utilizza funzioni che sono presenti all'interno delle librerie `ArduinoIoTCloud` e `Arduino_ConnectionHandler`, incluse all'interno del file `thingProperties.h`. Infine, gli altri due metodi richiamati `setDebugMessageLevel` e `ArduinoCloud.printDebugInfo`, vengono utilizzati per funzionalità di debug, essi infatti, si occupano di stampare le infromazioni relative allo stato della rete e alla connessione ad Arduino Cloud.
+In particolare, all'interno del metodo `setup` del programma, come possibile vedere dal <a href="#lst1">listato 1</a>, avviene l'inizializzazione del Serial Monitor e delle proprietà utilizzando il metodo `initProperties`, la connessione ad Arduino Cloud viene inizializzata attraverso il metodo `ArduinoCloud.begin`, il quale utilizza funzioni che sono presenti all'interno delle librerie `ArduinoIoTCloud` e `Arduino_ConnectionHandler`, incluse all'interno del file `thingProperties.h`. Infine, gli altri due metodi richiamati `setDebugMessageLevel` e `ArduinoCloud.printDebugInfo`, vengono utilizzati per funzionalità di debug, essi infatti, si occupano di stampare le infromazioni relative allo stato della rete e alla connessione ad Arduino Cloud.
 
 ```c++
 void setup() {
