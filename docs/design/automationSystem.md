@@ -113,7 +113,7 @@ Per poter gestire al meglio i componenti del Cloud sono state create tre nuove c
  <p align="center">[Fig 8] Diagramma delle classi: componenti cloud per la gestione delle variabili</p>
 </div>
 
-Infine, come detto precedentemente, una funzionalità molto utile di Arduino Cloud, consiste nella possibilità di creare delle _dashboard_ (<a href="#fig9">figura 9</a>) , con cui poter agire e visionare le variabili salvate, quindi per poter visualizzare i valori registrati per la serra e poter agire sui sistmei di attuazione presenti in essa è stata creata un'apposita _dashboard_, che contiene per ogni parametro tre elementi che consentono di visionare il valore attuale registrato e di agire sul sistema di attuazione e di visionarne il suo stato.
+Infine, come detto precedentemente, una funzionalità molto utile di Arduino Cloud, consiste nella possibilità di creare delle _dashboard_ (<a href="#fig9">figura 9</a>) , con cui poter agire e visionare le variabili salvate, quindi per poter visualizzare i valori registrati per la serra e poter agire sui sistemi di attuazione presenti in essa è stata creata un'apposita _dashboard_, che contiene per ogni parametro tre elementi che consentono di visionare il valore attuale registrato e di agire sul sistema di attuazione e di visionarne il suo stato.
 
 <div align="center">
 <img src="img/cloud_dashboard.png" alt="esempio dashboard cloud" id="fig9">
