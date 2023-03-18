@@ -44,6 +44,8 @@ nav_order: 3
 - [Dettagli implementativi](https://smartgreenhouse-pc.github.io/Report/docs/implementationDetails/#dettagli-implementativi)
     - [Dettagli implementativi sistema di automazione](https://smartgreenhouse-pc.github.io/Report/docs/implementationDetails/automationSystem.html#dettagli-implementativi-sistema-di-automazione)
         - [Collegamento ad Arduino Cloud](https://smartgreenhouse-pc.github.io/Report/docs/implementationDetails/automationSystem.html#collegamento-ad-arduino-cloud)
+        - [Utilizzo dello strumento dashboard di Arduino Cloud](https://smartgreenhouse-pc.github.io/Report/docs/implementationDetails/automationSystem.html#utilizzo-dello-strumento-dashboard-di-arduino-cloud)
+        - [Utilizzo dello strumento dashboard di Arduino Cloud]()
         - [Comunicazione tramite il protocollo MQTT](https://smartgreenhouse-pc.github.io/Report/docs/implementationDetails/automationSystem.html#comunicazione-tramite-il-protocollo-mqtt)
         - [Comunicazione seriale](https://smartgreenhouse-pc.github.io/Report/docs/implementationDetails/automationSystem.html#comunicazione-seriale)
     - [Dettagli implementativi sistema di backend](https://smartgreenhouse-pc.github.io/Report/docs/implementationDetails/backend.html#dettagli-implementativi-sistema-di-backend)
@@ -60,3 +62,4 @@ nav_order: 3
         - [Testing del Client Desktop](https://smartgreenhouse-pc.github.io/Report/docs/implementationDetails/testing.html#testing-del-client-desktop)
         - [Testing del client Mobile](https://smartgreenhouse-pc.github.io/Report/docs/implementationDetails/testing.html#testing-del-client-mobile)
     - [Conclusioni](https://smartgreenhouse-pc.github.io/Report/docs/conclusion.html#conclusioni)
+        - [Sviluppi futuri](https://smartgreenhouse-pc.github.io/Report/docs/conclusion.html#sviluppi-futuri)
