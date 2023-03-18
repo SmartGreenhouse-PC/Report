@@ -172,15 +172,16 @@ Le API esposte dal servizio sono:
 
 Le API esposte dal servizio sono:
 
--`/clientCommunication/greenhouse`, si occupa di reperire le informazioni relative alla serra;
--`/clientCommunication/greenhouse/all`, si occupa di ottenere tutte le serre presenti all'interno del sistema;
--`/clientCommunication/greenhouse/modality/notify`, si occupa di informare tutti i client che la modalità di gestione di una determinata serra è cambiata;
--`/clientCommunication/greenhouse/modality`, si occupa di modificare la modalità di gestione di una determinata serra;
--`/clientCommunication/parameter`, reperisce o storicizza l'ultimo valore rilevato da un determinato parametro in una specifica serra;
--`/clientCommunication/parameter/history`, reperisce lo storico dei valori rilevati da un determinato parametro presente in una specifica serra;
--`/clientCommunication/operations`, reperisce tutte le operazioni effettuate in una serra o se il metodo è POST ne memorizza una nuova;
--`/clientCommunication/operations/notify`, notifica ai client che è stata effettuata una nuova operazione all'interno di una specifica serra;
--`/clientCommunication/operations/date`, reperisce lo storico, in un range temporale, delle operazioni effettuate in una specifica serra.
+- `/clientCommunication/greenhouse`, si occupa di reperire le informazioni relative alla serra;
+- `/clientCommunication/greenhouse/all`, si occupa di ottenere tutte le serre presenti all'interno del sistema;
+- `/clientCommunication/greenhouse/modality/notify`, si occupa di informare tutti i client che la modalità di gestione di una determinata serra è cambiata;
+- `/clientCommunication/greenhouse/modality`, si occupa di modificare la modalità di gestione di una determinata serra;
+- `/clientCommunication/parameter`, reperisce o storicizza l'ultimo valore rilevato da un determinato parametro in una specifica serra;
+- `/clientCommunication/parameter/history`, reperisce lo storico dei valori rilevati da un determinato parametro presente in una specifica serra;
+- `/clientCommunication/operations`, reperisce tutte le operazioni effettuate in una serra o se il metodo è POST ne memorizza una nuova;
+- `/clientCommunication/operations/parameter`, reperisce tutte le operazionirelative ad un parametro effettuate in una serra;
+- `/clientCommunication/operations/notify`, notifica ai client che è stata effettuata una nuova operazione all'interno di una specifica serra;
+- `/clientCommunication/operations/date`, reperisce lo storico, in un range temporale, delle operazioni effettuate in una specifica serra.
 
 ### Brightness, Humidity, SoilMoisture e Temperature
 Sono tutti servizi che si occupano di gestire i dati raccolti dai sensori per il relativo parametro monitorato, o più in generale, di rappresentare nel web il dispositivo fisico che si occupa di monitorare e gestire uno dei parametri della serra. Per fare ciò si è pensato di utilizzare i moderni **standar web come livello applicativo dell'IoT**, rendendoli di fatto aderenti alla definizione di _Web of Things_ (WoT).

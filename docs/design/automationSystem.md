@@ -113,5 +113,3 @@ Per poter gestire al meglio i componenti del Cloud sono state create tre nuove c
  <p align="center">[Fig 8] Diagramma delle classi: componenti cloud per la gestione delle variabili</p>
 </div>
 
-
-
