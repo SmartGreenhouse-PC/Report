@@ -29,14 +29,12 @@ Ci ha consentito di organizzare le attività per i diversi sprint e di raccoglie
 </div>
 
 ### Arduino Cloud
-[Arduino Cloud](https://cloud.arduino.cc/) è una piattaforma online pensata per rendere semplice la creazione, lo sviluppo e il moitoraggio di progetti IoT. È una piattaforma che permette a chiunque di creare progetti IoT, con un'interfaccia _user friendly_ e una soluzione _all-in-one_ per: la configurazione, la scrittura di codice, il caricamento e la visualizzazione dei dati.
+[Arduino Cloud](https://cloud.arduino.cc/) è una piattaforma online pensata per rendere semplice la creazione, lo sviluppo e il monitoraggio di progetti IoT. È una piattaforma che permette a chiunque di creare progetti IoT, con un'interfaccia _user friendly_ e una soluzione _all-in-one_ per: la configurazione, la scrittura di codice, il caricamento e la visualizzazione dei dati.
 
 <div align="center">
 <img src="img/arduinocloud_icon.png" alt="icona egon" id="fig2">
  <p align="center">[Fig 3] Arduino Cloud</p>
 </div>
-
-
 
 ### GitHub 
 

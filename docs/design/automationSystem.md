@@ -80,33 +80,33 @@ Per la realizzazione del progetto relativo all'ESP, si è deciso di utilizzare l
 
 - **Data Monitoring**, consente di monitorare i dati relativi ai sensori di Arduino attraverso apposite _dashboard_;
 - **Variable Synchronisation**, offre la possibilità di sincronizzare variabili fra i diversi dispositivi, abilitando la comunicazione fra questi scrivendo una quantità minima di codice;
-- **Scheduler**, consente di schedulare diversi job attivandoli o disattivandoli per un certo quantitativo di tempo;
+- **Scheduler**, consente di schedulare diversi _job_ attivandoli o disattivandoli per un certo quantitativo di tempo;
 - **Over-The-Air-Uploads**, consente il caricamento di codice su dispositivi che non sono connessi al computer;
 - **Webhooks**, da la possibilità di integrare il progetto con altri servizi, come ad esempiop _IFTTT_
 - **Amazon Alexa Support**, consente di introdurre nel prorpio progetto il controllo vocale di _Amazon Alexa_;
-- **Dashboard Sharing**, consente di condividere i prorpi dati con altre persone sparse nel mondo.
+- **Dashboard Sharing**, consente di condividere i propri dati con altre persone sparse nel mondo.
 
-Per poter utilizzare Arduino Cloud, è necessario iscriversi alla piattaforma, una volta fatto questo è possibile registrare diverse "_Things_", che si vogliono programmare, nel nostro caso si è proceduto alla registrazione dell'ESP relativa alla serra.
+Per poter utilizzare Arduino Cloud, è necessario iscriversi alla piattaforma, una volta fatto questo è possibile registrare diverse "_Things_", che si vogliono programmare e nel nostro caso si è proceduto alla registrazione dell'ESP relativa alla serra.
 
 <div align="center">
 <img src="img/cloud_thing.png" alt="pagina things arduino cloud" id="fig6">
  <p align="center">[Fig 6] Things Arduino Cloud</p>
 </div>
 
-Una volta creata la rporia "_Thing_" e impostato i parametri necessari per il Cloud, è possibile associare ad essa delle variabili Cloud, le quali danno la possibilità di: registrare, modificare e visionare i valori attraverso la piattaforma. 
+Una volta creata la propria "_Thing_" e impostato i parametri necessari per il Cloud, è possibile associare ad essa delle variabili Cloud, le quali danno la possibilità di registrare, modificare e visionare i valori attraverso la piattaforma. 
 
 <div align="center">
 <img src="img/cloud_variables.png" alt="pagina things arduino cloud" id="fig7">
  <p align="center">[Fig 7] Variables Arduino Cloud</p>
 </div>
 
-Nel nostro caso sono stare specificate otto varibili, quattro di sola lettura riferite ai parametri rilevati dai sensori e quattro riferite ai sistemi di attuazione alle quali è possibile accedere sia in lettura che in scrittura.
+Nel nostro caso sono stare specificate **otto varibili**, quattro di sola lettura riferite ai parametri rilevati dai sensori e quattro riferite ai sistemi di attuazione alle quali è possibile accedere sia in lettura che in scrittura.
 
 Per poter gestire al meglio i componenti del Cloud sono state create tre nuove classi (<a href="#fig8">figura 8</a>) : 
 
-- `CloudVariableManager`, il quale si occupa di mantenre riferimento ai due diversi componenti che si occupano di gestire le variabili relative ai parametri e quelle relative ai sistemi di attuazione;
-- `CloudParameterHolder`, che si occupa di gestire l'aggiornamento delle variabili relative ai parametri quando vengono notificati dei nuovi dati;
-- `CloudActuatorSystemHolder`, il quale invece si occupa di aggiornare lo stato delle variabili relative ai sistemi di attuazione, ogni qual volta una nuova operazione viene compiuta.
+- **CloudVariableManager**, il quale si occupa di mantenere il riferimento ai due diversi componenti che si occupano di gestire le variabili relative ai parametri e quelle relative ai sistemi di attuazione;
+- **CloudParameterHolder**, che si occupa di gestire l'aggiornamento delle variabili relative ai parametri quando vengono notificati dei nuovi dati;
+- **CloudActuatorSystemHolder**, il quale invece si occupa di aggiornare lo stato delle variabili relative ai sistemi di attuazione, ogni qual volta una nuova operazione viene compiuta.
 
 <div align="center">
 <img src="img/cloud_classi.png" alt="diagramma classi componenti cloud" id="fig8">

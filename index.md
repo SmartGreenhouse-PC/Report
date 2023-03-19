@@ -1,60 +1,27 @@
 ---
-title: Smart Greenhouse
+title: Introduzione
 has_children: false
 nav_order: 1
 ---
 
-# Smart Greenhouse
-Il progetto si propone di realizzare un'applicazione che consenta la gestione e il monitoraggio di un complesso di serre intelligenti.
+# Introduzione
+Per il progetto di Pervasive Computing, si è pensato di unire il progetto che si vuole svolgere per il corso di Smart City e di Laboratorio si Sistemi Software con alcuni degli insegnamenti visti nel corso. Tale porgetto prevede di realizzare un sistema che consenta la gestione e il monitoraggio di un complesso di serre intelligenti.
 
-In particolare, verrà simulata una situazione in cui un committente richieda l’automatizzazione dei processi che regolano le diverse serre e di monitorarne la loro gestione.
+All'interno delle serre è possibile coltivare diverse piantagioni, tuttavia in una serra specifica viene coltivata una sola tipologia di piantagione, per i quali verranno monitorati i seguenti parametri: temperatura ambientale, umidità dell'aria e del terreno e luminosità.
 
-## Scenario
-All'interno di una serra sarà presente una sola tipologia di piantagione, per i quali verranno monitorati i seguenti parametri:
+Conosciuti i valori ottimali, delle grandezze da rilevare per la pianta di riferimento, si vuole monitorare i valori dei parametri in modo da individuare eventuali situazioni critiche, cioè situazioni in cui il valore rilevato non rientra nei range ottimali previsti. Nel caso in cui si verifichi questa condizione, il sistema deve essere in grado automaticamente di porvi rimedio, vale a dire intraprendere delle azioni correttive che consentano di aggiustare i valori rilevati all'interno della serra. Ad esempio, se la temperatura ambientale è troppo elevata il sistema azionerà il modulo di ventilazione, mentre se risulta troppo bassa attiverà le lampade termiche presenti all'interno della serra.
 
-- temperatura ambientale;
-- umidità dell'aria e del terreno
-- luminosità.
+Il sistema sarà caratterizzato da quattro componenti: un modulo Arduino, un Server e due tipologie di clients: Desktop e Mobile.
 
-Conosciuti i valori ottimali, delle grandezze da rilevare per la pianta di riferimento, sarà possibile gestire eventuali situazioni di allarme per uno o più dei parametri monitorati.
+Il modulo Arduino, facente parte del sistema, comprenderà: i diversi sensori presenti nella serra per monitorare lo stato di salute delle piante e i moduli correttivi per la gestione delle operazioni al suo interno.
 
-Il sistema sarà in grado di compiere delle correzioni in modo automatico e/o manuale, al fine di riportare i valori rilevati nei range ottimali, in particolare le azioni che possono essere compiute sono le seguenti:
+Tramite il Client Desktop l'utente avrà la possibilità di poter monitorare lo stato attuale della serra e dei singoli parametri rilevati, visualizzare lo storico delle operazioni compiute sia automaticamente che manualmente ed infine, avrà anche la possibilità di visualizzare i dati storici (relativi a un certo periodo di tempo), per la serra monitorata nel suo complesso o filtrati per parametro: luminosità, temperatura ed umidità del suolo e dell'ambiente.
 
-- regolare l’intensità delle lampade, per gestire la luminosità dell’ambiente;
-- gestire l’umidità dell’aria tramite il sistema di ventilazione;
-- gestire la temperatura sia tramite lampade temriche che attraverso il sistema di ventilazione;
-- aumentare l’umidità del terreno tramite l’attivazione del sistema di irrigazione.
+Il Client Mobile, invece, potrà essere utilizzato dall'operatore sul campo e darà sia la possibilità di visualizzare i valori rilevati che di prendere il controllo manuale della gestione della serra, potendo attivare e disattivare i diversi sistemi in essa presenti. 
 
-## Componenti del sistema
-**Modulo Arduino**
+In particolare, le operazioni che possono essere compiute sono le seguenti:
 
-Il sistema è costituito da un modulo Arduino che comprende i diversi sensori presenti nella serra per monitorare lo stato di salute delle piante e i moduli aggiuntivi per la gestione delle operazioni al suo interno (es. modulo d’irrigazione).
-
-**Applicazione mobile**
-
-L’applicazione mobile potrà essere utilizzata da un operatore sul campo, dandogli la possibilità di:
-
-- scegliere la serra da monitorare;
-- sapere i parametri attuali rilevati all'interno della serra;
-- eventuali situazioni di allarme;
-- intervenire manualmente per poter modificare i valori monitorati e applicare opportune correzioni.
-
-**Applicazione desktop**
-
-L'applicazione in oggetto ha lo scopo di permettere un'analisi dei dati rilevati nel lungo periodo, consentendo anche la visualizzazione in tempo reale dello stato della serra e delle eventuali operazioni di correzione compiute manualmente/automaticamente.
-
-<div align="center">
-<img src="https://github.com/SmartGreenhouse-PC/Report/blob/doc/img/smartgh.png" alt="Smart Greenhouse Logo"  width="220px" height="210px">
-<p align="center">Smart Greenhouse Logo</p>
-</div>
-
-### Componenti del gruppo
-- Mengozzi Maria  - <maria.mengozzi3@studio.unibo.it>
-- Vitali Anna  - <anna.vitali4@studio.unibo.it>
-
-### Repository
-- [Report](https://github.com/SmartGreenhouse-PC/Report) - [GitHub Pages](https://SmartGreenhouse-PC.github.io/Report/)
-- [Sistema di automazione](https://github.com/SmartGreenhouse-PC/ArduinoSensor)
-- [Server](https://github.com/SmartGreenhouse-PC/Server)
-- [Client Desktop](https://github.com/SmartGreenhouse-PC/ClientDesktop.git)
-- [Client Mobile](https://github.com/SmartGreenhouse-PC/ClientMobile)
+- regolare l'intensità delle lampade per gestire la luminosità dell'ambiente,
+- attivare il sistema di ventilazione per gestire l'umidità dell'aria,
+- gestire la temperatura tramite sia il sistema di ventilazione che l'attivazione delle lampade termiche,
+- attivare il sistema di irrigazione per aumentare l’umidità del terreno.

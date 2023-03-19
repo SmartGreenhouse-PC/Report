@@ -16,7 +16,7 @@ Quando si crea una nuova "_Thing_" su Arduino Cloud e vi si associa a questa uno
 
 L'instaurazione della connessione effettiva alla piattaforma Cloud, avviene all'intenro del programma principale del progetto individuato dal file `.ino`. 
 
-In particolare, all'interno del metodo `setup` del programma, come possibile vedere dal <a href="#lst1">listato 1</a>, avviene l'inizializzazione del Serial Monitor e delle proprietà utilizzando il metodo `initProperties`, la connessione ad Arduino Cloud viene inizializzata attraverso il metodo `ArduinoCloud.begin`, il quale utilizza funzioni che sono presenti all'interno delle librerie `ArduinoIoTCloud` e `Arduino_ConnectionHandler`, incluse all'interno del file `thingProperties.h`. Infine, gli altri due metodi richiamati `setDebugMessageLevel` e `ArduinoCloud.printDebugInfo`, vengono utilizzati per funzionalità di debug, essi infatti, si occupano di stampare le infromazioni relative allo stato della rete e alla connessione ad Arduino Cloud.
+In particolare, all'interno del metodo `setup` del programma, come possibile vedere dal <a href="#lst1">listato 1</a>, avviene l'inizializzazione del Serial Monitor e delle proprietà utilizzando il metodo `initProperties`, la connessione ad Arduino Cloud viene inizializzata attraverso il metodo `ArduinoCloud.begin`, il quale utilizza funzioni che sono presenti all'interno delle librerie `ArduinoIoTCloud` e `Arduino_ConnectionHandler`, incluse all'interno del file `thingProperties.h`. Infine, gli altri due metodi richiamati `setDebugMessageLevel` e `ArduinoCloud.printDebugInfo`, vengono utilizzati per funzionalità di debug, essi infatti, si occupano di stampare le informazioni relative allo stato della rete e alla connessione ad Arduino Cloud.
 
 ```c++
 void setup() {
@@ -46,7 +46,7 @@ void setup() {
 ```
 <p align="center" id="lst2">[Listato 1] Connessione al Cloud</p>
 
-All'interno del metodo loop (<a href="#lst2">listato 1</a>), invece, avviene la chiamata al metodo `ArduinoCloud.update`, il quale si occupa di mantenere aggiornati tutti i dviersi parametri del Cloud, in relazione alle modifiche e aggiornamenti che possono avvenire.
+All'interno del metodo `loop` (<a href="#lst2">listato 1</a>), invece, avviene la chiamata al metodo `ArduinoCloud.update`, il quale si occupa di mantenere aggiornati tutti i dviersi parametri del Cloud, in relazione alle modifiche e aggiornamenti che possono avvenire.
 
 ```c++
 void loop() {
@@ -59,18 +59,18 @@ void loop() {
 
 ## Utilizzo dello strumento dashboard di Arduino Cloud
 
-Come detto precedentemente, una funzionalità molto utile di Arduino Cloud, consiste nella possibilità di creare delle _dashboard_ (<a href="#fig9">figura 1</a>) , con cui poter agire e visionare le variabili salvate, quindi, per poter visualizzare i valori registrati per la serra e poter agire sui sistmei di attuazione presenti in essa è stata creata un'apposita _dashboard_, che contiene per ogni parametro tre elementi che consentono di visionare il valore attuale registrato, di agire sul sistema di attuazione e di visionarne il suo stato.
+Come detto precedentemente, una funzionalità molto utile di Arduino Cloud, consiste nella possibilità di creare delle _dashboard_ (<a href="#fig9">figura 1</a>) con cui poter agire e visionare le variabili salvate, quindi, per poter visualizzare i valori registrati per la serra e poter agire sui sistemi di attuazione presenti in essa è stata creata un'apposita _dashboard_, che contiene per ogni parametro tre elementi che consentono di visionare il valore attuale registrato, di agire sul sistema di attuazione e di visionarne il suo stato.
 
 <div align="center">
 <img src="img/cloud_dashboard.png" alt="esempio dashboard cloud" id="fig1">
  <p align="center">[Fig 1] Elementi dashboard parametro umidità</p>
 </div>
 
-Nell'esempio in figura possiamo vedere come per il parametro dell'umidità sia stao utilizzato: un grafico per vederne l'andamento storico, un _toggle button_ per attivare e disattivare il sistema di ventilazione e un elemento _percentage_ che ci consente di visualizzarne il valore attuale, questi elementi sono collegati alle variabili del Cloud e vengono modificati o conesentono di agire su di esse a seconda delle azioni che vengono svolte.
+Nell'esempio in figura possiamo vedere come per il parametro dell'umidità sia stato utilizzato: un grafico per vederne l'andamento storico, un _toggle button_ per attivare e disattivare il sistema di ventilazione e un elemento _percentage_ che ci consente di visualizzarne il valore attuale, questi elementi sono collegati alle variabili del Cloud e vengono modificati o conesentono di agire su di esse a seconda delle azioni che vengono svolte.
 
-Nel nostro caso avevamo a disposizione un unico dispositivo ESP fisico per poter simulare la serra, tuttavia è possibile salvare all'interno del Cloud i diversi dispositivi delle diverse serre che ne consentono la comunicaizone dei dati, associare questi ad opportune variabili e poi visualizzare tutte le informazioni all'interno di un unica _dashboard_.
+Nel nostro caso avevamo a disposizione un unico dispositivo ESP fisico per poter simulare la serra, tuttavia è possibile salvare all'interno del Cloud i diversi dispositivi delle diverse serre che ne consentono la comunicazione dei dati, associare questi ad opportune variabili e poi visualizzare tutte le informazioni all'interno di un unica _dashboard_.
 
-Alla fine il risultato finale ottenuto è rappresentato dalla <a href="#fig9">figura 2</a>
+Alla fine il risultato finale ottenuto è rappresentato dalla <a href="#fig9">figura 2</a>.
 
 <div align="center">
 <img src="img/dashboard_detail2.png" alt="esempio dashboard cloud esteso" id="fig2">
@@ -79,11 +79,13 @@ Alla fine il risultato finale ottenuto è rappresentato dalla <a href="#fig9">fi
 
 Tramite la _dashboard_, quindi, un operatore ha la possibilità di visonare l'andamento dei diversi parametri e controllare il corretto funzionamento degli attuatori e del sistema stesso, vi è inoltre la possibilità di condividere con altri le diverse _dashboards_ create e i risultati ottenuti, per poter avere altri riscontri.
 
-Arduino Cloud offre la possibilità di mantenere i dati salvati per un certo periodo di tempo, inoltre, offre l'opportunità di accedere alle diverse _dashboard_ create tramite l'applicazione cellulare; mette anche a disposizione delle funzionalità dui machine learning fornendo sostanzialmente la possibilità di utilizzare i dati raccolti dai sensori per poter creare e addestrare modelli, supportando il programamtore tramite delle guide passo passo. Quindi, in un contesto reale della nostra applicazione, si potrebbero raccogliere i diversi dati provenienti dalle diverse serre e una volta che se ne hanno abbastanza addestrare un classificatore per compiere in automatico le operazioni di correzzione e di gestione delle serre, nel modo più efficiente possibile.
+Arduino Cloud offre la possibilità di mantenere i dati salvati per un certo periodo di tempo. Inoltre, offre l'opportunità di accedere alle diverse _dashboard_ create tramite l'applicazione cellulare; mette anche a disposizione delle funzionalità di machine learning fornendo sostanzialmente la possibilità di utilizzare i dati raccolti dai sensori per poter creare e addestrare modelli, supportando il programamtore tramite delle guide passo passo. 
+
+Quindi, in un contesto reale della nostra applicazione, si potrebbero raccogliere i diversi dati provenienti dalle diverse serre e una volta che se ne hanno abbastanza addestrare un classificatore per compiere in automatico le operazioni di correzione e di gestione delle serre, nel modo più efficiente possibile.
 
 <div align="center">
 <img src="img/machine_learning_tab.png" alt="pagina dedicata al machine learning di arduino cloud" id="fig3">
- <p align="center">[Fig 3] Machine learning tools - Arduino CLoud</p>
+ <p align="center">[Fig 3] Machine learning tools - Arduino Cloud</p>
 </div>
 
 

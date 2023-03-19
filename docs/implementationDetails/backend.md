@@ -62,7 +62,7 @@ public void setupAdapter(Promise<Void> startPromise) {
         this.getVertx().eventBus().consumer(TEMPERATURE_OPERATION_TOPIC, this::handleOperationReceived);
         this.getVertx().eventBus().consumer(AIR_HUMIDITY_OPERATION_TOPIC, this::handleOperationReceived);
 ```
-<p align="center" id="lst1">[Listato 2] Esempio di setup di un adapter MQTT</p>
+<p align="center" id="lst2">[Listato 2] Esempio di setup di un adapter MQTT</p>
 
 Gli _adpters_ di ogni servizio, sono stati progettati per essere il più indipendenti possibili gli uni dagli altri, attraverso l'utilizzo della programmazione asincrona e dell'`EventBus` messi a disposizione dal _framework_ Vert.x. 
 
@@ -71,20 +71,20 @@ Nel caso del servizio `GreenhouseCommunication`, infatti, le operazioni da esegu
 ## Web of things e Thing Description
 Come detto precedentemente, i micro-servizi `Brightness`, `Humidity`, `SoilMoisture` e `Temperature`, aderiscono agli standard del _WoT_ . Il componente chiave degli elementi costitutivi di WoT è la descrizione dell'oggetto mediante la sua _Thing description (TD)_. 
 
-Una Thing Description definisce un modello informativo di una _thing_ basato sul vocabolario semantico e una serializzazione basata su JSON. Le _TD_, grazie alla loro flessibilità, promuovono l'interoperabilità fornendo metadati su una _thing_ leggibili (e comprensibili) dagli esseri umani come titolo, ID, descrizioni, ecc; descrive, inoltre, tutte le azioni, gli eventi e le proprietà disponibili di una _thing_ come tutti i meccanismi di sicurezza disponibili per accedervi.
+Una _Thing Description_ definisce un modello informativo di una _thing_ basato sul vocabolario semantico e una serializzazione basata su JSON. Le _TD_, grazie alla loro flessibilità, promuovono l'interoperabilità fornendo metadati su una _thing_ leggibili (e comprensibili) dagli esseri umani, come titolo, ID, descrizioni, ecc; descrive, inoltre, tutte le azioni, gli eventi e le proprietà disponibili di una _thing_ come tutti i meccanismi di sicurezza disponibili per accedervi.
 
-La _thing description_ adottata da noi è stata scritta seguendo lo standard [W3C](https://www.w3.org/TR/wot-thing-description/), per cui è caratterizzata da:
+La _Thing Description_ adottata da noi è stata scritta seguendo lo standard [W3C](https://www.w3.org/TR/wot-thing-description/), per cui è caratterizzata da:
 
 - *@context*: definisce lo standard in uso;
-- *id*: un identificativo univoco viene assegnato alla thing, di base si tratta dell’indirizzo IP;
+- *id*: un identificativo univoco che viene assegnato alla _thing_, di base si tratta dell’indirizzo IP;
 - *title*: è una stringa sommaria e intuitiva che descrive il dispositivo;
 - *description*: è una stringa intuitiva che descrive il dispositivo e le sue funzioni;
 - *properties*: è una mappa di oggetti [Property](https://www.w3.org/TR/2020/REC-wot-thing-description-20200409/#propertyaffordance) che descrivono gli attributi del dispositivo;
 - *actions*: è una mappa di oggetti [Action](https://www.w3.org/TR/2020/REC-wot-thing-description-20200409/#actionaffordance) che descrivono le funzioni che possono essere eseguite su un dispositivo;
-- *events*: è una mappa di oggetti [Event](https://www.w3.org/TR/2020/REC-wot-thing-description-20200409/#eventaffordance) che definiscono i tipi di eventi che possono essere emessi da un dispositivo;
+- *events*: è una mappa di oggetti [Event](https://www.w3.org/TR/2020/REC-wot-thing-description-20200409/#eventaffordance) che definiscono i tipi di eventi che possono essere emessi da un dispositivo.
 
 
-Di seguito viene riportato un esempio di _thing description_, nella precisione quello del servizio `Brightness`, in ogni caso gli altri risultano similari, con l'unica eccezione che vengono modificate le azioni, glie eventi e le proprietà disponibili.
+Di seguito viene riportato un esempio di _Thing Description_, per precisione quello del servizio `Brightness`; in ogni caso gli altri risultano similari, con l'unica eccezione che vengono modificate le azioni, gli eventi e le proprietà disponibili.
 
 ```json
 {
@@ -145,6 +145,7 @@ Di seguito viene riportato un esempio di _thing description_, nella precisione q
   }
 }
 ```
+<p align="center" id="lst3">[Listato 3] Thing description del servizio brightness</p>
 
 ## Docker e docker Compose
 
@@ -152,7 +153,7 @@ Al fine di rendere il deployment del sistema di backend più semplice, si è dec
 
 In particolare, si è deciso di inserire ogni micro-servizio all'interno di un apposito container Docker. Un container è una _lightweight Virtual Machine_, che è in grado di contenere un'applicazione e il suo ambiente di esecuzione, vengono considerati _lightweight_, in quanto contengono solo lo stretto necessario per poter eseguire l'applicazione e utilizzano le risorse dell'host sul quale vengono istanziati, consentendoci di avere un ambiente di esecuzione isolato per ogni servizio. 
 
-Nel nostro caso il container di ogni micro-servizio, come si può vedere nel <a href="#lst3">listato 3</a>, contiene al suo interno il JDK 11, necessario per l'esecuzione del jar e il .jar contenente il codice, compreso di dipendenze, del servizio che rappresenta. Nell'esempio, il servizio è quello relativo alla gestione del parametro della luminosità, per cui una volta nominato l'immagine ``brightness_service``, in modo da poterla poi identificare, viene caricato al suo interno il .jar del servizio e, non appena questo accade, viene lanciata la sua esecuzione. 
+Nel nostro caso il container di ogni micro-servizio, come si può vedere nel <a href="#lst4">listato 4</a>, contiene al suo interno il JDK 11, necessario per l'esecuzione del jar e il .jar contenente il codice, compreso di dipendenze, del servizio che rappresenta. Nell'esempio, il servizio è quello relativo alla gestione del parametro della luminosità, per cui una volta nominato l'immagine ``brightness_service``, in modo da poterla poi identificare, viene caricato al suo interno il .jar del servizio e, non appena questo accade, viene lanciata la sua esecuzione. 
 
 Eventualmente, se necessario per il corretto funzionamento del servizio, un container può esporre alcune porte, ad esempio, aggiungendo al ``Dockerfile`` il comando ``EXPOSE 1234``, il container sarà in grado di esporre all'esterno la porta 1234.
 
@@ -162,11 +163,11 @@ WORKDIR /
 ADD build/libs/brightnessService-0.1.0-all.jar brightnessService-0.1.0-all.jar
 CMD java -jar brightnessService-0.1.0-all.jar
  ```
-<p align="center" id="lst3">[Listato 3] Dockerfile di un micro-servizio</p>
+<p align="center" id="lst4">[Listato 4] Dockerfile di un micro-servizio</p>
 
 I diversi container sono in grado di comunicare tra loro tramite una rete costruita ad-hoc; per semplicità di gestione la costruzione dei container e della rete è stata realizzata tramite la scrittura di un apposito file ``docker-compose.yaml``. 
 
-All'interno del file, come si può vedere nell'estratto del  <a href="#lst4">listato 4</a>, ogni servizio viene identificato dallo stesso nome usato per la creazione della propria immagine, poi, viene definito attraverso ``container_name`` il nome da utilizzare per effettuare le richieste HTTP al container; dopodiché si passa alla creazione della rete mediante la specificazione delle dipendenze tra container, ad esempio dal listato è possibile notare come i servizi che necessitano di un database dipendano dal servizio `mongodb`. 
+All'interno del file, come si può vedere nell'estratto del  <a href="#lst5">listato 5</a>, ogni servizio viene identificato dallo stesso nome usato per la creazione della propria immagine, poi, viene definito attraverso ``container_name`` il nome da utilizzare per effettuare le richieste HTTP al container; dopodiché si passa alla creazione della rete mediante la specificazione delle dipendenze tra container, ad esempio dal listato è possibile notare come i servizi che necessitano di un database dipendano dal servizio `mongodb`. 
 
 Una volta specificate le dipendenze tra i diversi servizi, si procede con la creazione vera e propria del servizio, specificando quale sotto-progetto dovrà essere utilizzato come contesto di esecuzione e il `Dockerfile` da utilizzare per la creazione della rispettiva immagine. Infine, vengono mappate le porte del container su quelle dell'host, in modo tale da poter effettuare le richieste al servizio.
 
@@ -222,4 +223,4 @@ services:
     ports:
       - 8889:8889
 ```
-<p align="center" id="lst5">[Listato 4] Estratto del docker-compose utilizzato</p>
+<p align="center" id="lst5">[Listato 5] Estratto del docker-compose utilizzato</p>
