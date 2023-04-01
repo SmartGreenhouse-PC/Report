@@ -128,14 +128,16 @@ Si occupa di gestire le comunicazioni fra il backend e il sistema di automazione
 **API MQTT**
 
 Viene utilizzato il topic `dataSG` per ricevere i dati dal microcontrollore nel formato:
-    ```json
-    {
-        "id":"greenhouse1",
-        "topic": "Temp", 
-        "value": 10.5
-    }
-    ```
-    Dove `id` rappresenta l'id della serra in cui è posizionato il sensore, `topic` rappresenta il parametro di cui viene notificata la rilevazione e `value` per indicare il valore rilevato dal sensore.
+
+```json
+{
+    "id":"greenhouse1",
+    "topic": "Temp", 
+    "value": 10.5
+}
+```
+
+Dove `id` rappresenta l'id della serra in cui è posizionato il sensore, `topic` rappresenta il parametro di cui viene notificata la rilevazione e `value` per indicare il valore rilevato dal sensore.
 
 
 Il servizio, di conseguenza, riceverà i dati relativi al topic `dataSG` e procederà ad inoltrarli al servizio incaricato di gestire i valori del parametro; ad esempio se viene rilevata un nuovo valore per la temperatura `GreenhouseCommunication` inoltrerà, il messaggio al servizio `Temperature`.
