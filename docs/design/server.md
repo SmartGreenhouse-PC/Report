@@ -158,11 +158,11 @@ Le API esposte dal servizio sono:
 
 - `/greenhouse`, che a seconda del metodo utilizzato, GET o PUT, permette di ottenere le informazioni della serra o modificarne la modalità;
 - `/greenhouse/all`, permette di ottenere tutte le serre presenti nel sistema;
-- `/greenhouse/modlity`, per ottenere la modalità di gestione della serra;
+- `/greenhouse/modality`, per ottenere la modalità di gestione della serra;
 - `/greenhouse/param`, permette, dato un parametro, di conoscere il suo range ottimale.
 
 ### Operation
-È il servizio che detiene e gestisce tutte le operazioni che vengono effettuate all’interno della serra e si occupa di delegare la comunicazione delle operazioni al servizi `GreenhouseCommunication` e a `ClientCommunication` per comunicare ai clients che una nuova operazione correttiva è stata effettuata. 
+È il servizio che detiene e gestisce tutte le operazioni che vengono effettuate all’interno della serra e si occupa di delegare la comunicazione delle operazioni al servizio `GreenhouseCommunication` e a `ClientCommunication` per comunicare ai clients che una nuova operazione correttiva è stata effettuata. 
 
 Le API esposte dal servizio sono:
 
@@ -183,18 +183,18 @@ Le API esposte dal servizio sono:
 - `/clientCommunication/parameter`, reperisce o storicizza l'ultimo valore rilevato da un determinato parametro in una specifica serra;
 - `/clientCommunication/parameter/history`, reperisce lo storico dei valori rilevati da un determinato parametro presente in una specifica serra;
 - `/clientCommunication/operations`, reperisce tutte le operazioni effettuate in una serra o se il metodo è POST ne memorizza una nuova;
-- `/clientCommunication/operations/parameter`, reperisce tutte le operazionirelative ad un parametro effettuate in una serra;
+- `/clientCommunication/operations/parameter`, reperisce tutte le operazioni relative ad un parametro effettuate in una serra;
 - `/clientCommunication/operations/notify`, notifica ai client che è stata effettuata una nuova operazione all'interno di una specifica serra;
 - `/clientCommunication/operations/date`, reperisce lo storico, in un range temporale, delle operazioni effettuate in una specifica serra.
 
 ### Brightness, Humidity, SoilMoisture e Temperature
 Sono tutti servizi che si occupano di gestire i dati raccolti dai sensori per il relativo parametro monitorato, o più in generale, di rappresentare nel web il dispositivo fisico che si occupa di monitorare e gestire uno dei parametri della serra. Per fare ciò si è pensato di utilizzare i moderni **standar web come livello applicativo dell'IoT**, rendendoli di fatto aderenti alla definizione di _Web of Things_ (WoT).
 
-I servizi comunicano con: `GreenhouseService`, per ottenere l'informazione relativa alla modalità di gestione della serra e il range ottimale del parametro che rappresentano, `OperationService `, a cui delegano la storicizzazione ed esecuzione delle operazioni correttive e per ottenere l'informazione relativa all'ultima operazione effettuata e `ClientCommunication`, al fine di delegare la responsabilità di informare i clients che un nuovo valore è stato rilevato.
+I servizi comunicano con: `GreenhouseService`, per ottenere l'informazione relativa alla modalità di gestione della serra e il range ottimale del parametro che rappresentano, `OperationService `, a cui delegano la storicizzazione ed esecuzione delle operazioni correttive e per ottenere l'informazione relativa all'ultima operazione effettuata, e `ClientCommunication`, al fine di delegare la responsabilità di informare i clients che un nuovo valore è stato rilevato.
 
 Le API esposte dal servizio sono:
 
-- `parameterName`,per ottenere l'ultimo valore rilevato all'interno di una specifica serra o  inserirne uno nuovo, a seconda del metodo scelto, GET o POST;
+- `parameterName`,per ottenere l'ultimo valore rilevato all'interno di una specifica serra o inserirne uno nuovo, a seconda del metodo scelto, GET o POST;
 - `parameterName/history`, reperisce lo storico dei valori rilevati da un determinato parametro presente in una specifica serra;
 - `parameterName/thing-description`, per ottenere la thing description del servizio.
 

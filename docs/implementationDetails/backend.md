@@ -6,7 +6,7 @@ nav_order: 2
 ---
 
 # Dettagli implementativi sistema di backend
-Durante lo sviluppo della parte backend del sistema, come detto nel precedente capitolo,  si è cercato di utilizzare il più possibile un approccio a micro-servizi e di raffinare sempre di più la soluzione adottata, per poter sfruttare al meglio i vantaggi che questo approccio offre. Nelle prossime sezioni verranno descritte le scelte implementative legate all'adozione di tale scelta progettuale.
+Durante lo sviluppo della parte backend del sistema, come detto nel precedente capitolo, si è cercato di utilizzare il più possibile un approccio a micro-servizi e di raffinare sempre di più la soluzione adottata, per poter sfruttare al meglio i vantaggi che questo approccio offre. Nelle prossime sezioni verranno descritte le scelte implementative legate all'adozione di tale scelta progettuale.
 
 ## Adapters HTTP e MQTT
 
@@ -84,7 +84,7 @@ La _Thing Description_ adottata da noi è stata scritta seguendo lo standard [W3
 - *events*: è una mappa di oggetti [Event](https://www.w3.org/TR/2020/REC-wot-thing-description-20200409/#eventaffordance) che definiscono i tipi di eventi che possono essere emessi da un dispositivo.
 
 
-Di seguito viene riportato un esempio di _Thing Description_, per precisione quello del servizio `Brightness`; in ogni caso gli altri risultano similari, con l'unica eccezione che vengono modificate le azioni, gli eventi e le proprietà disponibili.
+Di seguito viene riportato un esempio di _Thing Description_, per la precisione quello del servizio `Brightness`; in ogni caso gli altri risultano similari, con l'unica eccezione che vengono modificate le azioni, gli eventi e le proprietà disponibili.
 
 ```json
 {

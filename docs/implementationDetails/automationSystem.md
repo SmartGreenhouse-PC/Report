@@ -11,7 +11,7 @@ Il Sistema di automazione, come detto in precedenza è costituito da due parti p
 ## Collegamento ad Arduino Cloud
 Quando si crea una nuova "_Thing_" su Arduino Cloud e vi si associa a questa uno _skatch_, in automatico la piattaforma inserisce all'interno del progetto due file:
 
-- `thingProperties.h`, contenente le diverse varibili Cloud dichiarate per la "_Thing_" e che si occupa dell'instaurazione della connessione al Cloud;
+- `thingProperties.h`, contenente le diverse variabili Cloud dichiarate per la "_Thing_" e che si occupa dell'instaurazione della connessione al Cloud;
 - `secret.h`, il quale contiene le diverse informazioni relative alla connessione di rete e alla chiave del dispositivo, necessarie per la connessione.
 
 L'instaurazione della connessione effettiva alla piattaforma Cloud, avviene all'intenro del programma principale del progetto individuato dal file `.ino`. 
@@ -44,9 +44,9 @@ void setup() {
   ArduinoCloud.printDebugInfo();
 }
 ```
-<p align="center" id="lst2">[Listato 1] Connessione al Cloud</p>
+<p align="center" id="lst1">[Listato 1] Connessione al Cloud</p>
 
-All'interno del metodo `loop` (<a href="#lst2">listato 1</a>), invece, avviene la chiamata al metodo `ArduinoCloud.update`, il quale si occupa di mantenere aggiornati tutti i dviersi parametri del Cloud, in relazione alle modifiche e aggiornamenti che possono avvenire.
+All'interno del metodo `loop` (<a href="#lst2">listato 2</a>), invece, avviene la chiamata al metodo `ArduinoCloud.update`, il quale si occupa di mantenere aggiornati tutti i dviersi parametri del Cloud, in relazione alle modifiche e aggiornamenti che possono avvenire.
 
 ```c++
 void loop() {
@@ -59,18 +59,18 @@ void loop() {
 
 ## Utilizzo dello strumento dashboard di Arduino Cloud
 
-Come detto precedentemente, una funzionalità molto utile di Arduino Cloud, consiste nella possibilità di creare delle _dashboard_ (<a href="#fig9">figura 1</a>) con cui poter agire e visionare le variabili salvate, quindi, per poter visualizzare i valori registrati per la serra e poter agire sui sistemi di attuazione presenti in essa è stata creata un'apposita _dashboard_, che contiene per ogni parametro tre elementi che consentono di visionare il valore attuale registrato, di agire sul sistema di attuazione e di visionarne il suo stato.
+Come detto precedentemente, una funzionalità molto utile di Arduino Cloud, consiste nella possibilità di creare delle _dashboard_ (<a href="#fig1">figura 1</a>) con cui poter agire e visionare le variabili salvate, quindi, per poter visualizzare i valori registrati per la serra e poter agire sui sistemi di attuazione presenti in essa è stata creata un'apposita _dashboard_, che contiene per ogni parametro tre elementi che consentono di visionare il valore attuale registrato, di agire sul sistema di attuazione e di visionarne il suo stato.
 
 <div align="center">
 <img src="img/cloud_dashboard.png" alt="esempio dashboard cloud" id="fig1">
  <p align="center">[Fig 1] Elementi dashboard parametro umidità</p>
 </div>
 
-Nell'esempio in figura possiamo vedere come per il parametro dell'umidità sia stato utilizzato: un grafico per vederne l'andamento storico, un _toggle button_ per attivare e disattivare il sistema di ventilazione e un elemento _percentage_ che ci consente di visualizzarne il valore attuale, questi elementi sono collegati alle variabili del Cloud e vengono modificati o conesentono di agire su di esse a seconda delle azioni che vengono svolte.
+Nell'esempio in figura possiamo vedere come per il parametro dell'umidità sia stato utilizzato: un grafico per vederne l'andamento storico, un _toggle button_ per attivare e disattivare il sistema di ventilazione e un elemento _percentage_ che ci consente di visualizzarne il valore attuale, questi elementi sono collegati alle variabili del Cloud e vengono modificati o consentono di agire su di esse a seconda delle azioni che vengono svolte.
 
 Nel nostro caso avevamo a disposizione un unico dispositivo ESP fisico per poter simulare la serra, tuttavia è possibile salvare all'interno del Cloud i diversi dispositivi delle diverse serre che ne consentono la comunicazione dei dati, associare questi ad opportune variabili e poi visualizzare tutte le informazioni all'interno di un unica _dashboard_.
 
-Alla fine il risultato finale ottenuto è rappresentato dalla <a href="#fig9">figura 2</a>.
+Alla fine il risultato finale ottenuto è rappresentato dalla <a href="#fig2">figura 2</a>.
 
 <div align="center">
 <img src="img/dashboard_detail2.png" alt="esempio dashboard cloud esteso" id="fig2">
@@ -95,27 +95,27 @@ Per far comunicare fra loro il sistema di automazione con il resto del sistema d
 
 Nello specifico MQTT, è un protocollo per lo scambio di messaggi di tipo publish/subscribe, pensato per poter inviare e ricevere i dati in modo accurato nonostante i ritardi della rete e la larghezza di banda ridotta. In questo tipo di protocollo si distinguono due ruoli principali che i processi possono ricoprire, il ruolo di _publisher_: cioè di colui che pubblica i messaggi relativamente a un certo topic, e quello di _subscriber_: che invece rappresenta colui che è interessato a ricevere i messaggi per un determinato argomento. 
 
-MQTT è un protocollo asincrono: il _publisher_ pubblica i messaggi indipendentemente dal fatto che vi siano dei _subscribers_ interessati a riceverli e iscritti all'argomento. A regolare l'interazione fra _publisher_ e _subscriber_ viene utilizzato un _Message-Broker_, il quale si occupa di raccogliere i messaggi pubblicati dai _publishers_ e di inoltrarli ai _subscribers_, interessati a riceverli, come possibile vedere nella seguente <a href="fig1">figura 1</a>.
+MQTT è un protocollo asincrono: il _publisher_ pubblica i messaggi indipendentemente dal fatto che vi siano dei _subscribers_ interessati a riceverli e iscritti all'argomento. A regolare l'interazione fra _publisher_ e _subscriber_ viene utilizzato un _Message-Broker_, il quale si occupa di raccogliere i messaggi pubblicati dai _publishers_ e di inoltrarli ai _subscribers_, interessati a riceverli, come possibile vedere nella seguente <a href="fig4">figura 4</a>.
 
 <div align="center">
-<img src="img/architettura-MQTT.jpg" alt="Architettura MQTT" width="80%" id="fig1">
-<p align="center">[Fig 1] Architettura MQTT</p>
+<img src="img/architettura-MQTT.jpg" alt="Architettura MQTT" width="80%" id="fig4">
+<p align="center">[Fig 4] Architettura MQTT</p>
 </div>
 
 Per il progetto, la componente ESP del sistema e il micro-servizio ``GreenhouseCommunication`` sono entrambi sia _publisher_ che _subscriber_; nello specifico:
 
-- **ESP**, si occupa di pubblicare i dati relativi ai sensori tramite il topic dataSG ed è interessata a ricevere i messaggi relativi alle operazioni che il sistema deve compiere, quindi effettuerà la sottoscrizione ai topic: ``LUMINOSITY``, ``VENTILATION``, ``TEMPERATURE`` e ``IRRIGATION``;
-- **GreenhouseCommunication**, è interessato a ricevere i messaggi relativi al topic dataSG, contenenti le rilevazioni effettuate dai sensori e in più si occupa di comunicare le operazioni da effettuare, tramite la pubblicazione dei messaggi relativi ai seguenti topic: ``LUMINOSITY``, ``VENTILATION``, ``TEMPERATURE`` e ``IRRIGATION``.
+- **ESP**, si occupa di pubblicare i dati relativi ai sensori tramite il topic ``dataSG`` ed è interessata a ricevere i messaggi relativi alle operazioni che il sistema deve compiere, quindi effettuerà la sottoscrizione ai topic: ``LUMINOSITY``, ``VENTILATION``, ``TEMPERATURE`` e ``IRRIGATION``;
+- **GreenhouseCommunication**, è interessato a ricevere i messaggi relativi al topic ``dataSG``, contenenti le rilevazioni effettuate dai sensori e in più si occupa di comunicare le operazioni da effettuare, tramite la pubblicazione dei messaggi relativi ai seguenti topic: ``LUMINOSITY``, ``VENTILATION``, ``TEMPERATURE`` e ``IRRIGATION``.
 
 ## Comunicazione Seriale
 
 Le due componenti del sistema di automazione, comunicano fra loro attraverso la comunicazione seriale.
 
-La comunicazione seriale, consente lo scambio di messaggi fra due dispositivi tramite un unico bus seriale, il quale è costituito da solo due collegamenti, uno per poter inviare i dati e l'altro per poterli ricevere. Di conseguenza, un **device** che supporta la comunicazione seriale dovrebbe avere due serial pin a disposizione: `RX` per poter ricevere  i dati e `TX` per poterli inviare. Per la comunicazione seriale il pin `RX` di un dispositivo deve essere collegato al pin `TX` dell'altro e vice-versa, come possibile vedere in <a href="#fig2">figura 2</a>.
+La comunicazione seriale, consente lo scambio di messaggi fra due dispositivi tramite un unico bus seriale, il quale è costituito da solo due collegamenti, uno per poter inviare i dati e l'altro per poterli ricevere. Di conseguenza, un **device** che supporta la comunicazione seriale dovrebbe avere due serial pin a disposizione: `RX` per poter ricevere  i dati e `TX` per poterli inviare. Per la comunicazione seriale il pin `RX` di un dispositivo deve essere collegato al pin `TX` dell'altro e vice-versa, come possibile vedere in <a href="#fig5">figura 5</a>.
 
 <div align="center">
-<img src="img/serial_communication.png" alt="Comunicazione Seriale" width="50%"id="fig2">
-<p align="center">[Fig 2] Comunicazione seriale</p>
+<img src="img/serial_communication.png" alt="Comunicazione Seriale" width="50%" id="fig5">
+<p align="center">[Fig 5] Comunicazione seriale</p>
 </div>
 
 Un altro aspetto importante da tenere in considerazione per garantire la corretta comunicazione fra i dispositivi è il _baud-rate_, il quale rappresenta la velocità con cui i dati sono inviati lungo il collegamento seriale, ed entrambi i dispositivi devono comunicare con lo stesso _boud-rate_ per poter ricevere correttamente i dati.
