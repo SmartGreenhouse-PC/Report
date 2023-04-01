@@ -5,7 +5,7 @@ nav_order: 1
 ---
 
 # Introduzione
-Per il progetto di Pervasive Computing, si è pensato di unire il progetto che si vuole svolgere per il corso di Smart City e di Laboratorio si Sistemi Software con alcuni degli insegnamenti visti nel corso. Tale porgetto prevede di realizzare un sistema che consenta la gestione e il monitoraggio di un complesso di serre intelligenti.
+Per il progetto di Pervasive Computing, si è pensato di unire il progetto che si vuole svolgere per il corso di Smart City e di Laboratorio di Sistemi Software con alcuni degli insegnamenti visti nel corso. Tale porgetto prevede di realizzare un sistema che consenta la gestione e il monitoraggio di un complesso di serre intelligenti.
 
 All'interno delle serre è possibile coltivare diverse piantagioni, tuttavia in una serra specifica viene coltivata una sola tipologia di piantagione, per i quali verranno monitorati i seguenti parametri: temperatura ambientale, umidità dell'aria e del terreno e luminosità.
 

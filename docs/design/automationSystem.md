@@ -100,7 +100,7 @@ Una volta creata la propria "_Thing_" e impostato i parametri necessari per il C
  <p align="center">[Fig 7] Variables Arduino Cloud</p>
 </div>
 
-Nel nostro caso sono stare specificate **otto varibili**, quattro di sola lettura riferite ai parametri rilevati dai sensori e quattro riferite ai sistemi di attuazione alle quali è possibile accedere sia in lettura che in scrittura.
+Nel nostro caso sono state specificate **otto varibili**, quattro di sola lettura riferite ai parametri rilevati dai sensori e quattro riferite ai sistemi di attuazione alle quali è possibile accedere sia in lettura che in scrittura.
 
 Per poter gestire al meglio i componenti del Cloud sono state create tre nuove classi (<a href="#fig8">figura 8</a>) : 
 

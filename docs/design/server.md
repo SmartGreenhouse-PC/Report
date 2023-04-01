@@ -61,7 +61,7 @@ In dettaglio, la <a href="#fig4">figura 4</a>, mostra quali sono le relazioni ch
 - è presente una relazione **monodirezionale** fra `ClientCommunication` e `Greenhouse`, perché `ClientCommunication` interroga `Greenhouse` per poter ricevere le informazioni relative alla serra. 
 
 <div align="center">
-<img src="img/micro-servizi_greenhouse_core_dipendenze.png" width="70%" alt="Greenhouse core dipendenze micro-servizi" id="fig4">
+<img src="img/microservizi_greenhouse_core_dipendenze.png" width="70%" alt="Greenhouse core dipendenze micro-servizi" id="fig4">
  <p align="center">[Fig 4] Dipendenze fra i diversi micro-servizi all'interno di Greenhouse Core</p>
 </div>
 
@@ -70,7 +70,7 @@ Concentrandoci sui micro-servizi che rientrano all'intenro del bounded context *
 Il bounded context Gestione Serra prevede, infatti, la presenza di cinque micro-servizi: `Brightness`, `Humidity`, `SoilMoisture`, `Temperature` e `Greenhouse` i quali comunicano tra loro per mezzo delle **API** messe a disposizione da ciascuno. Nello specifico, la comunicazione, come si può vedere in figura, avviene in modo unidirezionale a partire dai servizi dei parametri fino a `Greenhouse`, in quanto ogni servizio ha il compito di gestire in autonomia il parametro ad egli associato e si appoggia su Greenhouse solo per avere alcune informazioni relative alla serra.
 
 <div align="center">
-<img src="img/interazione_micro-servizi_gestione_serra_alto_livello.png" width="60%" alt="Gestione serra interazioni alto livello" id="fig5">
+<img src="img/interazione_microservizi_gestione_serra_alto_livello.png" width="60%" alt="Gestione serra interazioni alto livello" id="fig5">
  <p align="center">[Fig 5] Dipendenze micro-servizi all'interno di Gestione serra</p>
 </div>
 
