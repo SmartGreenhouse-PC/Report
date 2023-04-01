@@ -140,11 +140,11 @@ Viene utilizzato il topic `dataSG` per ricevere i dati dal microcontrollore nel 
 Dove `id` rappresenta l'id della serra in cui è posizionato il sensore, `topic` rappresenta il parametro di cui viene notificata la rilevazione e `value` per indicare il valore rilevato dal sensore.
 
 
-Il servizio, di conseguenza, riceverà i dati relativi al topic `dataSG` e procederà ad inoltrarli al servizio incaricato di gestire i valori del parametro; ad esempio se viene rilevata un nuovo valore per la temperatura `GreenhouseCommunication` inoltrerà, il messaggio al servizio `Temperature`.
+Il servizio, di conseguenza, riceverà i dati relativi al topic `dataSG` e procederà ad inoltrarli al servizio incaricato di gestire i valori del parametro; ad esempio se viene rilevato un nuovo valore per la temperatura `GreenhouseCommunication` inoltrerà, il messaggio al servizio `Temperature`.
 
 **API HTTP**
 
-Vengono impiegate dagli altri servizi per delegare a `GreenhouseCommunication` il compito di comunicare al microcontrollore uno determinata azione correttiva, come ad esempio la richiesta di accendere o spegnere una lampada. Le _root_ esposte dal servizio sono:
+Vengono impiegate dagli altri servizi per delegare a `GreenhouseCommunication` il compito di comunicare al microcontrollore una determinata azione correttiva, come ad esempio la richiesta di accendere o spegnere una lampada. Le _root_ esposte dal servizio sono:
 
 - `/greenhouseCommunication/brightnessOperation`, utilizzata per comunicare sul topic `LUMINOSITY` incaricato di gestire gli attuatori per la luminosità;
 - `/greenhouseCommunication/soilMoistureOperation`, utilizzata per comunicare sul topic `IRRIGATION` incaricato di gestire gli attuatori per l'umidità del suolo;
