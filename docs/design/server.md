@@ -52,7 +52,7 @@ In conclusione, possiamo dire che questa struttura, ci consente di tenere separa
 I diversi micro-servizi, per poter svolgere le loro funzioni hanno la necessità di comunicare e interagire tra loro, per capire quali sono le dipendenze che li legano, possiamo analizzare le figure sottostanti. 
 
 <div align="center">
-<img src="img/micro-servizi_greenhouse_core_dipendenze.png" width="70%" alt="Greenhouse core dipendenze micro-servizi" id="fig4">
+<img src="img/microservizi_greenhouse_core_dipendenze.png" width="70%" alt="Greenhouse core dipendenze micro-servizi" id="fig4">
  <p align="center">[Fig 4] Dipendenze fra i diversi micro-servizi all'interno di Greenhouse Core</p>
 </div>
 
