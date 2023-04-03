@@ -51,6 +51,11 @@ In conclusione, possiamo dire che questa struttura, ci consente di tenere separa
 
 I diversi micro-servizi, per poter svolgere le loro funzioni hanno la necessità di comunicare e interagire tra loro, per capire quali sono le dipendenze che li legano, possiamo analizzare le figure sottostanti. 
 
+<div align="center">
+<img src="img/micro-servizi_greenhouse_core_dipendenze.png" width="70%" alt="Greenhouse core dipendenze micro-servizi" id="fig4">
+ <p align="center">[Fig 4] Dipendenze fra i diversi micro-servizi all'interno di Greenhouse Core</p>
+</div>
+
 In dettaglio, la <a href="#fig4">figura 4</a>, mostra quali sono le relazioni che regolano i diversi servizi all'interno del bounded context **Greenhouse Core** e come possiamo notare:
 
 - vi è una dipendenza **monodirezionale**, da `GreenhouseCommunication`, a tutti i diversi servizi dei parametri, in quanto tale servizio si occuperà di comunicare ad ognuno di loro i valori rilevati;
@@ -60,26 +65,21 @@ In dettaglio, la <a href="#fig4">figura 4</a>, mostra quali sono le relazioni ch
 - è presente una relazione **monodirezionale** fra i servizi `Operation` e `GreenhouseCommunication`, in quanto il servizio `Operation` si occupa di notificare a `GreenhouseCommunication` quali sono le operazioni da svolgere sulla serra;
 - è presente una relazione **monodirezionale** fra `ClientCommunication` e `Greenhouse`, perché `ClientCommunication` interroga `Greenhouse` per poter ricevere le informazioni relative alla serra. 
 
-<div align="center">
-<img src="img/microservizi_greenhouse_core_dipendenze.png" width="70%" alt="Greenhouse core dipendenze micro-servizi" id="fig4">
- <p align="center">[Fig 4] Dipendenze fra i diversi micro-servizi all'interno di Greenhouse Core</p>
-</div>
-
 Concentrandoci sui micro-servizi che rientrano all'intenro del bounded context **Gestione Serra**, la <a href="#fig5">figura 5</a>, mostra come avvengono le comunicazioni. 
-
-Il bounded context Gestione Serra prevede, infatti, la presenza di cinque micro-servizi: `Brightness`, `Humidity`, `SoilMoisture`, `Temperature` e `Greenhouse` i quali comunicano tra loro per mezzo delle **API** messe a disposizione da ciascuno. Nello specifico, la comunicazione, come si può vedere in figura, avviene in modo unidirezionale a partire dai servizi dei parametri fino a `Greenhouse`, in quanto ogni servizio ha il compito di gestire in autonomia il parametro ad egli associato e si appoggia su Greenhouse solo per avere alcune informazioni relative alla serra.
 
 <div align="center">
 <img src="img/interazione_microservizi_gestione_serra_alto_livello.png" width="60%" alt="Gestione serra interazioni alto livello" id="fig5">
  <p align="center">[Fig 5] Dipendenze micro-servizi all'interno di Gestione serra</p>
 </div>
 
-Nella <a href="#fig6">figura 6</a> è, invece, possibile osservare meglio quali sono le dipendenze tra i micro-servizi, presenti nel sub-domain **Greenhouse core**, in riferimento ai diversi bounded context in cui sono stati inseriti. È da notare, che in questo caso sono state omesse le relazioni fra i micro-servizi presenti all'interno del bounded context Gestione Serra, al fine di rendere più chiara la rappresentazione.
+Il bounded context Gestione Serra prevede, infatti, la presenza di cinque micro-servizi: `Brightness`, `Humidity`, `SoilMoisture`, `Temperature` e `Greenhouse` i quali comunicano tra loro per mezzo delle **API** messe a disposizione da ciascuno. Nello specifico, la comunicazione, come si può vedere in figura, avviene in modo unidirezionale a partire dai servizi dei parametri fino a `Greenhouse`, in quanto ogni servizio ha il compito di gestire in autonomia il parametro ad egli associato e si appoggia su `Greenhouse` solo per avere alcune informazioni relative alla serra.
 
 <div align="center">
 <img src="img/interazione_alto_livello_micro-servizi.png" alt="interazioni micro-servizi" id="fig6">
  <p align="center">[Fig 6] Dipendenze micro-servizi presenti nel sub domain Greenhouse core</p>
 </div>
+
+Nella <a href="#fig6">figura 6</a> è, invece, possibile osservare meglio quali sono le dipendenze tra i micro-servizi, presenti nel sub-domain **Greenhouse core**, in riferimento ai diversi bounded context in cui sono stati inseriti. È da notare, che in questo caso sono state omesse le relazioni fra i micro-servizi presenti all'interno del bounded context Gestione Serra, al fine di rendere più chiara la rappresentazione.
 
 
 ## Interazione tra i diversi micro-servizi
